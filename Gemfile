@@ -37,6 +37,9 @@ group :development do
 end
 
 group :test do
+   gem 'autotest', '4.4.6'
+   gem 'autotest-rails', '4.1.1'
+   gem 'autotest-rails-pure', '4.1.2'
    gem 'rspec', '2.7.0'
    gem 'spork', '~> 0.8.5'
    gem 'webrat', '0.7.3'
