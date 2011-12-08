@@ -1,5 +1,5 @@
 .container {
-  width: 1420px;
+  width: 850px;
 }
 
 body {
@@ -91,7 +91,7 @@ footer nav {
   float: none;
   text-align: center;
   margin-top: 10px;
-  width: 1420px;
+  width: 850px;
   background: #98fb98;
   padding: 0 0.3em;
   white-space: nowrap;
