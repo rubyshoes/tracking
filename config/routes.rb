@@ -1,6 +1,6 @@
 Tracking::Application.routes.draw do
 
-  get "employees/new"
+  resources :employees
 
   root :to => 'pages#home'
 

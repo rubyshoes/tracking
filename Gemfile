@@ -13,7 +13,7 @@ gem 'nokogiri', '1.5.0'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'thin'
+# gem 'thin'
 gem 'haml'
 gem 'haml-rails'
 gem 'heroku'
@@ -34,6 +34,7 @@ group :development do
    gem 'rspec-rails', '2.7.0'
    gem 'annotate', '~> 2.4.1.beta1'
    gem 'faker', '1.0.1'
+   gem 'database_cleaner'
 end
 
 group :test do

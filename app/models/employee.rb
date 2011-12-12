@@ -5,7 +5,7 @@
 #  id                        :integer         not null, primary key
 #  first_name                :string(255)     not null
 #  last_name                 :string(255)     not null
-#  mi                        :text
+#  mi                        :string(255)
 #  marital_status            :string(255)     not null
 #  gender                    :string(255)     not null
 #  birth_date                :date            default(Sat, 20 Aug 1949), not null
@@ -31,9 +31,37 @@
 #
 
 class Employee < ActiveRecord::Base
-  attr_accessor :first_name, :last_name, :mi, :marital_status, :gender, :birth_date, :hire_date, :term_date, :primary_position, :trained_position, :email, :active, :address1, :address2, :city, :zip_code, :state, :emp_home_ph, :emp_mobile_ph, :emer_contact_first_name, :emer_contact_last_name, :emer_contact_relationship, :emer_contact_ph
 
- validates(:first_name, :last_name, :marital_status, :gender, :birth_date,
- :hire_date, :primary_position, :email, :active, :address1, :city,
- :zip_code, :state, :presence => true)
+ # date_regex = /^[0-9]{2}[-][0-9]{2}[-]{4}$/
+
+  email_regex = /([\w+.]+)@[a-z0-9\-.]+\.[a-z]+/i
+
+  validates(:marital_status,
+            :gender,
+            :primary_position,
+            :active,
+            :address1,
+            :city,
+            :zip_code,
+            :state, :presence => true)
+
+  validates(:first_name,
+            :last_name,
+            :presence => true,
+            :length => { :maximum => 25 })
+
+  validates(:birth_date,
+            :hire_date, :presence => true)
+ #           :format => { :with => date_regex })
+
+  validates(:email, :presence => true,
+            :format => { :with => email_regex },
+            :uniqueness => { :case_sensitive => false})
+
+  before_save :downcase_email
+
+private
+  def downcase_email
+    self.email.downcase!
+  end
 end

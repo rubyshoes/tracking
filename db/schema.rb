@@ -11,26 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206182015) do
+ActiveRecord::Schema.define(:version => 20111209184430) do
 
   create_table "employees", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.text     "mi"
-    t.string   "marital_status"
-    t.string   "gender"
-    t.date     "birth_date"
-    t.date     "hire_date"
+    t.string   "first_name",                                          :null => false
+    t.string   "last_name",                                           :null => false
+    t.string   "mi"
+    t.string   "marital_status",                                      :null => false
+    t.string   "gender",                                              :null => false
+    t.date     "birth_date",                :default => '1986-09-21', :null => false
+    t.date     "hire_date",                                           :null => false
     t.date     "term_date"
-    t.string   "primary_position"
+    t.string   "primary_position",                                    :null => false
     t.string   "trained_position"
-    t.string   "email"
-    t.boolean  "active"
-    t.string   "address1"
+    t.string   "email",                                               :null => false
+    t.boolean  "active",                    :default => true,         :null => false
+    t.string   "address1",                                            :null => false
     t.string   "address2"
-    t.string   "city"
-    t.string   "zip_code"
-    t.string   "state"
+    t.string   "city",                                                :null => false
+    t.string   "zip_code",                                            :null => false
+    t.string   "state",                                               :null => false
     t.string   "emp_home_ph"
     t.string   "emp_mobile_ph"
     t.string   "emer_contact_first_name"
@@ -40,5 +40,7 @@ ActiveRecord::Schema.define(:version => 20111206182015) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "employees", ["email"], :name => "index_employees_on_email", :unique => true
 
 end
