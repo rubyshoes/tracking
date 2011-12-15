@@ -22,3 +22,12 @@
 \#{@employee.emer_contact_last_name},
 \#{@employee.emer_contact_relationship},
 \#{@employee.emer_contact_ph}
+
+
+%h1
+ = gravatar_for @employee
+ = @employee.first_name
+
+
+/ %p Full Name
+/ = f.text_field :emp_full_name

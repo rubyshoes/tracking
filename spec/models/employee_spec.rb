@@ -8,7 +8,7 @@
 #  mi                        :string(255)
 #  marital_status            :string(255)     not null
 #  gender                    :string(255)     not null
-#  birth_date                :date            default(Sat, 20 Aug 1949), not null
+#  birth_date                :date            default(Sun, 21 Sep 1986), not null
 #  hire_date                 :date            not null
 #  term_date                 :date
 #  primary_position          :string(255)     not null
@@ -26,8 +26,9 @@
 #  emer_contact_last_name    :string(255)
 #  emer_contact_relationship :string(255)
 #  emer_contact_ph           :string(255)
-#  created_at                :datetime
-#  updated_at                :datetime
+#  created_at                :datetime        not null
+#  updated_at                :datetime        not null
+#  encrypted_password        :string(255)
 #
 
 require 'spec_helper'
@@ -40,7 +41,7 @@ describe Employee do
       :mi => "null",
       :marital_status => "Single",
       :gender => "Female",
-      :birth_date => '1949-08-20',
+      :birth_date => '1979-09-21',
       :hire_date => '2002-01-01',
       :term_date => "null",
       :active => "true",
@@ -57,7 +58,10 @@ describe Employee do
       :emer_contact_first_name => "null",
       :emer_contact_last_name => "null",
       :emer_contact_relationship => "null",
-      :emer_contact_ph => "null" }
+      :emer_contact_ph => "null",
+      :password => "foobar",
+      :password_confirmation => "foobar"
+    }
   end
 
   it "should create a new instance given valid attributes" do
@@ -176,5 +180,75 @@ describe Employee do
   it "should save email addresses in lowercase form" do
     employee = Employee.create!(@attr.merge(:email => @attr[:email].upcase))
     employee.email.should == @attr[:email] # see model for before_save(:downcase_email) and its definition
+  end
+
+  describe "password validations" do
+
+    it "should require a password" do
+      employee_without_password = Employee.new(@attr.merge(:password => "", :password_confirmation => ""))
+      employee_without_password.should_not be_valid
+    end
+
+    it "should require a matching password confirmation" do
+      employee_with_invalid_confirmation = Employee.new(@attr.merge(:password_confirmation => "invalid"))
+      employee_with_invalid_confirmation.should_not be_valid
+    end
+
+    it "should reject short passwords" do
+      short = "a" * 5
+      hash = @attr.merge(:password => short, :password_confirmation => short)
+      Employee.new(hash).should_not be_valid
+    end
+
+    it "should reject long passwords" do
+      long = "a" * 41
+      hash = @attr.merge(:password => long, :password_confirmation => long)
+      Employee.new(hash).should_not be_valid
+    end
+  end
+
+  describe "password_encryption" do
+
+    before(:each) do
+      $stderr.puts @attr.inspect
+      @employee = Employee.create!(@attr)
+    end
+
+    it "should have an encrypted password attribute" do
+      @employee.should respond_to(:encrypted_password)
+    end
+
+    it "should set the encrypted password" do
+      @employee.encrypted_password.should_not be_blank
+    end
+
+    describe "has_password? method" do
+
+      it "should be true if the passwords match" do
+        @employee.has_password?(@attr[:password]).should be_true
+      end
+
+      it "should be false if the passwords do not match" do
+        @employee.has_password?("invalid").should be_false
+      end
+    end
+
+    describe "authentication method" do
+
+      it "should return nil on email/password mismatch" do
+        wrong_password_employee = Employee.authenticate(@attr[:email], "wrongpass")
+        wrong_password_employee.should be_nil
+      end
+
+      it "should return nil for an email address with no employee" do
+        nonexistent_employee = Employee.authenticate("bar@foo.com", @attr[:password])
+        nonexistent_employee.should be_nil
+      end
+
+      it "should return the employee on email/password match" do
+        matching_employee = Employee.authenticate(@attr[:email], @attr[:password])
+        matching_employee.should == @employee
+      end
+    end
   end
 end

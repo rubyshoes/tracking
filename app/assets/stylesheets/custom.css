@@ -180,3 +180,19 @@ a.register_button {
   padding: 5px;
 }
 
+/* Employee show page */
+
+table.profile {
+  width: 100%;
+  margin-bottom:  0;
+}
+
+td.main {
+  width:  70%;
+  padding:  1em;
+}
+
+.profile img.gravatar {
+  border: 1px solid #999;
+  margin-bottom:  -15px;
+}
