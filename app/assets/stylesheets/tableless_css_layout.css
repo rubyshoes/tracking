@@ -1,0 +1,251 @@
+/* Body (we start with these settings then gradually replace them with the
+ * #page, header, footer and nav styling) */
+
+body {
+  background: white;
+  margin: 0;
+  padding: 10px;
+  font: small Verdana,Sans-serif;
+  color: black;
+  background: #666;
+  color: #fff;
+}
+
+a {
+  color:  #36a;
+}
+
+a img {
+  border-width: 0;
+}
+
+h1, h2, h3, ul, li, form {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
+}
+
+/* Pages stylehooks */
+
+#page {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#page2 {
+  background: #fff;
+  float: left;
+  width: 97%;
+  padding: 10px;
+  border: solid #444;
+  border-width: 1px 3px 3px 1px;
+  font-size: 85%;
+  line-height: 1.5em;
+  color: #566;
+}
+
+/* Header */
+
+header {
+  float: left;
+  background: #ddd;
+  width: 97%;
+  margin-left: 20px;
+  padding: 10px 0 10px 0;
+}
+
+header img {
+  float: left;
+  padding: .3em;
+  background: #d87093;
+}
+
+/* Section (content) */
+
+section {
+  float: left;
+  margin-top: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 150%;
+  padding: 2% 2% 20% 2%;
+  background: darkseagreen;
+}
+
+/* Footer */
+
+footer {
+  float: left;
+  background: #ddd;
+  width: 97%;
+  margin-left: 20px;
+  padding: 42px 0 42px 0;
+}
+
+/* Navigation */
+
+nav {
+  background: #135;
+  float: left;
+  width: 97%;
+  padding: 0;
+  margin-left: 20px;
+  border-bottom: 2px solid #135;
+  list-style: none;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  background: none;
+  display: inline;
+  padding: 0;
+}
+
+nav ul li a, nav ul li strong {
+  float: left;
+  width: auto;
+  padding: 5px 9px 3px;
+  color: #def;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+nav ul li strong {
+  float: left;
+  width: 100px;
+  border-left: .5px solid #579;
+  border-right: .5px solid #135;
+  background: #008b8b;
+  color: #fff;
+}
+
+nav ul li a strong {
+  padding: 0;
+  border-width: 0;
+}
+
+nav ul li a:visited {
+  color:  #7fffd4;
+}
+
+nav ul li a:hover {
+  background: #246;
+  border-left-color: #246;
+  color: #cf0;
+}
+
+/* Round Corners */
+
+.round {
+  -moz-border-radius:     10px;
+  -webkit-border-radius:  10px;
+  border-radius:          10px;
+}
+
+/* Debug */
+
+#debug {
+  float: left;
+  width: 97%;
+}
+
+/* Register Button */
+
+a.register_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  background: #006400;
+  font-size: 110%;
+  font-weight: bold;
+  padding: 5px;
+}
+
+/* Employee show page */
+
+h1 {
+  margin-top:     -15px;
+}
+
+h2 {
+  font-size: 90%;
+}
+
+img.gravatar {
+  float: left;
+  border: 1px solid #999;
+  margin-bottom:  -15px;
+}
+
+/* Employee new page */
+
+div.field {
+  float:            left;
+  padding:          0.3em;
+  margin-left:      auto;
+  margin-right:     auto;
+  margin-bottom:    3px;
+  margin-top:       40px;
+}
+
+  div.actions {
+  float:            right;
+  padding:          0.3em;
+  margin-left:      auto;
+  margin-right:     auto;
+  margin-bottom:    3px;
+  margin-top:       3px;
+}
+
+/* Error messages */
+
+.field_with_errors {
+  margin-top: 10px;
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+.field_with_errors label {
+  color: #fff;
+}
+
+#error_explanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}

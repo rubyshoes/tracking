@@ -1,33 +1,37 @@
-= @employee.first_name
-,
-\#{@employee.last_name},
-\#{@employee.mi},
-\#{@employee.marital_status},
-\#{@employee.gender},
-\#{@employee.birth_date},
-\#{@employee.hire_date},
-\#{@employee.term_date},
-\#{@employee.active},
-\#{@employee.primary_position},
-\#{@employee.trained_position},
-\#{@employee.email},
-\#{@employee.address1},
-\#{@employee.address2},
-\#{@employee.city},
-\#{@employee.zip_code},
-\#{@employee.state},
-\#{@employee.emp_home_ph},
-\#{@employee.emp_mobile_ph},
-\#{@employee.emer_contact_first_name},
-\#{@employee.emer_contact_last_name},
-\#{@employee.emer_contact_relationship},
-\#{@employee.emer_contact_ph}
-
-
+/!-- %table.profile{:summary => "Profile information"}
+/!--  %tr
+/!--  %td.main
 %h1
- = gravatar_for @employee
- = @employee.first_name
+  = gravatar_for @employee
+  =@employee.emp_full_name
+  %br/
+  %h2
+    \#{@employee.first_name}
+    \#{@employee.last_name}
+/  \#{@employee.mi},
+/  \#{@employee.marital_status},
+/  \#{@employee.gender},
+/  \#{@employee.birth_date},
+/  \#{@employee.hire_date},
+/  \#{@employee.term_date},
+/  \#{@employee.active},
+/  \#{@employee.primary_position},
+/  \#{@employee.trained_position},
+/  \#{@employee.email},
+/  \#{@employee.address1},
+/  \#{@employee.address2},
+/  \#{@employee.city},
+/  \#{@employee.zip_code},
+/  \#{@employee.state},
+/  \#{@employee.emp_home_ph},
+/  \#{@employee.emp_mobile_ph},
+/  \#{@employee.emer_contact_first_name},
+/  \#{@employee.emer_contact_last_name},
+/  \#{@employee.emer_contact_relationship},
+/  \#{@employee.emer_contact_ph}
 
-
-/ %p Full Name
-/ = f.text_field :emp_full_name
+/%h2
+/  =form_for(@employee) do |f|
+/    .field
+/      = f.label  :Name
+/      = f.text_field  :emp_full_name,   :size => 25

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111214203026) do
+ActiveRecord::Schema.define(:version => 20111218200953) do
 
   create_table "employees", :force => true do |t|
     t.string   "first_name",                                          :null => false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20111214203026) do
     t.date     "hire_date",                                           :null => false
     t.date     "term_date"
     t.string   "primary_position",                                    :null => false
-    t.string   "trained_position"
+    t.text     "trained_position"
     t.string   "email",                                               :null => false
     t.boolean  "active",                    :default => true,         :null => false
     t.string   "address1",                                            :null => false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20111214203026) do
     t.datetime "updated_at",                                          :null => false
     t.string   "encrypted_password"
     t.string   "salt"
+    t.string   "role"
   end
 
   add_index "employees", ["email"], :name => "index_employees_on_email", :unique => true

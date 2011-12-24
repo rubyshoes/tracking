@@ -6,13 +6,15 @@
       <%= render :partial => 'layouts/stylesheets' %>
   </head>
   <body>
-    <div class="container">
-      <%= render :partial => 'layouts/header' %>
-        <section class="round">
-          <%= yield %>
-        </section>
+      <div id="page" class="round"><div id="page2" class="round">
+        <%= render :partial => 'layouts/header' %>
+          <section class="round">
+            <%= yield %>
+          </section>
         <%= render :partial => 'layouts/footer' %>
+      </div></div>
+      <div id ="debug">
         <%= debug(params) if Rails.env.development? %>
-    </div>
+      </div>
   </body>
 </html>

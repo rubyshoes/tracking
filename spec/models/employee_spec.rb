@@ -12,7 +12,7 @@
 #  hire_date                 :date            not null
 #  term_date                 :date
 #  primary_position          :string(255)     not null
-#  trained_position          :string(255)
+#  trained_position          :text
 #  email                     :string(255)     not null
 #  active                    :boolean         default(TRUE), not null
 #  address1                  :string(255)     not null
@@ -29,6 +29,8 @@
 #  created_at                :datetime        not null
 #  updated_at                :datetime        not null
 #  encrypted_password        :string(255)
+#  salt                      :string(255)
+#  role                      :string(255)
 #
 
 require 'spec_helper'
@@ -45,20 +47,21 @@ describe Employee do
       :hire_date => '2002-01-01',
       :term_date => "null",
       :active => "true",
-      :primary_position => "Job Coach",
-      :trained_position => "null",
+      :primary_position => "Team Leader",
+      :trained_position => "Job Development",
+      :role =>  "Manager",
       :email => "tpottle@example.com",
       :address1 => "1 First Ave",
       :address2 => "null",
       :city => "Frave",
       :zip_code => "54806",
       :state => "WI",
-      :emp_home_ph => "null",
-      :emp_mobile_ph => "null",
-      :emer_contact_first_name => "null",
-      :emer_contact_last_name => "null",
-      :emer_contact_relationship => "null",
-      :emer_contact_ph => "null",
+      :emp_home_ph => "1-111-111-1111",
+      :emp_mobile_ph => "1-222-222-2222",
+      :emer_contact_first_name => "Elsine",
+      :emer_contact_last_name => "Pottle",
+      :emer_contact_relationship => "Sister",
+      :emer_contact_ph => "1-333-333-3333",
       :password => "foobar",
       :password_confirmation => "foobar"
     }

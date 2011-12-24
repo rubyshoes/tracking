@@ -12,7 +12,7 @@
 #  hire_date                 :date            not null
 #  term_date                 :date
 #  primary_position          :string(255)     not null
-#  trained_position          :string(255)
+#  trained_position          :text
 #  email                     :string(255)     not null
 #  active                    :boolean         default(TRUE), not null
 #  address1                  :string(255)     not null
@@ -26,14 +26,16 @@
 #  emer_contact_last_name    :string(255)
 #  emer_contact_relationship :string(255)
 #  emer_contact_ph           :string(255)
-#  created_at   #             :datetime        not null
+#  created_at                :datetime        not null
 #  updated_at                :datetime        not null
 #  encrypted_password        :string(255)
+#  salt                      :string(255)
+#  role                      :string(255)
 #
 
 class Employee < ActiveRecord::Base
 
-   attr_accessor :password
+   attr_accessor :password, :emp_full_name
  # attr_accessible :password, :password_confirmatiom, :first_name, :last_name, :email
 
  # date_regex = /^[0-9]{2}[-][0-9]{2}[-]{4}$/
@@ -51,6 +53,7 @@ class Employee < ActiveRecord::Base
 
   validates(:first_name,
             :last_name,
+            :emp_full_name,
             :presence => true,
             :length => { :maximum => 25 })
 
@@ -81,36 +84,29 @@ class Employee < ActiveRecord::Base
   end
 
   # create a virtual attribute 'emp_full_name'
-#  def emp_full_name
- #   [first_name, last_name].join(' ')
- # end
-
-  # allow for the full_name to be split back into two
- # def full_name=(name)
-  #  split = name.split(' ', 2)
-   # self.first_name = split.first
-   # self.last_name = split.last
- # end
+  def emp_full_name
+    [first_name, last_name].join(' ')
+  end
 
 private
-  def downcase_email
-    self.email.downcase!
-  end
+    def downcase_email
+      self.email.downcase!
+    end
 
-  def encrypt_password
+    def encrypt_password
     self.salt = make_salt unless has_password?(password)
     self.encrypted_password = encrypt(password)
-  end
+    end
 
-  def encrypt(string)
-    secure_hash("#{salt}--#{string}")
-  end
+    def encrypt(string)
+      secure_hash("#{salt}--#{string}")
+    end
 
-  def make_salt
-    secure_hash("#{Time.now.utc}--#{password}")
-  end
+    def make_salt
+      secure_hash("#{Time.now.utc}--#{password}")
+    end
 
-  def secure_hash(string)
-    Digest::SHA2.hexdigest(string)
-  end
+    def secure_hash(string)
+      Digest::SHA2.hexdigest(string)
+    end
 end

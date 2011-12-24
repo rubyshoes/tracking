@@ -1,2 +1,110 @@
-%h1 Employees#new
-%p Find me in app/views/employees/new.html.haml
+%h1
+=form_for(@employee) do |f|
+  =render 'shared/error_messages'
+  .field
+    = f.label :name, "First Name"
+    %br/
+    = f.text_field  :first_name, :size => 15
+  .field
+    = f.label :name, "MI"
+    %br/
+    = f.text_field  :mi, :size => 3
+  .field
+    = f.label :name, "Last Name"
+    %br/
+    = f.text_field  :last_name, :size => 15
+  .field
+    = f.label :name, "Marital Status"
+    %br/
+    = f.text_field  :marital_status, :size => 8
+  .field
+    = f.label :name, "Gender"
+    %br/
+    = f.text_field  :gender, :size => 8
+  .field
+    = f.label :name, "Birth Date"
+    %br/
+    = f.text_field  :birth_date, :size => 12
+  .field
+    = f.label :name, "Hire Date"
+    %br/
+    = f.text_field  :hire_date, :size => 12
+  .field
+    = f.label :name, "Term Date"
+    %br/
+    = f.text_field  :term_date, :size => 12
+  .field
+    = f.label :name, "Primary Position"
+    %br/
+    = f.text_field  :primary_position, :size => 15
+  .field
+    = f.label :name,  "Trained Position"
+    %br/
+    = f.text_field  :trained_position, :size => 15
+  .field
+    = f.label :name,  "Role"
+    %br/
+    = f.text_field  :role, :size => 15
+  .field
+    = f.label :email
+    %br/
+    = f.text_field  :email, :size => 25
+  .field
+    = f.label :name,  "Address1"
+    %br/
+    = f.text_field  :address1, :size => 25
+  .field
+    = f.label :name,  "Address2"
+    %br/
+    = f.text_field  :address2, :size => 25
+  .field
+    = f.label :name, "City"
+    %br/
+    = f.text_field  :city, :size => 15
+  .field
+    = f.label :name, "Zip Code"
+    %br/
+    = f.text_field  :zip_code, :size => 10
+  .field
+    = f.label :name, "State"
+    %br/
+    = f.text_field  :state, :size => 3
+  .field
+    = f.label :name, "Emp Home Phone"
+    %br/
+    = f.text_field  :emp_home_ph, :size => 15
+  .field
+    = f.label :name, "Emp Mobile Phone"
+    %br/
+    = f.text_field  :emp_mobile_ph, :size => 15
+  .field
+    = f.label :name, "Emer Contact First Name"
+    %br/
+    = f.text_field  :emer_contact_first_name, :size => 15
+  .field
+    = f.label :name, "Emer Contact Last Name"
+    %br/
+    = f.text_field  :emer_contact_last_name, :size => 15
+  .field
+    = f.label :name, "Emer Contact Relationship"
+    %br/
+    = f.text_field  :emer_contact_relationship, :size => 10
+  .field
+    = f.label :name, "Emer Contact Phone"
+    %br/
+    = f.text_field  :emer_contact_ph, :size => 15
+  .field
+    = f.label :active
+    %br/
+    = f.check_box  :active
+  .field
+    = f.label :name, "Password"
+    %br/
+    = f.text_field  :password, :size => 25
+  .field
+    = f.label :name, "Password Confirmation"
+    %br/
+    = f.text_field  :password_confirmation, :size => 25
+  .actions
+    = f.submit "Save"
+
