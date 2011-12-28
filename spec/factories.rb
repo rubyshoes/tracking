@@ -6,7 +6,7 @@ Factory.define :employee do |employee|
   employee.mi                               "L"
   employee.marital_status                   "Married"
   employee.gender                           "Male"
-  employee.birth_date                       '1995-03-01'
+  employee.birth_date                       '03-01-1995'
   employee.hire_date                        '2002-01-01'
   employee.term_date                        ""
   employee.primary_position                 "Job Developer"

@@ -4,14 +4,14 @@ Tracking::Application.routes.draw do
 
   root :to => 'pages#home'
 
-  match '/about', :to => 'pages#about'
+  match '/about',         :to => 'pages#about'
 
-  match '/contact', :to => 'pages#contact'
+  match '/contact',       :to => 'pages#contact'
 
-  match '/help', :to => 'pages#help'
+  match '/help',          :to => 'pages#help'
 
-  match '/register', :to => 'employees#new'
-  
+  match '/newemployee',   :to => 'employees#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -35,7 +35,6 @@ describe EmployeesController do
     end
   end
 
-
   describe "GET 'new'" do
     it "returns http success" do
       get 'new'
@@ -44,7 +43,137 @@ describe EmployeesController do
 
     it "should have the right title" do
       get 'new'
-      response.should have_selector("title", :content => "Register")
+      response.should have_selector("title", :content => "Add a New Employee")
+    end
+
+    it "should have a first_name field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[first_name]'][type='text']")
+    end
+
+    it "should have a 'mi' field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[mi]'][type='text']")
+    end
+
+    it "should have a last_name field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[last_name]'][type='text']")
+    end
+
+    it "should have a marital_status field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[marital_status]'][type='text']")
+    end
+
+    it "should have a gender field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[gender]'][type='text']")
+    end
+
+    it "should have a birth_date field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[birth_date]'][type='text']")
+    end
+
+    it "should have a hire_date field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[hire_date]'][type='text']")
+    end
+
+    it "should have a term_date field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[term_date]'][type='text']")
+    end
+
+    it "should have a primary_position field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[primary_position]'][type='text']")
+    end
+
+    it "should have a trained_position field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[trained_position]'][type='text']")
+    end
+
+    it "should have a role field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[role]'][type='text']")
+    end
+
+    it "should have a email field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[email]'][type='text']")
+    end
+
+    it "should have a address1 field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[address1]'][type='text']")
+    end
+
+    it "should have a address2 field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[address2]'][type='text']")
+    end
+
+    it "should have a city field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[city]'][type='text']")
+    end
+
+    it "should have a zip_code field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[zip_code]'][type='text']")
+    end
+
+    it "should have a state field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[state]'][type='text']")
+    end
+
+    it "should have a emp_home_ph field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[emp_home_ph]'][type='text']")
+    end
+
+    it "should have a emp_mobile_ph field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[emp_mobile_ph]'][type='text']")
+    end
+
+    it "should have a emer_contact_first_name field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[emer_contact_first_name]'][type='text']")
+    end
+
+    it "should have a emer_contact_last_name field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[emer_contact_last_name]'][type='text']")
+    end
+
+    it "should have a emer_contact_relationship field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[emer_contact_relationship]'][type='text']")
+    end
+
+    it "should have a emer_contact_ph field of type text" do
+      get :new
+      response.should have_selector("input[name='employee[emer_contact_ph]'][type='text']")
+    end
+
+    it "should have an active field of type checkbox" do
+      get :new
+      response.should have_selector("input[name='employee[active]'][type='checkbox']")
+    end
+
+    it "should have a password field of type password" do
+      get :new
+      response.should have_selector("input[name='employee[password]'][type='password']")
+    end
+
+    it "should have a password_confirmation field of type password" do
+      get :new
+      response.should have_selector("input[name='employee[password_confirmation]'][type='password']")
     end
   end
 
@@ -90,7 +219,7 @@ describe EmployeesController do
 
         it "should have the right title" do
           post :create, :employee => @attr
-          response.should have_selector("title", :content => "Register")
+          response.should have_selector("title", :content => "Time and it's Cost")
         end
 
         it "should render the 'new' page" do
@@ -140,6 +269,11 @@ describe EmployeesController do
       it "should redirect to the employee show page" do
         post :create, :employee => @attr
         response.should redirect_to(employee_path(assigns(:employee)))
+      end
+
+      it "should have an 'employee has been successfully saved' message" do
+        post :create, :employee => @attr
+        flash[:success].should =~ /employee has been successfully saved/i
       end
     end
   end

@@ -7,15 +7,18 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
-    @title = "Register"
+    @title = "Add a New Employee"
   end
 
   def create
     @employee = Employee.new(params[:employee])
     if @employee.save
+      flash[:success] = "Employee has been Successfully Saved."
       redirect_to @employee
     else
-      @title = "Register"
+      @title = "You have some errors"
+      @employee.password = ""
+      @employee.password_confirmation = ""
       render 'new'
     end
   end

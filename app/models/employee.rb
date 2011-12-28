@@ -38,8 +38,6 @@ class Employee < ActiveRecord::Base
    attr_accessor :password, :emp_full_name
  # attr_accessible :password, :password_confirmatiom, :first_name, :last_name, :email
 
- # date_regex = /^[0-9]{2}[-][0-9]{2}[-]{4}$/
-
   email_regex = /([\w+.]+)@[a-z0-9\-.]+\.[a-z]+/i
 
   validates(:marital_status,
@@ -59,7 +57,7 @@ class Employee < ActiveRecord::Base
 
   validates(:birth_date,
             :hire_date, :presence => true)
- #           :format => { :with => date_regex })
+  #         :format => { :with => (%m/%d/%y) }
 
   validates(:email, :presence => true,
             :format => { :with => email_regex },
