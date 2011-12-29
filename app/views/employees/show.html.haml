@@ -1,11 +1,8 @@
-/!-- %table.profile{:summary => "Profile information"}
-/!--  %tr
-/!--  %td.main
-%h1
+%h3
   = gravatar_for @employee
   =@employee.emp_full_name
   %br/
-  %h2
+  %h4
     \#{@employee.first_name}
     \#{@employee.last_name}
 /  \#{@employee.mi},
@@ -30,8 +27,3 @@
 /  \#{@employee.emer_contact_relationship},
 /  \#{@employee.emer_contact_ph}
 
-/%h2
-/  =form_for(@employee) do |f|
-/    .field
-/      = f.label  :Name
-/      = f.text_field  :emp_full_name,   :size => 25

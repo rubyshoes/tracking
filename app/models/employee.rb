@@ -8,7 +8,6 @@
 #  mi                        :string(255)
 #  marital_status            :string(255)     not null
 #  gender                    :string(255)     not null
-#  birth_date                :date            default(Sun, 21 Sep 1986), not null
 #  hire_date                 :date            not null
 #  term_date                 :date
 #  primary_position          :string(255)     not null
@@ -31,6 +30,7 @@
 #  encrypted_password        :string(255)
 #  salt                      :string(255)
 #  role                      :string(255)
+#  birth_date                :date
 #
 
 class Employee < ActiveRecord::Base

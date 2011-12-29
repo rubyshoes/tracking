@@ -10,7 +10,7 @@ Tracking::Application.routes.draw do
 
   match '/help', :to => 'pages#help'
 
-  match '/register', :to => 'employees#new'
+  match '/newemployee', :to => 'employees#new'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

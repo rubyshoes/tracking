@@ -5,7 +5,7 @@ describe PagesController do
   render_views
 
   before(:each) do
-    @base_title = "Tracking Time"
+    @base_title = "Time and it's Cost"
   end
 
   describe "GET 'home'" do
@@ -46,5 +46,4 @@ describe PagesController do
                                     :content => "#{@base_title} | About")
     end
   end
-
 end
