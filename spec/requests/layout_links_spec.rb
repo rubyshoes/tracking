@@ -24,7 +24,7 @@ describe "LayoutLinks" do
 
   it "should have a new employee page at '/newemployee'" do
     get '/newemployee'
-    response.should have_selector('title', :content => "Add a new Employee")
+    response.should have_selector('title', :content => "New Employee")
   end
 
   it "should have the right links on the layout" do

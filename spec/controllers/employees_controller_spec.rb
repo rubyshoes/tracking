@@ -43,7 +43,7 @@ describe EmployeesController do
 
     it "should have the right title" do
       get 'new'
-      response.should have_selector("title", :content => "Add a new Employee")
+      response.should have_selector("title", :content => "Time and it's Cost")
     end
 
     it "should have a first_name field of type text" do
