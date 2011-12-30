@@ -35,7 +35,6 @@ describe EmployeesController do
     end
   end
 
-
   describe "GET 'new'" do
     it "returns http success" do
       get 'new'
@@ -47,7 +46,7 @@ describe EmployeesController do
       response.should have_selector("title", :content => "Add a new Employee")
     end
 
-    it "should have a 'first_name' field" do
+    it "should have a first_name field of type text" do
       get :new
       response.should have_selector("input[name='employee[first_name]'][type='text']")
     end
@@ -167,7 +166,7 @@ describe EmployeesController do
       response.should have_selector("input[name='employee[role]'][type='text']")
     end
 
-    it "should have a 'password' field" do
+    it "should have a password field of type password" do
       get :new
       response.should have_selector("input[name='employee[password]'][type='password']")
     end

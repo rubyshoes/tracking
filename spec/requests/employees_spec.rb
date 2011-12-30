@@ -33,6 +33,8 @@ describe "Employees" do
           fill_in "emer_contact_relationship", :with => ""
           fill_in "emer_contact_ph",           :with => ""
           fill_in "role",                      :with => ""
+          fill_in "password",                  :with => ""
+          fill_in "password_confirmation",     :with => ""
           click_button
           response.should render_template('employees/new')
           response.should have_selector("div#error_explanation")
@@ -70,6 +72,8 @@ describe "Employees" do
           fill_in "emer_contact_relationship", :with => "Spouse"
           fill_in "emer_contact_ph",           :with => "1-333-333-3333"
           fill_in "role",                      :with => "Staff"
+          fill_in "password",                  :with => "foobar"
+          fill_in "password_confirmation",     :with => "foobar"
           click_button
           response.should have_selector("div.flash.success",
                                         :content => "New Employee has been saved")
