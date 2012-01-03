@@ -29,9 +29,9 @@ describe EmployeesController do
       response.should have_selector("h3", :content => @employee.emp_full_name)
     end
 
-    it "should have a profile image" do
+    it "should have an employee image" do
       get :show, :id => @employee
-    response.should have_selector("h3>img", :class => "gravatar")
+      response.should have_selector("h3>img", :class => "gravatar round")
     end
   end
 

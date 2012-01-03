@@ -1,7 +1,7 @@
 <% if @employee.errors.any? %>
   <div id="error_explanation">
     <h5><%= pluralize(@employee.errors.count, "error") %>
-      prohibited this user from being saved:</h2>
+      prohibited this user from being saved:</h5>
     <p>There were problems with the following fields:</p>
     <ul>
     <% @employee.errors.full_messages.each do |msg| %>

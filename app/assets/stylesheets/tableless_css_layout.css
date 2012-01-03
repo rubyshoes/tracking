@@ -58,15 +58,18 @@ header {
 }
 
 header img {
-  float: left;
-  padding: .3em;
-  background: #d87093;
+  float:              left;
+  padding:            .3em;
+  margin-left:        20px;
+  margin-bottom:      10px;
+  background:      #d87093;
 }
 
 /* Section (content) */
 
 section {
   float: left;
+  width:  93%;
   margin-top: 0;
   margin-left: 20px;
   margin-right: 20px;
@@ -185,7 +188,7 @@ h2  {
   text-align:       center;
   text-transform:   uppercase;
   text-decoration:  none;
-  font-size:        125%
+  font-size:        125%;
   padding:          20px;
 }
 
@@ -222,23 +225,27 @@ div.field {
 /* Employee show page */
 
 h3 {
-  float:          left;
-  width:          97%;
-  margin:           0;
-  padding:          0;
+  float:               left;
+  width:                97%;
+  margin:            0 auto;
 }
 
-h4 {
-  float:        left;
-  width:        97%;
-  font-size:    90%;
-  margin-left:  15%;
+#details {
+  float:               left;
+  padding:             10px;
+  margin:            0 auto;
 }
 
-img.gravatar {
-  float: left;
-  border: 1px solid #999;
-  margin-bottom:  -15px;
+#spacing {
+  display:           inline;
+  padding:             10px;
+}
+
+.gravatar {
+  float:               left;
+  padding:                0;
+  border: 3px solid    #989;
+  margin:            0 auto;
 }
 
 /* Error messages */
@@ -246,18 +253,21 @@ img.gravatar {
 .field_with_errors {
   margin-top: 10px;
   padding: 2px;
+
   background-color: red;
   display: table;
 }
 
 .field_with_errors label {
   color: #fff;
+
 }
 
 #error_explanation {
   width: 400px;
   border: 2px solid red;
   padding: 7px;
+
   padding-bottom: 12px;
   margin-bottom: 20px;
   background-color: #f0f0f0;
