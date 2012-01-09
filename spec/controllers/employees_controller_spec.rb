@@ -26,7 +26,7 @@ describe EmployeesController do
 
     it "should include the employee's name" do
       get :show, :id => @employee
-      response.should have_selector("h3", :content => @employee.emp_full_name)
+      response.should have_selector("div", :content => @employee.emp_full_name)
     end
 
     it "should have an employee image" do

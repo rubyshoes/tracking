@@ -9,8 +9,3 @@
 //= require jquery-ui
 //= require_tree .
 
-$(function() {
-	$('#employee_birth_date').datepicker();
-	$('#employee_hire_date').datepicker();
-	$('#employee_term_date').datepicker();
-});

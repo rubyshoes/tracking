@@ -30,9 +30,15 @@ ul, li {
 
 /* Pages stylehooks */
 
+body  {
+/*  background: #666 url(<%= asset_path 'bg_diagonals-small_0_aaaaaa_40x40.png' %>) repeat 0 0;*/
+  background: #666 url("/assets/bg_diagonals.png") repeat 0 0;
+  color:      #fff;
+}
+
 #page {
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto;/* this 0 auto centers the page on the screen */
 }
 
 #page2 {
@@ -230,10 +236,13 @@ h3 {
   margin:            0 auto;
 }
 
+p {
+  text-indent:         10px;
+}
+
 #details {
   float:               left;
   padding:             10px;
-  margin:            0 auto;
 }
 
 #spacing {

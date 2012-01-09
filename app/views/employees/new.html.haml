@@ -25,16 +25,16 @@
   .field
     = f.label :name, "Birth Date"
     %br/
-    = f.text_field  :birth_date, :size => 12
+    = f.text_field  :birth_date, :size => 12, :class => "ui-state-default"
     %br/
   .field
     = f.label :name, "Hire Date"
     %br/
-    = f.text_field  :hire_date, :size => 12
+    = f.text_field  :hire_date, :size => 12,  :class => "ui-state-default"
   .field
     = f.label :name, "Term Date"
     %br/
-    = f.text_field  :term_date, :size => 12
+    = f.text_field  :term_date, :size => 12, :class => "ui-state-default"
   .field
     = f.label :name, "Primary Position"
     %br/
@@ -72,23 +72,23 @@
     %br/
     = f.text_field  :state, :size => 3
   .field
-    = f.label :name, "Emp Home Phone"
+    = f.label :name, "EmpHomePhone"
     %br/
     = f.text_field  :emp_home_ph, :size => 15
   .field
-    = f.label :name, "Emp Mobile Phone"
+    = f.label :name, "EmpMobilePhone"
     %br/
     = f.text_field  :emp_mobile_ph, :size => 15
   .field
-    = f.label :name, "Emer Contact First Name"
+    = f.label :name, "EmerContactFirstN"
     %br/
     = f.text_field  :emer_contact_first_name, :size => 15
   .field
-    = f.label :name, "Emer Contact Last Name"
+    = f.label :name, "EmerContactLastN"
     %br/
     = f.text_field  :emer_contact_last_name, :size => 15
   .field
-    = f.label :name, "Emer Contact Relationship"
+    = f.label :name, "EmerContactRel"
     %br/
     = f.text_field  :emer_contact_relationship, :size => 10
   .field
