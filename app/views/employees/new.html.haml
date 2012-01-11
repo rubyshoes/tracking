@@ -23,6 +23,18 @@
     %br/
     = f.text_field  :gender, :size => 8
   .field
+    = f.label :name, "Primary Position"
+    %br/
+    = f.text_field  :primary_position, :size => 15
+  .field
+    = f.label :name,  "Trained Position"
+    %br/
+    = f.text_field  :trained_position, :size => 15
+  .field
+    = f.label :name,  "Role"
+    %br/
+    = f.text_field  :role, :size => 15
+  .field
     = f.label :name, "Birth Date"
     %br/
     = f.text_field  :birth_date, :size => 12, :class => "ui-state-default"
@@ -35,18 +47,6 @@
     = f.label :name, "Term Date"
     %br/
     = f.text_field  :term_date, :size => 12, :class => "ui-state-default"
-  .field
-    = f.label :name, "Primary Position"
-    %br/
-    = f.text_field  :primary_position, :size => 15
-  .field
-    = f.label :name,  "Trained Position"
-    %br/
-    = f.text_field  :trained_position, :size => 15
-  .field
-    = f.label :name,  "Role"
-    %br/
-    = f.text_field  :role, :size => 15
   .field
     = f.label :email
     %br/
