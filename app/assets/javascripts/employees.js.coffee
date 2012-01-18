@@ -3,6 +3,18 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-	$("#employee_birth_date").datepicker()
-	$("#employee_hire_date").datepicker()
-	$("#employee_term_date").datepicker()
+	$("#employee_birth_date").datepicker({
+			changeMonth: true,
+			changeYear: true,
+			yearRange: '1930:2050'
+	});
+	$("#employee_hire_date").datepicker({
+			changeMonth: true,
+			changeYear: true,
+			yearRange: '1930:2050'
+	})
+	$("#employee_term_date").datepicker({
+			changeMonth: true,
+			changeYear: true,
+			yearRange: '1930:2050'
+	})

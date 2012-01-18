@@ -220,7 +220,7 @@ describe EmployeesController do
 
         it "should have the right title" do
           post :create, :employee => @attr
-          response.should have_selector("title", :content => "Time and it's Cost")
+          response.should have_selector("title", :content => "You have some errors")
         end
 
         it "should render the 'new' page" do

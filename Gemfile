@@ -18,6 +18,8 @@ gem 'haml'
 gem 'haml-rails'
 gem 'heroku'
 
+gem 'rails-dev-tweaks', '~> 0.5.2'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -48,7 +50,7 @@ group :test do
 end
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+   gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
