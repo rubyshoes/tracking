@@ -27,8 +27,6 @@
 #  emer_contact_ph           :string(255)
 #  created_at                :datetime        not null
 #  updated_at                :datetime        not null
-#  encrypted_password        :string(255)
-#  salt                      :string(255)
 #  role                      :string(255)
 #  birth_date                :date
 #  password_digest           :string(255)
@@ -36,11 +34,9 @@
 
 class Employee < ActiveRecord::Base
 
-   has_secure_password
+  has_secure_password
 
-   attr_accessor :emp_full_name
- # attr_accessible :password, :password_confirmatiom, :first_name, :last_name, :email
- #  attr_accessible :password, :email
+  attr_accessor :emp_full_name
 
   email_regex = /([\w+.]+)@[a-z0-9\-.]+\.[a-z]+/i
 

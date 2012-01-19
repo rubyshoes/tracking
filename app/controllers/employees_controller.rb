@@ -14,7 +14,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(params[:employee])
     if @employee.save
       flash[:success] = "New Employee has been saved"
-      redirect_to @employee
+      redirect_to @employee # this redirects to the employee show page
     else
       @title = "You have some errors"
       @employee.password = ""

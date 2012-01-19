@@ -27,8 +27,6 @@
 #  emer_contact_ph           :string(255)
 #  created_at                :datetime        not null
 #  updated_at                :datetime        not null
-#  encrypted_password        :string(255)
-#  salt                      :string(255)
 #  role                      :string(255)
 #  birth_date                :date
 #  password_digest           :string(255)

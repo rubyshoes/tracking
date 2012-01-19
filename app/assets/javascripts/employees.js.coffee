@@ -6,7 +6,8 @@ $ ->
 	$("#employee_birth_date").datepicker({
 			changeMonth: true,
 			changeYear: true,
-			yearRange: '1930:2050'
+			yearRange: '1930:2050',
+			formatDate: 'mm-dd-yy'
 	});
 	$("#employee_hire_date").datepicker({
 			changeMonth: true,

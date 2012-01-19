@@ -214,6 +214,22 @@ div.field {
   margin-right:     auto;
 }
 
+/* Fieldset and Legend */
+
+fieldset {
+  float:              left;
+  margin-bottom:      0.5em;
+  padding:            1em;
+/*  border:    1px solid #555;*/
+}
+
+legend {
+  font-size:            90%;
+  padding:      0.2em 0.5em;
+  background-color:    #eee;
+/*  border:    1px solid #555;*/
+}
+
 /* Save button for new employees */
 
 .save {
