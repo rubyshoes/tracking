@@ -17,8 +17,8 @@ class EmployeesController < ApplicationController
       redirect_to @employee # this redirects to the employee show page
     else
       @title = "You have some errors"
-      @employee.password = ""
-      @employee.password_confirmation = ""
+      @employee.password.clear
+      @employee.password_confirmation.clear
       render 'new'
     end
   end

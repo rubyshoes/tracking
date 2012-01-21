@@ -79,6 +79,11 @@ class Employee < ActiveRecord::Base
  #   return nil if employee.nil?
  #   return employee if employee.has_password?(submitted_password)
  # end
+  
+  def self.authenticate_with_password_digest(id, remember_token)
+    employee = find_by_id(id)
+    (employee &&  employee.password_digest == remember_token) ? employee : nil
+  end
 
   # defines the virtual attribute 'emp_full_name'
   def emp_full_name

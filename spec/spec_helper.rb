@@ -37,6 +37,17 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
 
+  def test_sign_in(employee)
+    controller.sign_in(employee)
+  end
+
+  def integration_sign_in(employee)
+    visit signin_path
+      fill_in :email,		:with => employee.email
+      fill_in :password,	:with => employee.password
+      click_button
+  end
+
  # config.before(:suite) do
   #  DatabaseCleaner.strategy = :transaction
    # DatabaseCleaner.clean_with(:truncation)
