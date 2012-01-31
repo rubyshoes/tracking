@@ -74,16 +74,20 @@ class Employee < ActiveRecord::Base
  #   encrypted_password == encrypt(submitted_password)
  # end
 
- # def self.authenticate(email, submitted_password)
- #   employee = find_by_email(email)
- #   return nil if employee.nil?
- #   return employee if employee.has_password?(submitted_password)
+ # def self.authenticate(email, password)
+ #   find_by_email(email).try(:authenticate, password)
  # end
+
+#  def self.authenticate(email, password)
+#    employee = find_by_email(email)
+#    return nil if employee.nil?
+#    return employee if employee.password?(password)
+#  end
   
-  def self.authenticate_with_password_digest(id, remember_token)
-    employee = find_by_id(id)
-    (employee &&  employee.password_digest == remember_token) ? employee : nil
-  end
+ # def self.authenticate(id, remember_token)
+ #   employee = find_by_id(id)
+ #   (employee &&  employee.password == remember_token) ? employee : nil
+ # end
 
   # defines the virtual attribute 'emp_full_name'
   def emp_full_name

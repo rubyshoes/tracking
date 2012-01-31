@@ -1,7 +1,7 @@
 module SessionsHelper
 
   def sign_in(employee)
-    cookies.permanent.signed[:remember_token] = [employee.id, employee.password_digest]
+    cookies.permanent.signed[:remember_token] = [employee.id, employee.password]
     self.current_employee = employee
   end
 
@@ -30,9 +30,19 @@ module SessionsHelper
     deny_access unless signed_in?
   end
 
-  def deny_access
-    store_location
-    redirect_to signin_path, :notice => "Please sign in to access this page."
+  def deny_access #(msg = nil)
+#    msg ||= "Please sign in to access this page"
+#    flash[:notice] ||= msg
+#    respond_to do |format|
+#      format.html {
+        store_location
+        redirect_to signin_path, :notice => "Please sign in to access this page."
+#      }
+#      format.js {
+#        store_location request.referer
+#        render 'sessions/redirect_to_signin', :layout=>false
+#      }
+#    end
   end
 
   def redirect_back_or(default)
@@ -43,7 +53,7 @@ module SessionsHelper
   private
 
   def employee_from_remember_token
-    Employee.authenticate_with_password_diges(*remember_token)
+    Employee.authenticate.employee(*remember_token)
   end
 
   def remember_token

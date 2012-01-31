@@ -1,14 +1,16 @@
+%h1
 %h2 Sign in
-=form_tag sessions_path do 
+= form_for(:session, :url => sessions_path) do |f|
   <fieldset><legend>Sign in</legend>
-.field
-  = label_tag :email
-  %br/
-  = text_field_tag  :email, params[:email], :size => 25, :class => "ui-state-default"
-.field
-  = label_tag :password
-  %br/
-  = password_field_tag  :password, :size => 25, :class => "ui-state-default"
+  .field
+    = f.label :email
+    %br/
+    = f.text_field :email, :size => 25, :class => "ui-state-default"
+  .field
+    = f.label :password
+    %br/
+    = f.password_field :password, :size => 25, :class => "ui-state-default"
   </fieldset>
-.actions
-  = submit_tag "Sign in", :class => 'signin strong round'
+  .actions
+    = f.submit "Sign in", :class => "signin strong round"
+

@@ -47,11 +47,11 @@ describe SessionsController do
         @attr = { :email  =>  @employee.email, :password  =>  @employee.password }
       end
 
- #     it "should sign the employee in" do
- #       post  :create,  :session  =>  @attr
- #       controller.current_employee.should == @employee
- #       controller.should be_signed_in
- #     end
+      it "should sign the employee in" do
+        post  :create,  :session  =>  @attr
+        controller.current_employee.should == @employee
+        controller.should be_signed_in
+      end
 
       it "should redirect to the employee show page" do
         post  :create,  :session  =>  @attr
