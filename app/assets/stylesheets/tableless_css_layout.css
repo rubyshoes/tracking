@@ -262,6 +262,11 @@ h3 {
   margin:            0 auto;
 }
 
+span {
+  float:                left;
+  padding:              20px;
+}
+
 p {
   text-indent:         10px;
 }

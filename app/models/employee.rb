@@ -53,14 +53,14 @@ class Employee < ActiveRecord::Base
             :last_name,
             :emp_full_name,
             :presence => true,
-            :length => { :maximum => 25 })
+            :length => { maximum: 25 })
 
   validates(:birth_date,
             :hire_date, :presence => true)
 
   validates(:email, :presence => true,
-            :format => { :with => email_regex },
-            :uniqueness => { :case_sensitive => false})
+            :format => { with: email_regex },
+            :uniqueness => { case_sensitive: false})
 
   # Automatically create the virtual attribute 'password_confirmation'.
   validates( :password, :presence             => true,
