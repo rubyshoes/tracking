@@ -177,23 +177,13 @@ describe Employee do
     end
   end
 
-  it "should reject duplicate email addresses" do
-    # Put an employee with a given email address into the database.
-    $stderr.puts @attr.inspect
-    Employee.create!(@attr)
-    employee_with_duplicate_email = Employee.new(@attr)
-    employee_with_duplicate_email.should_not be_valid
-  end
+  describe "when email address is already taken" do
+    before do
+      employee_with_same_email = @attr.dup
+      employee_with_same_email.email = @attr.email.upcase
+      employee_with_same_email.save
+    end
 
-  it "should reject email addresses identical up to case" do
-    upcased_email = @attr[:email].upcase
-    Employee.create!(@attr.merge(:email => upcased_email))
-    employee_with_upcase_email = Employee.new(@attr)
-    employee_with_upcase_email.should_not be_valid
-  end
-
-  it "should save email addresses in lowercase form" do
-    employee = Employee.create!(@attr.merge(:email => @attr[:email].upcase))
-    employee.email.should == @attr[:email] # see model for before_save(:downcase_email) and its definition
+    it { should_not be_valid }
   end
 end

@@ -180,6 +180,15 @@ nav ul li a:hover {
   margin-right: 530px;
 }
 
+/* Static Pages */
+
+title {
+  float:    left;
+  width:    97%;
+  margin:   0;
+  padding:  20px;
+}
+
 /* Employee new page */
 
 h1  {

@@ -47,25 +47,26 @@ class Employee < ActiveRecord::Base
             :address1,
             :city,
             :zip_code,
-            :state, :presence => true)
+            :state, presence: true)
 
   validates(:first_name,
             :last_name,
-            :emp_full_name,
-            :presence => true,
-            :length => { maximum: 25 })
+            presence: true,
+            length: { maximum: 25 })
+
+  validates(:emp_full_name, presence: true, length: { maximum: 45 })
 
   validates(:birth_date,
             :hire_date, :presence => true)
 
-  validates(:email, :presence => true,
-            :format => { with: email_regex },
-            :uniqueness => { case_sensitive: false})
+  validates(:email, presence: true,
+            format: { with: email_regex },
+            uniqueness: { case_sensitive: false })
 
   # Automatically create the virtual attribute 'password_confirmation'.
-  validates( :password, :presence             => true,
-                        :confirmation         => true,
-                        :length               => { :within => 6..40 })
+  validates( :password, presence:             true,
+                        confirmation:         true,
+                        length:               { :within => 6..40 })
 
   before_save :downcase_email
 

@@ -32,7 +32,7 @@ gem 'jquery-rails'
 
 group :development do
    gem 'rspec-rails', '2.8.1'
-   gem 'annotate', '~> 2.4.0'
+   gem 'annotate', :git => 'git://github.com/jeremyolliver/annotate_models.git', :branch => 'rake_compatibility' 
    gem 'faker', '1.0.1'
    gem 'database_cleaner'
    gem 'guard-rspec', '0.6.0'
@@ -45,7 +45,7 @@ group :test do
    gem 'rspec', '2.8.0'
    gem 'spork', '~> 0.9.0'
    gem 'guard-spork', '~> 0.5.1'
-   gem 'webrat', '0.7.3'
+#   gem 'webrat', '0.7.3'
    gem 'factory_girl_rails', '~> 1.6.0'
    gem 'capybara', '1.1.2'
    gem 'rb-inotify', '0.8.8'

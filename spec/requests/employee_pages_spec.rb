@@ -7,7 +7,7 @@ describe "Employee pages" do
       before { visit employee_path(employee) }
 
       it { should have_selector('h3 img') }
-      it { should have_selector('title', text: 'employee') }
+      it { should have_selector('title', text: 'Employee') }
     end
 end
 
