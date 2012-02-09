@@ -97,11 +97,6 @@ describe Employee do
 
   it { should be_valid }
 
-#  it "should create a new instance given valid attributes" do
-#    $stderr.puts @attr.inspect
-#    Employee.create!(@attr)
-#  end
-
   describe "when first_name is not present" do
     before { @attr.first_name = " " }
     it { should_not be_valid }

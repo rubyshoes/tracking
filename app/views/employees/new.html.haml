@@ -1,9 +1,9 @@
 - provide(:title, 'Add Employee')
-%h1
-%h2 New Employee
+%h2  New Employee
+%h3
 =form_for(@employee) do |f|
-  =render 'shared/error_messages', :object => f.object
-  =render 'fields', :f => f
+  =render 'shared/error_messages', object: f.object
+  =render 'fields', f:  f
   .actions
-    = f.submit "Save", :class => 'save strong round'
+    = f.submit "Save", class: 'save strong round'
 

@@ -2,12 +2,12 @@ class EmployeesController < ApplicationController
 
   def show
     @employee = Employee.find(params[:id])
-    @title = @employee.emp_full_name
+#    @title = @employee.emp_full_name
   end
 
   def new
     @employee = Employee.new
-    @title = "Add a New Employee"
+#    @title = "Add a New Employee"
   end
 
   def create

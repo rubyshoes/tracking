@@ -68,52 +68,8 @@ class Employee < ActiveRecord::Base
                         confirmation:         true,
                         length:               { :within => 6..40 })
 
-  before_save :downcase_email
-
-  # Return true if the employee's password matches the submitted password.
- # def has_password?(submitted_password)
- #   encrypted_password == encrypt(submitted_password)
- # end
-
- # def self.authenticate(email, password)
- #   find_by_email(email).try(:authenticate, password)
- # end
-
-#  def self.authenticate(email, password)
-#    employee = find_by_email(email)
-#    return nil if employee.nil?
-#    return employee if employee.password?(password)
-#  end
-  
- # def self.authenticate(id, remember_token)
- #   employee = find_by_id(id)
- #   (employee &&  employee.password == remember_token) ? employee : nil
- # end
-
   # defines the virtual attribute 'emp_full_name'
   def emp_full_name
     [first_name, last_name].join(' ')
   end
-
-private
-    def downcase_email
-      self.email.downcase!
-    end
-
-  #  def encrypt_password
-  #  self.salt = make_salt unless has_password?(password)
-  #  self.encrypted_password = encrypt(password)
-  #  end
-
-  #  def encrypt(string)
-  #    secure_hash("#{salt}--#{string}")
-  #  end
-
-  #  def make_salt
-  #    secure_hash("#{Time.now.utc}--#{password}")
-  #  end
-
-  #  def secure_hash(string)
-  #    Digest::SHA2.hexdigest(string)
-  #  end
 end

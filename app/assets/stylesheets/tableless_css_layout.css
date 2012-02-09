@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, ul, li, form {
 }
 
 ul, li {
-  list-style: none;
+  list-style: none; 
 }
 
 /* Pages stylehooks */
@@ -200,19 +200,29 @@ h1  {
 
 h2  {
   text-align:       center;
+  font: thick small Verdana,Sans-serif;
+  font-size:        95%;
   text-transform:   uppercase;
   text-decoration:  none;
-  font-size:        125%;
   padding:          10px;
 }
 
+h3 {
+  font: small Verdana,Sans-serif;
+  text-decoration:  none;
+  font-size:        90%;
+}
+
 div.field {
-  float:            left;
+  float:             left;
   padding:          0.3em;
-  margin-left:      auto;
-  margin-right:     auto;
-  margin-bottom:    3px;
-  margin-top:       40px;
+  font: small Verdana,Sans-serif;
+  font-size:          90%;
+  text-decoration:   none;
+  margin-left:       auto;
+  margin-right:      auto;
+  margin-bottom:      3px;
+  margin-top:        40px;
 }
 
   div.actions {
@@ -232,7 +242,8 @@ fieldset {
 }
 
 legend {
-  font-size:            97%;
+  font-size:            90%;
+  text-decoration:     none;
   padding:      0.2em 0.5em;
   background-color:    #eee;
 }
