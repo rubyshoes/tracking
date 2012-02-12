@@ -13,7 +13,7 @@
 #  primary_position          :string(255)     not null
 #  trained_position          :text
 #  email                     :string(255)     not null
-#  active                    :boolean         default(TRUE)
+#  active                    :boolean         default(TRUE), not null
 #  address1                  :string(255)     not null
 #  address2                  :string(255)
 #  city                      :string(255)     not null
@@ -29,8 +29,8 @@
 #  updated_at                :datetime        not null
 #  role                      :string(255)
 #  birth_date                :date            not null
-#  password_digest           :string(255)
-#  remember_token            :string(255)
+#  password_digest           :string(255)     not null
+#  remember_token            :string(255)     not null
 #
 
 require 'spec_helper'
