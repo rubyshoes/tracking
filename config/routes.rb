@@ -1,24 +1,24 @@
 Tracking::Application.routes.draw do
 
   resources :employees
-  resources :sessions, :only => [:new, :create, :destroy]
+  resources :sessions, only:  [:new, :create, :destroy]
 
-  root :to => 'pages#home'
+  root to:      'pages#home'
 
-  match '/home',          :to => 'pages#home'
+  match '/home',          to:     'pages#home'
 
-  match '/about',         :to => 'pages#about'
+  match '/about',         to:     'pages#about'
 
-  match '/contact',       :to => 'pages#contact'
+  match '/contact',       to:     'pages#contact'
 
-  match '/help',          :to => 'pages#help'
+  match '/help',          to:     'pages#help'
 
-  match '/employees/:id', :to => 'employees#show', :as => :employee
+  match '/employees/:id', to:     'employees#show', :as => :employee
 
-  match '/newemployee',   :to => 'employees#new'
+  match '/newemployee',   to:     'employees#new'
 
-  match '/signin',        :to => 'sessions#new'
-  match '/signout',       :to => 'sessions#destroy'
+  match '/signin',        to:     'sessions#new'
+  match '/signout',       to:     'sessions#destroy'
 
 
   # The priority is based upon order of creation:

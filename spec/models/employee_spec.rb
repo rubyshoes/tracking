@@ -13,7 +13,7 @@
 #  primary_position          :string(255)     not null
 #  trained_position          :text
 #  email                     :string(255)     not null
-#  active                    :boolean         default(TRUE), not null
+#  active                    :boolean         default(TRUE)
 #  address1                  :string(255)     not null
 #  address2                  :string(255)
 #  city                      :string(255)     not null
@@ -28,8 +28,9 @@
 #  created_at                :datetime        not null
 #  updated_at                :datetime        not null
 #  role                      :string(255)
-#  birth_date                :date
+#  birth_date                :date            not null
 #  password_digest           :string(255)
+#  remember_token            :string(255)
 #
 
 require 'spec_helper'
@@ -94,6 +95,8 @@ describe Employee do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:remember_token) }
+  it { should respond_to(:authenticate) }
 
   it { should be_valid }
 
@@ -107,8 +110,68 @@ describe Employee do
     it { should_not be_valid }
   end
 
+  describe "when last_name is not present" do
+    before { @attr.last_name = " " }
+    it { should_not be_valid }
+  end
+
   describe "when last_name is too long" do
     before { @attr.last_name = "a" *26 }
+    it { should_not be_valid }
+  end
+
+  describe "when marital_status is not present" do
+    before { @attr.marital_status = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when gender is not present" do
+    before { @attr.gender = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when hire_date is not present" do
+    before { @attr.hire_date = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when primary_position is not present" do
+    before { @attr.primary_position = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when email is not present" do
+    before { @attr.email = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when active is not present" do
+    before { @attr.active = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when address1 is not present" do
+    before { @attr.address1 = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when city is not present" do
+    before { @attr.city = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when zip_code is not present" do
+    before { @attr.zip_code = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when state is not present" do
+    before { @attr.state = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when birth_date is not present" do
+    before { @attr.birth_date = " " }
     it { should_not be_valid }
   end
 
@@ -126,8 +189,6 @@ describe Employee do
       it { should_not be_valid }
     end
   end
-
-  it { should respond_to(:authenticate) }
 
   describe "return value of authenticate method" do
     before { @attr.save }
@@ -152,6 +213,13 @@ describe Employee do
   describe "when a password is too long" do
     before { @attr.password = "a" * 41 }
     it { should_not be_valid }
+  end
+
+# REMEMBER_TOKEN
+
+  describe "remember token" do
+    before { @attr.save }
+    its(:remember_token) { should_not be_blank }
   end
 
 # EMAIL VALIDATIONS

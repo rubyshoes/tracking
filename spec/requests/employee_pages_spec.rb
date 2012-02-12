@@ -55,6 +55,25 @@ describe "Employee 'Show and New Employee' pages" do
         it "should create a new employee" do
           expect { click_button "Save" }.to change(Employee, :count).by(1)
         end
+
+        describe "after saving the newly added employee" do
+          before { click_button "Save" }
+          let(:employee) { Employee.find_by_email('spriestly@example.com') }
+
+          it { should have_selector('span1', text: employee.first_name) }
+          it { should have_selector('div.flash.success', text: 'New Employee') }
+  #        it { should have_link('Sign out') }
+        end
+      end
+
+      describe "error messages" do
+
+        before { click_button "Save" }
+
+        let(:error) { 'errors prohibited this user from being saved' }
+
+        it { should have_selector('title', text: 'Add Employee') }
+        it { should have_content(error) }
       end
     end
 end

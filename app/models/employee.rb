@@ -13,7 +13,7 @@
 #  primary_position          :string(255)     not null
 #  trained_position          :text
 #  email                     :string(255)     not null
-#  active                    :boolean         default(TRUE), not null
+#  active                    :boolean         default(TRUE)
 #  address1                  :string(255)     not null
 #  address2                  :string(255)
 #  city                      :string(255)     not null
@@ -28,13 +28,16 @@
 #  created_at                :datetime        not null
 #  updated_at                :datetime        not null
 #  role                      :string(255)
-#  birth_date                :date
+#  birth_date                :date            not null
 #  password_digest           :string(255)
+#  remember_token            :string(255)
 #
 
 class Employee < ActiveRecord::Base
 
   has_secure_password
+
+  before_save :create_remember_token
 
   attr_accessor :emp_full_name
 
@@ -72,4 +75,10 @@ class Employee < ActiveRecord::Base
   def emp_full_name
     [first_name, last_name].join(' ')
   end
+
+  private
+
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end

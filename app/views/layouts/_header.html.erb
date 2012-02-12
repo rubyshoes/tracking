@@ -4,8 +4,15 @@
 <nav class="round">
 <ul>
     <li><strong class="round"><%= link_to "Home", root_path %></strong></li>
-    <li><strong class="round"><%= link_to "Help", help_path %></strong></li>
+    <% if signed_in? %>
+      <li><strong class="round"><%= link_to "Profile", current_employee %></strong></li>
+    <% end %>
+    <li><strong class="round"><%= link_to "Help", help_path %></strong><li>
     <li><strong class="round"><%= link_to "New Employee", newemployee_path %></strong></li>
-    <li><strong class="round"><%= link_to "Sign in", '#' %></li>
+    <% if signed_in? %>
+      <li><strong class="round"><%= link_to "Sign out", signout_path, method:   :delete %></strong></li>
+    <% else %>
+      <li><strong class="round"><%= link_to "Sign in", signin_path %></strong></li>
+    <% end %>
   </ul>
 </nav>
