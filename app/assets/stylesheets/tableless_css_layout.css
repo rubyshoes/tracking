@@ -35,7 +35,7 @@ body  {
   color:      #fff;
 }
 
-#page {
+#page1 {
   width: 90%;
   margin: 0 auto;/* this 0 auto centers the page on the screen */
 }
@@ -284,7 +284,7 @@ h3 {
 
 span1 {
   float:                left;
-  padding:              20px;
+  padding:              10px;
 }
 
 p {
@@ -306,6 +306,63 @@ p {
   padding:                0;
   border: 3px solid    #989;
   margin:            0 auto;
+}
+
+/* Employee Edit Page */
+
+h4  {
+  text-align:       center;
+  font: thick small Verdana,Sans-serif;
+  font-size:        95%;
+  text-transform:   uppercase;
+  text-decoration:  none;
+  padding:             0;
+}
+
+.update {
+  float:              right;
+  background:          #135;
+  text-transform: uppercase;
+  text-decoration:     none;
+  margin-top:          50px;
+  padding:              3px;
+  width:               80px;
+  color:            #7fffd4;
+  font-weight:         bold;
+}
+
+#anchor {
+  float:            left;
+  margin:     50px 0 0 0;
+}
+
+#anchor a {
+  float:            left;
+  margin:     15px 0 0 10px;
+}
+
+/* Employee Index Page */
+
+ul.employees {
+  margin-top:       1em;
+}
+
+li.employees {
+  list-style:     none;
+}
+
+.gravatar {
+  float:      left;
+  margin-top:  5px;
+}
+
+span2 {
+  margin-top:    25px;
+  display:      block;
+}
+
+span3 {
+  padding:  0 0 0 5px;
 }
 
 /* Error messages */

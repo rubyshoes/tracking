@@ -1,0 +1,37 @@
+- provide(:title, 'Edit')
+%h4 Edit
+= form_for(@employee) do |f|
+  = render 'shared/error_messages'
+  <fieldset><legend>Edit Employee Details</legend>
+  .field
+    = f.label :name, "First Name"
+    %br/
+    = f.text_field :first_name, :size => 15, :class => "ui-state-default"
+  .field
+    = f.label :name, "MI"
+    %br/
+    = f.text_field :mi, :size => 3, :class => "ui-state-default"
+  .field
+    = f.label :name, "Last Name"
+    %br/
+    = f.text_field :last_name, :size => 15, :class => "ui-state-default"
+  .field
+    = f.label :email
+    %br/
+    = f.text_field :email, :size => 25, :class => "ui-state-default"
+  </fieldset>
+  <fieldset><legend>Edit Password</legend>
+  .field
+    = f.label :name, "Password"
+    %br/
+    = f.password_field :password, :size => 25, :class => "ui-state-default"
+  .field
+    = f.label :name, "Password Confirmation"
+    %br/
+    = f.password_field :password_confirmation, :size => 25, :class => "ui-state-default"
+  </fieldset>
+  .actions
+    = f.submit "Update", class: 'update strong round'
+#anchor
+  = gravatar_for(@employee)
+  %a{:href => "http://gravatar.com/emails"} change

@@ -1,24 +1,31 @@
 require 'spec_helper'
 
-describe "Employee 'Show and New Employee' pages" do
+describe "Employee 'Show, New Employee, Edit' pages" do
 
   subject { page }
 
-    describe "employee show page" do
+    describe "employee 'profile/show' page" do
       let(:employee) { FactoryGirl.create(:employee) }
       before { visit employee_path(employee) }
 
       it { should have_selector('h3 img') }
-      it { should have_selector('title', text: 'Employee') }
+      it { should have_selector('title', text: employee.emp_full_name) }
     end
 
     describe "new employee addition" do
-
       before { visit newemployee_path }
 
       describe "with invalid information" do
         it "should not create a new employee" do
           expect { click_button "Save" }.not_to change(Employee, :count)
+        end
+
+        describe "error messages" do
+          before { click_button "Save" }
+          let(:error) { 'errors prohibited this user from being saved' }
+
+          it { should have_selector('title', text: 'Add Employee') }
+          it { should have_content(error) }
         end
       end
 
@@ -62,19 +69,86 @@ describe "Employee 'Show and New Employee' pages" do
 
           it { should have_selector('span1', text: employee.first_name) }
           it { should have_selector('div.flash.success', text: 'New Employee') }
-  #        it { should have_link('Sign out') }
         end
       end
+    end
 
+  describe "edit" do
+    let(:employee) { FactoryGirl.create(:employee) }
+    before do
+      sign_in employee
+      visit edit_employee_path(employee)
+    end
+
+    describe "page" do
+      it { should have_selector('h4',     text: "Edit") }
+      it { should have_selector('title',  text: "Edit") }
+      it { should have_link('change',     href: 'http://gravatar.com/emails') }
+    end
+
+    describe "with invalid information" do
       describe "error messages" do
-
-        before { click_button "Save" }
-
+        before { click_button "Update" }
         let(:error) { 'errors prohibited this user from being saved' }
 
-        it { should have_selector('title', text: 'Add Employee') }
         it { should have_content(error) }
       end
     end
-end
 
+    describe "with valid information" do
+      let(:employee)          {FactoryGirl.create(:employee) }
+      let(:new_first_name)    { employee.first_name }
+      let(:new_mi)            { employee.mi}
+      let(:new_last_name)     { employee.last_name }
+      let(:new_email)         { employee.email }
+      let(:new_password)      { employee.password }
+      before do
+        fill_in "employee_first_name",               with: new_first_name
+        fill_in "employee_mi",                       with: new_mi
+        fill_in "employee_last_name",                with: new_last_name
+        fill_in "employee_email",                    with: new_email
+        fill_in "employee_password",                 with: new_password
+        fill_in "employee_password_confirmation",    with: new_password
+        click_button "Update"
+      end
+
+      it { should have_selector('title', text: employee.emp_full_name) }
+      it { should have_selector('div.flash.success') }
+      specify { employee.reload.first_name.should == new_first_name }
+      specify { employee.reload.last_name.should  == new_last_name }
+      specify { employee.reload.email.should      == new_email }
+    end
+  end
+
+  describe "index" do
+    let(:employee) { FactoryGirl.create(:employee) }
+    before do
+      sign_in employee
+      visit employees_path
+    end
+
+    it { should have_selector('title', text: 'All employees') }
+
+    describe "pagination" do
+      before(:all) { 50.times { FactoryGirl.create(:employee) } }
+      after(:all)  { Employee.delete_all }
+
+      it { should have_link('Next') }
+      it { should have_link('2') }
+
+      describe "as an admin user" do
+        let(:admin) { FactoryGirl.create(:admin) }
+        before do
+          sign_in admin
+          visit employees_path
+        end
+      end
+
+      it "should list each employee" do
+        Employee.all[0..2].each do |employee|
+          page.should have_selector('li', text: employee.emp_full_name)
+        end
+      end
+    end
+  end
+end

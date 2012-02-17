@@ -28,9 +28,10 @@
 #  created_at                :datetime        not null
 #  updated_at                :datetime        not null
 #  role                      :string(255)
-#  birth_date                :date            not null
-#  password_digest           :string(255)     not null
-#  remember_token            :string(255)     not null
+#  birth_date                :date
+#  password_digest           :string(255)
+#  remember_token            :string(255)
+#  admin                     :boolean         default(FALSE)
 #
 
 class Employee < ActiveRecord::Base

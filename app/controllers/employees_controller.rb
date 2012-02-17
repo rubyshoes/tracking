@@ -1,19 +1,22 @@
 class EmployeesController < ApplicationController
+  before_filter :signed_in_employee, only: [:index, :edit, :update]
+  before_filter :correct_employee,   only: [:edit, :update]
+
+  def index
+    @employees = Employee.paginate(page: params[:page])
+  end
 
   def show
     @employee = Employee.find(params[:id])
-#    @title = @employee.emp_full_name
   end
 
   def new
     @employee = Employee.new
-#    @title = "Add a New Employee"
   end
 
   def create
     @employee = Employee.new(params[:employee])
     if @employee.save
-#      sign_in @employee
       flash[:success] = "New Employee has been saved"
       redirect_to @employee # this redirects to the employee show page
     else
@@ -23,4 +26,30 @@ class EmployeesController < ApplicationController
       render 'new'
     end
   end
+
+  def edit
+  end
+
+  def update
+    if @employee.update_attributes(params[:employee])
+      flash[:success] = "Employee Profile updated"
+      redirect_to @employee
+    else
+      render 'edit'
+    end
+  end
+
+  private
+
+    def signed_in_employee
+      unless signed_in?
+        store_location
+        redirect_to signin_path, notice: "Please sign in to access this page."
+      end
+    end
+
+    def correct_employee
+      @employee = Employee.find(params[:id])
+      redirect_to(root_path) unless current_employee?(@employee)
+    end
 end

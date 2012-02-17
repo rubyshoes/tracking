@@ -28,9 +28,10 @@
 #  created_at                :datetime        not null
 #  updated_at                :datetime        not null
 #  role                      :string(255)
-#  birth_date                :date            not null
-#  password_digest           :string(255)     not null
-#  remember_token            :string(255)     not null
+#  birth_date                :date
+#  password_digest           :string(255)
+#  remember_token            :string(255)
+#  admin                     :boolean         default(FALSE)
 #
 
 require 'spec_helper'
@@ -62,6 +63,7 @@ describe Employee do
       emer_contact_last_name: "Pottle",
       emer_contact_relationship: "Sister",
       emer_contact_ph: "1-333-333-3333",
+      admin:  "false",
       password: "foobar",
       password_confirmation: "foobar")
   end
@@ -92,6 +94,7 @@ describe Employee do
   it { should respond_to(:emer_contact_last_name) }
   it { should respond_to(:emer_contact_relationship) }
   it { should respond_to(:emer_contact_ph) }
+  it { should respond_to(:admin) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
@@ -99,6 +102,13 @@ describe Employee do
   it { should respond_to(:authenticate) }
 
   it { should be_valid }
+  it { should_not be_admin }
+
+  describe "with admin attribut set to 'true'" do
+    before { @attr.toggle!(:admin) }
+
+    it { should be_admin }
+  end
 
   describe "when first_name is not present" do
     before { @attr.first_name = " " }

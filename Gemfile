@@ -6,7 +6,7 @@ gem 'rspec-core', '2.8.0'
 gem 'rspec-expectations', '2.8.0'
 gem 'rspec-mocks', '2.8.0'
 gem 'gravatar_image_tag', '1.0.0'
-gem 'will_paginate', '3.0.2'
+gem 'will_paginate', '3.0.3'
 gem 'nokogiri', '1.5.0'
 
 # Bundle edge Rails instead:

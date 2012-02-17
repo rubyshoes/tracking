@@ -11,37 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120210184911) do
+ActiveRecord::Schema.define(:version => 20120217174543) do
 
   create_table "employees", :force => true do |t|
-    t.string   "first_name",                                  :null => false
-    t.string   "last_name",                                   :null => false
+    t.string   "first_name",                                   :null => false
+    t.string   "last_name",                                    :null => false
     t.string   "mi"
-    t.string   "marital_status",                              :null => false
-    t.string   "gender",                                      :null => false
-    t.date     "hire_date",                                   :null => false
+    t.string   "marital_status",                               :null => false
+    t.string   "gender",                                       :null => false
+    t.date     "hire_date",                                    :null => false
     t.date     "term_date"
-    t.string   "primary_position",                            :null => false
+    t.string   "primary_position",                             :null => false
     t.text     "trained_position"
-    t.string   "email",                                       :null => false
-    t.boolean  "active",                    :default => true, :null => false
-    t.string   "address1",                                    :null => false
+    t.string   "email",                                        :null => false
+    t.boolean  "active",                    :default => true,  :null => false
+    t.string   "address1",                                     :null => false
     t.string   "address2"
-    t.string   "city",                                        :null => false
-    t.string   "zip_code",                                    :null => false
-    t.string   "state",                                       :null => false
+    t.string   "city",                                         :null => false
+    t.string   "zip_code",                                     :null => false
+    t.string   "state",                                        :null => false
     t.string   "emp_home_ph"
     t.string   "emp_mobile_ph"
     t.string   "emer_contact_first_name"
     t.string   "emer_contact_last_name"
     t.string   "emer_contact_relationship"
     t.string   "emer_contact_ph"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
     t.string   "role"
     t.date     "birth_date"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "admin",                     :default => false
   end
 
   add_index "employees", ["email"], :name => "index_employees_on_email", :unique => true
