@@ -130,7 +130,7 @@ describe "Employee 'Show, New Employee, Edit' pages" do
     it { should have_selector('title', text: 'All employees') }
 
     describe "pagination" do
-      before(:all) { 50.times { FactoryGirl.create(:employee) } }
+      before(:all) { 30.times { FactoryGirl.create(:employee) } }
       after(:all)  { Employee.delete_all }
 
       let(:first_page)    { Employee.paginate(page: 1) }
