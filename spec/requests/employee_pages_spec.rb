@@ -133,20 +133,26 @@ describe "Employee 'Show, New Employee, Edit' pages" do
       before(:all) { 50.times { FactoryGirl.create(:employee) } }
       after(:all)  { Employee.delete_all }
 
-      it { should have_link('Next') }
-      it { should have_link('2') }
+      let(:first_page)    { Employee.paginate(page: 1) }
+      let(:second_page)   { Employee.paginate(page: 2) }
+
+      it "should list the first page of employees" do
+        first_page.each do |employee|
+          page.should have_selector('li', text: employee.emp_full_name)
+        end
+      end
+
+      it "should not list the second page of employees" do
+        second_page.each do |employee|
+          page.should_not have_selector('li', text: employee.emp_full_name)
+        end
+      end
 
       describe "as an admin user" do
         let(:admin) { FactoryGirl.create(:admin) }
         before do
           sign_in admin
           visit employees_path
-        end
-      end
-
-      it "should list each employee" do
-        Employee.all[0..2].each do |employee|
-          page.should have_selector('li', text: employee.emp_full_name)
         end
       end
     end

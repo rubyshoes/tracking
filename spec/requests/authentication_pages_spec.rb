@@ -75,10 +75,6 @@ describe "Authentication" do
           specify { response.should redirect_to(root_path) }
         end
       end
-    end
-
-    describe "for non-signed-in employees" do
-      let(:employee) { FactoryGirl.create(:employee) }
 
       describe " when attempting to visit a protected page" do
         before do
@@ -93,13 +89,26 @@ describe "Authentication" do
           it "should render the desired protected page" do
             page.should have_selector('title', text: 'Edit')
           end
+
+          describe "when signing in again" do
+            before do
+              visit signin_path
+              fill_in "Email",        with: employee.email
+              fill_in "Password",     with: employee.password
+              click_button "Sign in"
+            end
+
+            it "should render the default (profile/show) page" do
+              page.should have_selector('title', text: employee.emp_full_name)
+            end
+          end
         end
       end
-
-      describe "visiting employee index" do
-        before { visit employees_path }
-        it { should have_selector('title', text: 'Sign in') }
-      end
     end
+  end
+
+  describe "visiting employee index" do
+    before { visit employees_path }
+    it { should have_selector('title', text: 'Sign in') }
   end
 end

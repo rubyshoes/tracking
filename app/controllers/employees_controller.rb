@@ -52,4 +52,8 @@ class EmployeesController < ApplicationController
       @employee = Employee.find(params[:id])
       redirect_to(root_path) unless current_employee?(@employee)
     end
+
+    def admin_employee
+      redirect_to(root_path) unless current_user.admin?
+    end
 end
