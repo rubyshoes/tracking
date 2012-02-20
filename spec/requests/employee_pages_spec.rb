@@ -40,6 +40,7 @@ describe "Employee 'Show, New Employee, Edit' pages" do
           fill_in "employee_hire_date",                    with: '2002-01-01'
           fill_in "employee_term_date",                    with: "null"
           check   "employee_active"
+          check   "employee_admin"
           fill_in "employee_primary_position",             with: "Household"
           fill_in "employee_trained_position",             with: "Job Coach"
 	        fill_in "employee_role",                         with: "Staff"
@@ -130,7 +131,7 @@ describe "Employee 'Show, New Employee, Edit' pages" do
     it { should have_selector('title', text: 'All employees') }
 
     describe "pagination" do
-      before(:all) { 30.times { FactoryGirl.create(:employee) } }
+      before(:all) { 31.times { FactoryGirl.create(:employee) } }
       after(:all)  { Employee.delete_all }
 
       let(:first_page)    { Employee.paginate(page: 1) }

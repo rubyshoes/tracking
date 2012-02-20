@@ -1,6 +1,5 @@
-- @employees.each do |employee|
-  %li
-    %span2
-      = gravatar_for(employee, size: 30)
-    %span3
-      = link_to employee.emp_full_name, employee
+%li
+  %span2
+    = gravatar_for(employee, size: 30)
+  %span3
+    = link_to employee.emp_full_name, employee

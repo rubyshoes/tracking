@@ -13,9 +13,11 @@ $ ->
 			changeMonth: true,
 			changeYear: true,
 			yearRange: '1930:2050'
+			formatDate: 'mm-dd-yy'
 	})
 	$("#employee_term_date").datepicker({
 			changeMonth: true,
 			changeYear: true,
 			yearRange: '1930:2050'
+			formatDate: 'mm-dd-yy'
 	})
