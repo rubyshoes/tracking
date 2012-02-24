@@ -149,11 +149,17 @@ describe "Employee 'Show, New Employee, Edit' pages" do
         end
       end
 
-      describe "as an admin user" do
+      describe "as an admin employee" do
         let(:admin) { FactoryGirl.create(:admin) }
         before do
-          sign_in admin
+          valid_signin(admin)
           visit employees_path
+
+        it { should have_link('Employees', href: employees_path) }
+
+        it { should have_link('Sign out', href: signout_path) }
+
+        it { should_not have_link('Sign in', href: signin_path) }
         end
       end
     end

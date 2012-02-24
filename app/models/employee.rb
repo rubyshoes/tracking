@@ -61,7 +61,7 @@ class Employee < ActiveRecord::Base
   validates(:emp_full_name, presence: true, length: { maximum: 45 })
 
   validates(:birth_date,
-            :hire_date, :presence => true)
+            :hire_date, presence: true)
 
   validates(:email, presence: true,
             format: { with: email_regex },

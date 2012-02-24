@@ -104,7 +104,7 @@ describe Employee do
   it { should be_valid }
   it { should_not be_admin }
 
-  describe "with admin attribut set to 'true'" do
+  describe "with admin attribute is set to 'true'" do
     before { @attr.toggle!(:admin) }
 
     it { should be_admin }

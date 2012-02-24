@@ -22,15 +22,17 @@ describe "Authentication" do
       end
     end
 
-    describe "with valid information" do
+    describe "non_admin employee with valid information" do
       let(:employee) { FactoryGirl.create(:employee) }
       before { valid_signin(employee) }
 
       it { should have_selector('title',     text: employee.emp_full_name) }
 
-      it { should have_link('Employees',     href: employees_path) }
-      it { should have_link('Profile',       href: employee_path(employee)) }
-      it { should have_link('Settings',      href: edit_employee_path(employee)) }
+      it { should_not have_link('Employees',     href: employees_path) }
+      it { should_not have_link('Profile',       href: employee_path(employee)) }
+      it { should_not have_link('Settings',      href: edit_employee_path(employee)) }
+      it { should_not have_link('New Employee',  href: new_employee_path) }
+
       it { should have_link('Sign out',      href: signout_path) }
 
       it { should_not have_link('Sign in',   href: signin_path) }
@@ -38,6 +40,29 @@ describe "Authentication" do
       describe "followed by signout" do
         before { click_link "Sign out" }
         it { should have_link('Sign in') }
+      end
+    end
+
+    describe "admin employee with valid information" do
+      let(:admin)    { FactoryGirl.create(:admin) }
+      before { valid_signin(admin) }
+
+      it { should have_selector('title',     text: admin.emp_full_name) }
+
+      it { should have_link('Employees',     href: employees_path) }
+      it { should have_link('Profile',       href: employee_path(admin)) }
+      it { should have_link('Settings',      href: edit_employee_path(admin)) }
+      it { should have_link('New Employee',  href: newemployee_path) }
+
+      it { should have_link('Sign out',      href: signout_path) }
+
+      it { should_not have_link('Sign in',   href: signin_path) }
+
+      describe "Employee" do
+        it "logs factory girl generated objects" do
+          admin = Factory( :admin )
+          logger.warn( admin.pretty_inspect )
+        end
       end
     end
   end
@@ -110,5 +135,13 @@ describe "Authentication" do
   describe "visiting employee index" do
     before { visit employees_path }
     it { should have_selector('title', text: 'Sign in') }
+  end
+
+  describe "Employee" do
+
+    it "logs factory girl generated objects" do
+      admin = Factory( :admin )
+      logger.warn( admin.pretty_inspect )
+    end
   end
 end
