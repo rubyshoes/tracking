@@ -11,7 +11,65 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120217174543) do
+ActiveRecord::Schema.define(:version => 20120224202339) do
+
+  create_table "clientlines", :force => true do |t|
+    t.integer  "contract_id"
+    t.integer  "client_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "clients", :force => true do |t|
+    t.string   "f_name"
+    t.string   "mi"
+    t.string   "l_name"
+    t.date     "birth_date"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "medicare_num"
+    t.string   "medicaid_num"
+    t.string   "member_num"
+    t.string   "soc_sec_care_mgr"
+    t.string   "sscm_ph"
+    t.string   "nurse_care_mgr"
+    t.string   "ncm_ph"
+    t.string   "emer_contact"
+    t.string   "ec_ph"
+    t.string   "pri_care_phy"
+    t.string   "pcp_ph"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "codelines", :force => true do |t|
+    t.integer  "contract_id"
+    t.integer  "code_id"
+    t.integer  "client_id"
+    t.decimal  "units_alloc", :precision => 6, :scale => 2
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
+
+  create_table "codes", :force => true do |t|
+    t.string   "codename"
+    t.string   "status"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "contracts", :force => true do |t|
+    t.string   "authnum"
+    t.integer  "client_id"
+    t.date     "st_date"
+    t.date     "end_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "employees", :force => true do |t|
     t.string   "first_name",                                   :null => false

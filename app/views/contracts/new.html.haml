@@ -1,0 +1,8 @@
+- provide(:title, 'Add Contract')
+%h2 New Contract
+=form_for(@contract) do |f|
+  =render 'shared/contract_error_messages', object: f.object
+  =render 'fields', f:  f
+  .actions
+    = f.submit "Save", class: 'save strong round'
+

@@ -1,0 +1,7 @@
+- provide(:title, @employee.emp_full_name)
+%h3
+  = gravatar_for @employee
+  %span1
+    = @employee.emp_full_name
+  %span1
+    = @employee.email

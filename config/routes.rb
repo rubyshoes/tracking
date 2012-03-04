@@ -1,6 +1,7 @@
 Tracking::Application.routes.draw do
 
   resources :employees
+  resources :contracts
   resources :sessions, only:  [:new, :create, :destroy]
 
   root to:      'pages#home'
@@ -16,6 +17,10 @@ Tracking::Application.routes.draw do
   match '/employees/:id', to:     'employees#show', :as => :employee
 
   match '/newemployee',   to:     'employees#new'
+
+  match '/contracts/:id', to:     'contracts#show', :as => :contract
+
+  match '/newcontract',   to:     'contracts#new'
 
   match '/signin',        to:     'sessions#new'
   match '/signout',       to:     'sessions#destroy'

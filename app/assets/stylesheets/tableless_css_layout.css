@@ -189,7 +189,7 @@ title {
   padding:  20px;
 }
 
-/* Employee new page */
+/* New Employee page & New Contract page*/
 
 h1  {
   float:  left;
@@ -208,9 +208,12 @@ h2  {
 }
 
 h3 {
-  font: small Verdana,Sans-serif;
-  text-decoration:  none;
-  font-size:        90%;
+  float:                      left;
+  width:                       97%;
+  margin:                   0 auto;
+  font:   small Verdana,Sans-serif;
+  text-decoration:            none;
+  font-size:                   97%;
 }
 
 div.field {
@@ -222,10 +225,10 @@ div.field {
   margin-left:       auto;
   margin-right:      auto;
   margin-bottom:      3px;
-  margin-top:        40px;
+  margin-top:        10px;
 }
 
-  div.actions {
+div.actions {
   float:            right;
   padding:          0.3em;
   margin-left:      auto;
@@ -277,9 +280,12 @@ legend {
 /* Employee show page */
 
 h3 {
-  float:               left;
-  width:                97%;
-  margin:            0 auto;
+  float:                      left;
+  width:                       97%;
+  margin:                   0 auto;
+  font:   small Verdana,Sans-serif;
+  text-decoration:            none;
+  font-size:                   97%;
 }
 
 span1 {
@@ -310,7 +316,7 @@ p {
 
 /* Employee Edit Page */
 
-h4  {
+h5 {
   text-align:       center;
   font: thick small Verdana,Sans-serif;
   font-size:        95%;
@@ -390,7 +396,7 @@ span3 {
   background-color: #f0f0f0;
 }
 
-#error_explanation h5 {
+#error_explanation h9 {
   text-align: left;
   font-weight: bold;
   padding: 5px 5px 5px 15px;

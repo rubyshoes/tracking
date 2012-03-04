@@ -1,0 +1,117 @@
+<fieldset><legend>Enter Contract Details</legend>
+.field
+  = f.label :name, "AuthNum"
+  %br/
+  = f.text_field  :authnum, :size => 10, :class => "ui-state-default"
+.field
+  = f.label :name, "Start Date"
+  %br/
+  = f.text_field  :st_date, :size => 12, :class => "ui-state-default"
+.field
+  = f.label :name, "End Date"
+  %br/
+  = f.text_field  :end_date, :size => 12, :class => "ui-state-default"
+</fieldset>
+<fieldset><legend>Enter Client Details</legend>
+= f.fields_for :clients do |ff|
+  .field
+    = ff.label :name, "First Name"
+    %br/
+    = ff.text_field :f_name, :size => 15, :class => "ui-state-default"
+  .field
+    = ff.label :name, "MI"
+    %br/
+    = ff.text_field :mi, :size => 3, :class => "ui-state-default"
+  .field
+    = ff.label :name, "Last Name"
+    %br/
+    = ff.text_field :l_name, :size => 15, :class => "ui-state-default"
+  .field
+    = ff.label :name, "Birth Date"
+    %br/
+    = ff.text_field :birth_date, :size => 12, :class => "ui-state-default"
+  .field
+    = ff.label :name, "Address1"
+    %br/
+    = ff.text_field :address1, :size => 25, :class => "ui-state-default"
+  .field
+    = ff.label :name, "Address2"
+    %br/
+    = ff.text_field :address2, :size => 25, :class => "ui-state-default"
+  .field
+    = ff.label :name, "City"
+    %br/
+    = ff.text_field :city, :size => 15, :class => "ui-state-default"
+  .field
+    = ff.label :name, "ZipCode"
+    %br/
+    = ff.text_field :zip_code, :size => 10, :class => "ui-state-default"
+  .field
+    = ff.label :name, "State"
+    %br/
+    = ff.text_field :state, :size => 15, :class => "ui-state-default"
+  .field
+    = ff.label :name, "MedicareNum"
+    %br/
+    = ff.text_field :medicare_num, :size => 20, :class => "ui-state-default"
+  .field
+    = ff.label :name, "MedicaidNum"
+    %br/
+    = ff.text_field :medicaid_num, :size => 20, :class => "ui-state-default"
+  .field
+    = ff.label :name, "MemberNum"
+    %br/
+    = ff.text_field :member_num, :size => 20, :class => "ui-state-default"
+  .field
+    = ff.label :name, "SocSecCareMgr"
+    %br/
+    = ff.text_field :soc_sec_care_mgr, :size => 20, :class => "ui-state-default"
+  .field
+    = ff.label :name, "SSCM_Ph"
+    %br/
+    = ff.text_field :sscm_ph, :size => 15, :class => "ui-state-default"
+  .field
+    = ff.label :name, "NurseCareMgr"
+    %br/
+    = ff.text_field :nurse_care_mgr, :size => 20, :class => "ui-state-default"
+  .field
+    = ff.label :name, "NCM_Ph"
+    %br/
+    = ff.text_field :ncm_ph, :size => 15, :class => "ui-state-default"
+  .field
+    = ff.label :name, "EmergencyContact"
+    %br/
+    = ff.text_field :emer_contact, :size => 20, :class => "ui-state-default"
+  .field
+    = ff.label :name, "EC_Ph"
+    %br/
+    = ff.text_field :ec_ph, :size => 15, :class => "ui-state-default"
+  .field
+    = ff.label :name, "PrimaryCarePhy"
+    %br/
+    = ff.text_field :pri_care_phy, :size => 20, :class => "ui-state-default"
+  .field
+    = ff.label :name, "PCP_Ph"
+    %br/
+    = ff.text_field :pcp_ph, :size => 15, :class => "ui-state-default"
+</fieldset>
+<fieldset><legend>Enter Billing Code Details</legend>
+= f.fields_for :codes do |ff|
+  .field
+    = ff.label :name, "Code Name"
+    %br/
+    = ff.text_field :code_name, :size => 15, :class => "ui-state-default"
+  .field
+    = ff.label :name, "Status"
+    %br/
+    = ff.text_field :status, :size => 10, :class => "ui-state-default"
+  .field
+    = ff.label :name, "Description"
+    %br/
+    = ff.text_field :description, :size => 25, :class => "ui-state-default"
+= f.fields_for :codelines do |ff|
+  .field
+    = ff.label :name, "Units Alloc"
+    %br/
+    = ff.text_field :units_alloc, :precision => 6, :scale => 2, :size => 10, :class => "ui-state-default"
+</fieldset>

@@ -1,0 +1,9 @@
+- provide(:title, 'Add Client')
+%h2  New Client
+%h3
+=form_for(@client) do |f|
+  =render 'shared/error_messages', object: f.object
+  =render 'fields', f:  f
+  .actions
+    = f.submit "Save", class: 'save strong round'
+

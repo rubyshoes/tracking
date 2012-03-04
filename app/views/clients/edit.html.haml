@@ -1,7 +1,7 @@
 - provide(:title, 'Edit')
 %h4 Edit
 = form_for(@employee) do |f|
-  = render 'shared/employee_error_messages'
+  = render 'shared/error_messages'
   <fieldset><legend>Edit Employee Details</legend>
   .field
     = f.label :name, "First Name"

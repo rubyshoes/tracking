@@ -1,0 +1,83 @@
+<fieldset><legend>Enter Client Details</legend>
+.field
+   = f.label :name, "First Name"
+   %br/
+   = f.text_field  :f_name, :size => 15, :class => "ui-state-default"
+.field
+   = f.label :name, "MI"
+   %br/
+   = f.text_field  :mi, :size => 3, :class => "ui-state-default"
+.field
+   = f.label :name, "Last Name"
+   %br/
+   = f.text_field  :l_name, :size => 15, :class => "ui-state-default"
+.field
+   = f.label :name, "Birth Date"
+   %br/
+   = f.text_field  :birth_date, :size => 12, :class => "ui-state-default"
+   %br/
+.field
+   = f.label :name,  "Address1"
+   %br/
+   = f.text_field  :address1, :size => 25, :class => "ui-state-default"
+.field
+   = f.label :name,  "Address2"
+   %br/
+   = f.text_field  :address2, :size => 25, :class => "ui-state-default"
+.field
+   = f.label :name, "City"
+   %br/
+   = f.text_field  :city, :size => 15, :class => "ui-state-default"
+.field
+   = f.label :name, "Zip Code"
+   %br/
+   = f.text_field  :zip_code, :size => 10, :class => "ui-state-default"
+.field
+   = f.label :name, "State"
+   %br/
+   = f.text_field  :state, :size => 3, :class => "ui-state-default"
+.field
+   = f.label :name, "Medicare#"
+   %br/
+   = f.text_field  :medicare_num, :size => 15, :class => "ui-state-default"
+.field
+   = f.label :name, "Medicaid#"
+   %br/
+   = f.text_field  :medicaid_num, :size => 15, :class => "ui-state-default"
+.field
+   = f.label :name, "Member#"
+   %br/
+   = f.text_field  :member_num, :size => 15, :class => "ui-state-default"
+.field
+   = f.label :name, "Social Security Care Manager"
+   %br/
+   = f.text_field  :soc_sec_care_mgr, :size => 15, :class => "ui-state-default"
+</fieldset>
+<fieldset><legend>Emergency Contact</legend>
+.field
+   = f.label :name, "EmerContactFirstN"
+   %br/
+   = f.text_field  :emer_contact_first_name, :size => 15, :class => "ui-state-default"
+.field
+   = f.label :name, "EmerContactLastN"
+   %br/
+   = f.text_field  :emer_contact_last_name, :size => 15, :class => "ui-state-default"
+.field
+   = f.label :name, "EmerContactRel"
+   %br/
+   = f.text_field  :emer_contact_relationship, :size => 10, :class => "ui-state-default"
+.field
+   = f.label :name, "Emer Contact Phone"
+   %br/
+   = f.text_field  :emer_contact_ph, :size => 15, :class => "ui-state-default"
+</fieldset>
+<fieldset><legend>Password</legend>
+.field
+   = f.label :name, "Password"
+   %br/
+   = f.password_field  :password, :size => 25, :class => "ui-state-default"
+.field
+   = f.label :name, "Password Confirmation"
+   %br/
+   = f.password_field  :password_confirmation, :size => 25, :class => "ui-state-default"
+</fieldset>
