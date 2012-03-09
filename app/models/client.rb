@@ -33,5 +33,5 @@ class Client < ActiveRecord::Base
 
   accepts_nested_attributes_for :clientlines, :contract
 
-  attr_accessible :clientlines, :clientlines_attributes, :contract, :contract_attributes
+#  attr_accessible :clientlines, :clientlines_attributes, :contract, :contract_attributes
 end

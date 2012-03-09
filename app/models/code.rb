@@ -16,5 +16,5 @@ class Code < ActiveRecord::Base
 
   accepts_nested_attributes_for :codelines, :contracts
 
-  attr_accessible :codelines, :codeline_attributes, :contracts_attributes, :contracts, :units_alloc
+#  attr_accessible :codelines, :codeline_attributes, :contracts_attributes, :contracts, :units_alloc
 end
