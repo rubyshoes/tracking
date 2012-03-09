@@ -12,6 +12,4 @@
 class Clientline < ActiveRecord::Base
   belongs_to :contract
   belongs_to :client
-
-#  accepts_nested_attributes_for :contract
 end

@@ -13,4 +13,8 @@
 class Code < ActiveRecord::Base
   has_many :codelines
   has_many :contracts, :through => :codelines
+
+  accepts_nested_attributes_for :codelines, :contracts
+
+  attr_accessible :codelines, :codeline_attributes, :contracts_attributes, :contracts, :units_alloc
 end

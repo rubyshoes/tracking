@@ -19,9 +19,12 @@ class Contract < ActiveRecord::Base
 
   accepts_nested_attributes_for :clients
   accepts_nested_attributes_for :codes
-  accepts_nested_attributes_for :clientlines
-  accepts_nested_attributes_for :codelines
 
-  attr_accessor :codes, :clients, :clientlines, :codelines
+  attr_accessible :clientlines_attributes, :codelines_attributes, :clients_attributes, :codes_attributes, :clients, :codes, :contracts, :contracts_attributes
+  attr_accessor :cli_full_name
 
+  # defines the virtual attribute 'cli_full_name'
+  def cli_full_name
+    [f_name, mi, l_name].join(' ')
+  end
 end

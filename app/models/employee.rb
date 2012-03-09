@@ -74,7 +74,7 @@ class Employee < ActiveRecord::Base
 
   # defines the virtual attribute 'emp_full_name'
   def emp_full_name
-    [first_name, last_name].join(' ')
+    [first_name, mi, last_name].join(' ')
   end
 
   private

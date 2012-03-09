@@ -109,9 +109,9 @@
     = ff.label :name, "Description"
     %br/
     = ff.text_field :description, :size => 25, :class => "ui-state-default"
-= f.fields_for :codelines do |ff|
-  .field
-    = ff.label :name, "Units Alloc"
-    %br/
-    = ff.text_field :units_alloc, :precision => 6, :scale => 2, :size => 10, :class => "ui-state-default"
+/= f.fields_for :codelines do |ff|
+/  .field
+/    = ff.label :name, "Units Alloc"
+/    %br/
+/    = ff.text_field :units_alloc, :precision => 6, :scale => 2, :size => 10, :class => "ui-state-default"
 </fieldset>

@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.2'
 
 gem 'rspec-core', '2.8.0'
 gem 'rspec-expectations', '2.8.0'
@@ -45,9 +45,9 @@ group :test do
    gem 'autotest-rails-pure', '4.1.2'
    gem 'rspec', '2.8.0'
    gem 'spork', '~> 0.9.0'
-   gem 'guard-spork', '~> 0.5.1'
+   gem 'guard-spork', '~> 0.5.2'
 #   gem 'webrat', '0.7.3'
-   gem 'factory_girl_rails', '~> 1.6.0'
+   gem 'factory_girl_rails', '~> 1.7.0'
    gem 'capybara', '1.1.2'
    gem 'rb-inotify', '0.8.8'
    gem 'libnotify', '0.7.2'

@@ -11,22 +11,22 @@ class ContractsController < ApplicationController
   def new
     @contract = Contract.new
 
-#    @contract.clientlines.build
-#    @contract.clients.build
-#    @contract.codelines.build
-#    @contract.codes.build
+    #  @contract.clientlines.build
+      @contract.clients.build
+    #  @contract.codelines.build
+      @contract.codes.build
 
     # Build the codelines object through the contract, then build the codes through the codelines object
-    codelines = @contract.codelines.build
-    codelines.codes.build
+    #   codelines =  @contract.codelines.build
+    #   codelines.build_code
 
     # Build the clientlines object through the contract, then build the clients through the clientines object
-    clientlines = @contract.clientlines.build
-    clientlines.clients.build
+    #   clientlines = @contract.clientlines.build
+    #   clientlines.build_client
   end
 
   def create
-    raise params[:contract].to_s
+ #   raise params[:contract].to_s
     @contract = Contract.new(params[:contract])
     if @contract.save
       flash[:success] = "New Contract has been saved"

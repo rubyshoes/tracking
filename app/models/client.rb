@@ -28,6 +28,10 @@
 #
 
 class Client < ActiveRecord::Base
-  has_many :clientlines
-  has_many :contracts, :through => :clientlines
+  has_many  :clientlines
+  has_one   :contract, :through => :clientlines
+
+  accepts_nested_attributes_for :clientlines, :contract
+
+  attr_accessible :clientlines, :clientlines_attributes, :contract, :contract_attributes
 end
