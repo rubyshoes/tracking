@@ -26,7 +26,7 @@ class ContractsController < ApplicationController
   end
 
   def create
- #   raise params[:contract].to_s
+#    raise params[:contract].to_s
     @contract = Contract.new(params[:contract])
     if @contract.save
       flash[:success] = "New Contract has been saved"

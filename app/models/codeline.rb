@@ -14,4 +14,5 @@
 class Codeline < ActiveRecord::Base
   belongs_to :contract
   belongs_to :code
+#  belongs_to :client
 end

@@ -29,9 +29,16 @@
 
 class Client < ActiveRecord::Base
   has_many  :clientlines
+#  has_many  :codelines
+#  has_many  :codes, :through => :codelines
   has_one   :contract, :through => :clientlines
 
   accepts_nested_attributes_for :clientlines, :contract
 
-#  attr_accessible :clientlines, :clientlines_attributes, :contract, :contract_attributes
+  attr_accessor :cli_full_name
+
+  # defines the virtual attribute 'cli_full_name'
+  def cli_full_name
+    [f_name, mi, l_name].join(' ')
+  end
 end
