@@ -10,19 +10,9 @@ class ContractsController < ApplicationController
 
   def new
     @contract = Contract.new
-
-    #  @contract.clientlines.build
-      @contract.clients.build
-    #  @contract.codelines.build
-      @contract.codes.build
-
-    # Build the codelines object through the contract, then build the codes through the codelines object
-    #   codelines =  @contract.codelines.build
-    #   codelines.build_code
-
-    # Build the clientlines object through the contract, then build the clients through the clientines object
-    #   clientlines = @contract.clientlines.build
-    #   clientlines.build_client
+    @contract.clients.build
+    @contract.codes.build
+    @contract.codelines.build
   end
 
   def create

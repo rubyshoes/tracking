@@ -1,8 +1,20 @@
 Tracking::Application.routes.draw do
 
   resources :employees
-  resources :contracts
+
+  resources :clients
+
+  resources :clientlines
+
   resources :sessions, only:  [:new, :create, :destroy]
+
+  resources :contracts do
+    resources :clientlines
+  end
+
+  resources :clientlines do
+    resources :clients
+  end
 
   root to:      'pages#home'
 
@@ -20,10 +32,11 @@ Tracking::Application.routes.draw do
 
   match '/contracts/:id', to:     'contracts#show', :as => :contract
 
-  match '/newcontract',   to:     'contracts#new'
+  match 'newcontract',   to:     'contracts#new'
 
   match '/signin',        to:     'sessions#new'
   match '/signout',       to:     'sessions#destroy'
+
 
 
   # The priority is based upon order of creation:

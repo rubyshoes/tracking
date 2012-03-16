@@ -12,4 +12,5 @@
 class Clientline < ActiveRecord::Base
   belongs_to :contract
   belongs_to :client
+
 end
