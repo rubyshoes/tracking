@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20120224202339) do
   end
 
   create_table "codes", :force => true do |t|
-    t.string   "codename"
+    t.string   "code_name"
     t.string   "status"
     t.text     "description"
     t.datetime "created_at",  :null => false
