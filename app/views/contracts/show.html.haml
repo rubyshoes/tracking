@@ -6,7 +6,7 @@
       = @contract.authnum
     %ol
       - for code in @contract.codes
-        %li= code.code_name
+        %li= code.codename
         %li= code.status
         %li= code.description
       - for codelines in @contract.codelines

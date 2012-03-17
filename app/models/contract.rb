@@ -19,7 +19,7 @@ class Contract < ActiveRecord::Base
 
   accepts_nested_attributes_for :clients
   accepts_nested_attributes_for :codelines, :reject_if => lambda { |a| a[:units_alloc].blank? }
-  accepts_nested_attributes_for :codes, :reject_if => lambda { |a| a[:code_name].blank?
+  accepts_nested_attributes_for :codes, :reject_if => lambda { |a| a[:codename].blank?
                                                                    a[:status].blank?
                                                                    a[:description].blank? }
 
