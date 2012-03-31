@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224202339) do
+ActiveRecord::Schema.define(:version => 20120328185013) do
 
   create_table "clientlines", :force => true do |t|
     t.integer  "contract_id"
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(:version => 20120224202339) do
 
   create_table "contracts", :force => true do |t|
     t.string   "authnum"
-    t.integer  "client_id"
     t.date     "st_date"
     t.date     "end_date"
     t.datetime "created_at", :null => false

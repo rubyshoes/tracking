@@ -29,9 +29,7 @@
 
 class Client < ActiveRecord::Base
   has_many  :clientlines
-  has_one   :contract, :through => :clientlines
-  has_many  :codelines
-  has_many  :codes, :through => :codelines
+  has_many  :contracts, :through => :clientlines
 
   attr_accessor :cli_full_name
 

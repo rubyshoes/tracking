@@ -3,7 +3,7 @@
 # Table name: codes
 #
 #  id          :integer         not null, primary key
-#  codename    :string(255)
+#  code_name   :string(255)
 #  status      :string(255)
 #  description :text
 #  created_at  :datetime        not null

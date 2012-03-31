@@ -6,14 +6,22 @@ Tracking::Application.routes.draw do
 
   resources :clientlines
 
+  resources :codes
+
+  resources :codelines
+
   resources :sessions, only:  [:new, :create, :destroy]
 
   resources :contracts do
-    resources :clientlines
+    resources :clientlines, :codelines
   end
 
   resources :clientlines do
     resources :clients
+  end
+
+  resources :codelines do
+    resources :codes
   end
 
   root to:      'pages#home'
@@ -32,7 +40,11 @@ Tracking::Application.routes.draw do
 
   match '/contracts/:id', to:     'contracts#show', :as => :contract
 
-  match 'newcontract',   to:     'contracts#new'
+  match 'newcontract',    to:     'contracts#new'
+
+  match '/codelines/:id', to:     'codelines#show', :as => :codeline
+
+  match 'newcodeline',    to:     'codelines#new'
 
   match '/signin',        to:     'sessions#new'
   match '/signout',       to:     'sessions#destroy'
