@@ -28,12 +28,18 @@
 #
 
 class Client < ActiveRecord::Base
-  has_many  :clientlines
-  has_many  :contracts, :through => :clientlines
-
+#  has_many  :clientlines
+#  has_many  :contracts, :through => :clientlines
+  has_many  :codelines
+  has_many  :codes, through: :codelines
+  has_many  :contracts, through: :codelines
+  
   attr_accessor :cli_full_name
 
+  # define the virtual attribute 'cli_full_name'
   def cli_full_name
     [f_name, mi, l_name].join(' ')
   end
+
+
 end

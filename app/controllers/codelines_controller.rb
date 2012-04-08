@@ -10,13 +10,15 @@ class CodelinesController < ApplicationController
 
   def new
     @codeline = Codeline.new
-    @codeline.contract = Contract.new
-    @codeline.code = Code.new
+ #   @codeline.contract = Contract.new
+ #   @codeline.code = Code.new
     @codeline.build_code
+    @codeline.build_contract
+    @codeline.build_client
   end
 
   def create
-#    raise params[:codeline].to_s
+  #  raise params[:codeline].to_s
     @codeline = Codeline.new(params[:codeline])
     if @codeline.save
       flash[:success] = "New Codeline has been saved"

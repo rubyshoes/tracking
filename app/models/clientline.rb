@@ -10,7 +10,8 @@
 #
 
 class Clientline < ActiveRecord::Base
-  belongs_to :contract
-  belongs_to :client
+#  belongs_to :contract
+#  belongs_to :client
+#  belongs_to :code
 
 end

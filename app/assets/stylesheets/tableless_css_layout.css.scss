@@ -1,0 +1,420 @@
+@import "bootstrap";
+
+/* Body (we start with these settings then gradually replace them with the
+ * #page, header, footer and nav styling) */
+
+body {
+  background: white;
+  margin: 0;
+  padding: 10px;
+  font: small Verdana,Sans-serif;
+  color: black;
+  background: #666;
+  color: #fff;
+}
+
+a {
+  color:  #36a;
+}
+
+a img {
+  border-width: 0;
+}
+
+h1, h2, h3, h4, h5, ul, li, form {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none; 
+}
+
+/* Pages stylehooks */
+
+body  {
+  background: #666 url("/assets/bg_diagonals.png") repeat 0 0;
+  color:      #fff;
+}
+
+#page1 {
+  width: 90%;
+  margin: 0 auto;/* this 0 auto centers the page on the screen */
+}
+
+#page2 {
+  background: #fff;
+  float: left;
+  width: 97%;
+  padding: 10px;
+  border: solid #444;
+  border-width: 1px 3px 3px 1px;
+  font-size: 85%;
+  line-height: 1.5em;
+  color: #566;
+}
+
+/* Header */
+
+header {
+  float: left;
+  background: #ddd;
+  width: 97%;
+  margin-left: 20px;
+  padding: 10px 0 10px 0;
+}
+
+header img {
+  float:              left;
+  padding:            .3em;
+  margin-left:        20px;
+  margin-bottom:      10px;
+  background:      #d87093;
+}
+
+/* Section (content) */
+
+section {
+  float: left;
+  width:  93%;
+  margin-top: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 150%;
+  padding: 2% 2% 20% 2%;
+  background: darkseagreen;
+}
+
+/* Footer */
+
+footer {
+  float: left;
+  background: #ddd;
+  width: 97%;
+  margin-left: 20px;
+  padding: 42px 0 42px 0;
+}
+
+/* Navigation */
+
+nav {
+  background: #135;
+  float: left;
+  width: 97%;
+  padding: 0;
+  margin-left: 20px;
+  border-bottom: 2px solid #135;
+  list-style: none;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  background: none;
+  display: inline;
+  padding: 0;
+}
+
+nav ul li a, nav ul li strong {
+  float: left;
+  width: auto;
+  padding: 5px 9px 3px;
+  color: #def;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+nav ul li strong {
+  float: left;
+  width: auto;
+  border-left: .5px solid #579;
+  border-right: .5px solid #135;
+  background: #008b8b;
+  color: #fff;
+}
+
+nav ul li a strong {
+  padding: 0;
+  border-width: 0;
+}
+
+nav ul li a:visited {
+  color:  #7fffd4;
+}
+
+nav ul li a:hover {
+  background: #246;
+  border-left-color: #246;
+  color: #cf0;
+}
+
+/* Round Corners */
+
+.round {
+  -moz-border-radius:     10px;
+  -webkit-border-radius:  10px;
+  border-radius:          10px;
+}
+
+/* Debug */
+
+#debug {
+  float: left;
+  width: 97%;
+}
+
+/* Flash */
+
+.flash {
+  float:  right;
+}
+
+/* Standard Heading */
+
+#heading {
+  float:  right;
+  font-size:  200%;
+  font-weight:  bold;
+  padding:  30px 0 0 0;
+  margin-right: 530px;
+}
+
+/* Static Pages */
+
+title {
+  float:    left;
+  width:    97%;
+  margin:   0;
+  padding:  20px;
+}
+
+/* New Employee page & New Contract page*/
+
+h1  {
+  float:  left;
+  width:  97%;
+  margin: 0;
+  padding:  0;
+}
+
+h2  {
+  text-align:       center;
+  font: thick small Verdana,Sans-serif;
+  font-size:        95%;
+  text-transform:   uppercase;
+  text-decoration:  none;
+  padding:          10px;
+}
+
+h3 {
+  float:                      left;
+  width:                       97%;
+  margin:                   0 auto;
+  font:   small Verdana,Sans-serif;
+  text-decoration:            none;
+  font-size:                   97%;
+}
+
+div.field {
+  float:             left;
+  padding:          0.3em;
+  font: small Verdana,Sans-serif;
+  font-size:          90%;
+  text-decoration:   none;
+  margin-left:       auto;
+  margin-right:      auto;
+  margin-bottom:      3px;
+  margin-top:        10px;
+}
+
+div.actions {
+  float:            right;
+  padding:          0.3em;
+  margin-left:      auto;
+  margin-right:     auto;
+}
+
+/* Fieldset and Legend */
+
+fieldset {
+  float:              left;
+  width:              97%;
+  margin-bottom:      0.5em;
+  padding:            1em;
+}
+
+legend {
+  font-size:            90%;
+  text-decoration:     none;
+  padding:      0.2em 0.5em;
+  background-color:    #eee;
+}
+
+/* Save-Signin button for new employees-sessions */
+
+.save {
+  float:  right;
+  background: #135;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding:  3px;
+  margin-top: 100px;
+  width: 80px;
+  color:  #7fffd4;
+  font-weight:  bold;
+}
+
+.signin {
+  float:  right;
+  background: #135;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding:  3px;
+/*  margin-top: 100px;*/
+  width: 80px;
+  color:  #7fffd4;
+  font-weight:  bold;
+}
+
+/* Employee show page */
+
+h3 {
+  float:                      left;
+  width:                       97%;
+  margin:                   0 auto;
+  font:   small Verdana,Sans-serif;
+  text-decoration:            none;
+  font-size:                   97%;
+}
+
+span1 {
+  float:                left;
+  padding:              10px;
+}
+
+p {
+  text-indent:         10px;
+}
+
+#details {
+  float:               left;
+  padding:             10px;
+}
+
+#spacing {
+  display:           inline;
+  padding:             10px;
+}
+
+.gravatar {
+  float:               left;
+  padding:                0;
+  border: 3px solid    #989;
+  margin:            0 auto;
+}
+
+/* Employee Edit Page */
+
+h5 {
+  text-align:       center;
+  font: thick small Verdana,Sans-serif;
+  font-size:        95%;
+  text-transform:   uppercase;
+  text-decoration:  none;
+  padding:             0;
+}
+
+.update {
+  float:              right;
+  background:          #135;
+  text-transform: uppercase;
+  text-decoration:     none;
+  margin-top:          50px;
+  padding:              3px;
+  width:               80px;
+  color:            #7fffd4;
+  font-weight:         bold;
+}
+
+#anchor {
+  float:            left;
+  margin:     50px 0 0 0;
+}
+
+#anchor a {
+  float:            left;
+  margin:     15px 0 0 10px;
+}
+
+/* Employee Index Page */
+
+ul.employees {
+  margin-top:       1em;
+}
+
+li.employees {
+  list-style:     none;
+}
+
+.gravatar {
+  float:      left;
+  margin-top:  5px;
+}
+
+span2 {
+  margin-top:    25px;
+  display:      block;
+}
+
+span3 {
+  padding:  0 0 0 5px;
+}
+
+/* Error messages */
+
+.field_with_errors {
+  margin-top: 10px;
+  padding: 2px;
+
+  background-color: red;
+  display: table;
+}
+
+.field_with_errors label {
+  color: #fff;
+
+}
+
+#error_explanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h9 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}

@@ -12,11 +12,10 @@
 
 class Code < ActiveRecord::Base
   has_many :codelines
-  has_many :contracts, :through => :codelines
+  has_many :contracts, through: :codelines
+  has_many :clients, through: :codelines
 
-#  scope :ajoin, {
-#                :select => "Code.*",
-#                :joins => "INNER JOIN codelines ON codelines.code_id = codes.id"
-#                }
+#  accepts_nested_attributes_for :codelines, :contracts
+#  attr_accessible :codelines, :codelines_attributes, :contracts, :contracts_attributes, :code_name, :status, :description
 
 end

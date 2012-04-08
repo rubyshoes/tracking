@@ -40,11 +40,15 @@ Tracking::Application.routes.draw do
 
   match '/contracts/:id', to:     'contracts#show', :as => :contract
 
-  match 'newcontract',    to:     'contracts#new'
+  match 'newcontract',    to:     'codelines#new'
 
   match '/codelines/:id', to:     'codelines#show', :as => :codeline
 
   match 'newcodeline',    to:     'codelines#new'
+
+  match '/codes/:id',     to:     'codes#show', :as => :code
+
+  match 'newcode',        to:     'codes#new'
 
   match '/signin',        to:     'sessions#new'
   match '/signout',       to:     'sessions#destroy'

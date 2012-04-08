@@ -1,0 +1,8 @@
+- provide(:title, 'Add Codes')
+%h2 New Codes
+= form_for(@code) do |code|
+  =render 'shared/code_error_messages', object: code.object
+  =render 'fields', code:  code
+  .actions
+    = code.submit "Save", class: 'save strong round'
+

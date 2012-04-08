@@ -43,7 +43,7 @@ describe SessionsController do
     describe "with valid email and password" do
 
       before(:each) do
-        @employee = Factory(:employee)
+        @employee = FactoryGirl.create(:employee)
         @attr = { :email  =>  @employee.email, :password  =>  @employee.password }
       end
 

@@ -3,19 +3,19 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-	$("#contract_st_date").datepicker({
+	$("#code_contracts_attributes_0_st_date").datepicker({
 			changeMonth: true,
 			changeYear: true,
 			yearRange: '1930:2050',
 			formatDate: 'mm-dd-yy'
 	});
-	$("#contract_end_date").datepicker({
+	$("#code_contracts_attributes_0_end_date").datepicker({
 			changeMonth: true,
 			changeYear: true,
 			yearRange: '1930:2050',
 			formatDate: 'mm-dd-yy'
   });
-  $("#contract_clients_attributes_0_birth_date").datepicker({
+  $("#code_clients_attributes_0_birth_date").datepicker({
 	    changeMonth: true,
 			changeYear: true,
 			yearRange: '1930:2050',

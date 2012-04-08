@@ -1,11 +1,6 @@
-<fieldset><legend>Enter Codeline Details</legend>
-.field
-  = codeline.label :name, "Units Alloc"
-  %br/
-  = codeline.text_field :units_alloc, :precision => 6, :scale => 2, :size => 10, :class => "ui-state-default"
-</fieldset>
+
 <fieldset><legend>Enter Contract Details</legend>
-= codeline.fields_for :contracts do |contract|
+= codeline.fields_for :contract do |contract|
   .field
     = contract.label :name, "AuthNum"
     %br/
@@ -20,7 +15,7 @@
     = contract.text_field  :end_date, :size => 12, :class => "ui-state-default"
 </fieldset>
 <fieldset><legend>Enter Client Details</legend>
-= codeline.fields_for :clients do |client|
+= codeline.fields_for :client do |client|
   .field
     = client.label :name, "First Name"
     %br/
@@ -103,7 +98,7 @@
     = client.text_field :pcp_ph, :size => 15, :class => "ui-state-default"
 </fieldset>
 <fieldset><legend>Enter Billing Code Details</legend>
-= codeline.fields_for :codes do |code|
+= codeline.fields_for :code do |code|
   .field
     = code.label :name, "Code Name"
     %br/
@@ -116,4 +111,8 @@
     = code.label :name, "Description"
     %br/
     = code.text_field :description, :size => 25, :class => "ui-state-default"
+.field
+  = codeline.label :name, "Units Alloc"
+  %br/
+  = codeline.text_field :units_alloc, :precision => 6, :scale => 2, :size => 10, :class => "ui-state-default"
 </fieldset>
