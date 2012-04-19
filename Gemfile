@@ -4,7 +4,7 @@ gem 'rails', '3.2.3'
 gem 'bootstrap-sass', '2.0.0'
 
 gem 'rspec-core', '2.9.0'
-gem 'rspec-expectations', '2.9.0'
+gem 'rspec-expectations', '2.9.1'
 gem 'rspec-mocks', '2.9.0'
 gem 'gravatar_image_tag', '1.0.0'
 gem 'will_paginate', '3.0.3'
@@ -32,7 +32,7 @@ end
 gem 'jquery-rails'
 
 group :development do
-   gem 'rspec-rails', '2.9.0'
+#   gem 'rspec-rails', '2.9.0'
    gem 'annotate', :git => 'git://github.com/jeremyolliver/annotate_models.git', :branch => 'rake_compatibility' 
    gem 'faker', '1.0.1'
    gem 'database_cleaner'
@@ -40,9 +40,9 @@ group :development do
 end
 
 group :test do
-   gem 'autotest', '4.4.6'
-   gem 'autotest-rails', '4.1.2'
-   gem 'autotest-rails-pure', '4.1.2'
+#   gem 'autotest', '4.4.6'
+#   gem 'autotest-rails', '4.1.2'
+#   gem 'autotest-rails-pure', '4.1.2'
    gem 'rspec', '2.9.0'
    gem 'spork', '~> 0.9.0'
    gem 'guard-spork', '~> 0.5.2'
@@ -51,6 +51,8 @@ group :test do
    gem 'capybara', '1.1.2'
    gem 'rb-inotify', '0.8.8'
    gem 'libnotify', '0.7.2'
+   gem 'rspec-rails'
+   gem 'shoulda-matchers'
 end
 
 # To use ActiveModel has_secure_password

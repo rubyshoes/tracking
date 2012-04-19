@@ -14,5 +14,19 @@
 require 'spec_helper'
 
 describe Codeline do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+    context 'relationships' do
+      it { should belong_to(:contract) }
+      it { should belong_to(:code) }
+      it { should belong_to(:client) }
+    end
+
+    context 'validations' do
+      it { should_not allow_mass_assignment_of(:password) }
+      it { should validate_numericality_of(:units_alloc) }
+      it { should validate_presence_of(:contract_id) }
+      it { should validate_presence_of(:code_id) }
+      it { should validate_presence_of(:client_id) }
+      it { should have_db_column(:id).with_options(:primary => true) }
+    end
 end

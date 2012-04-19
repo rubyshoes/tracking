@@ -11,7 +11,7 @@
 #
 
 class Code < ActiveRecord::Base
-  has_many :codelines
+  has_many :codelines, :dependent => :destroy
   has_many :contracts, through: :codelines
   has_many :clients, through: :codelines
 

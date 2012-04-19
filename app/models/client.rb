@@ -30,7 +30,7 @@
 class Client < ActiveRecord::Base
 #  has_many  :clientlines
 #  has_many  :contracts, :through => :clientlines
-  has_many  :codelines
+  has_many  :codelines, :dependent => :destroy
   has_many  :codes, through: :codelines
   has_many  :contracts, through: :codelines
   

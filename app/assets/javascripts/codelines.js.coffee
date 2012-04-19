@@ -7,17 +7,17 @@ $ ->
             changeMonth:    true,
             changeYear:     true,
             yearRange:      '1930:2050',
-            formatDate:     'yy-mm-dd'
+            dateFormat:     'yy-mm-dd'
     });
     $("#codeline_contract_attributes_end_date").datepicker({
             changeMonth:    true,
             changeYear:     true,
             yearRange:      '1930:2050',
-            formatDate:     'yy-mm-dd'
+            dateFormat:     'yy-mm-dd'
     });
     $("#codeline_client_attributes_birth_date").datepicker({
             changeMonth:    true,
             changeYear:     true,
             yearRange:      '1930:2050',
-            formatDate:     'yy-mm-dd'
+            dateFormat:     'yy-mm-dd'
     })

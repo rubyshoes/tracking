@@ -60,7 +60,7 @@ describe "Authentication" do
 
       describe "Employee" do
         it "logs factory girl generated objects" do
-          admin = Factory( :admin )
+          admin = FactoryGirl.create( :admin )
           logger.warn( admin.pretty_inspect )
         end
       end
@@ -70,7 +70,7 @@ describe "Authentication" do
   describe "Authorization" do
 
     describe "for non-signed-in employees" do
-      let(:employee) {Factory(:employee) }
+      let(:employee) {FactoryGirl.create(:employee) }
 
       describe "in the Employees controller" do
 
@@ -140,7 +140,7 @@ describe "Authentication" do
   describe "Employee" do
 
     it "logs factory girl generated objects" do
-      admin = Factory( :admin )
+      admin = FactoryGirl.create( :admin )
       logger.warn( admin.pretty_inspect )
     end
   end

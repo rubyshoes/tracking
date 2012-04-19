@@ -16,11 +16,15 @@ class Codeline < ActiveRecord::Base
   belongs_to :code
   belongs_to :client
 
-  accepts_nested_attributes_for :code, :contract, :client
+  accepts_nested_attributes_for :code, :allow_destroy => true, :reject_if => lambda { |a| a[:code_name].blank?
+                                                                                          a[:status].blank?
+                                                                                          a[:description].blank?
+                                                                                    }
+
+  accepts_nested_attributes_for :contract, :client
 
   attr_accessible   :code, :code_attributes, :contract, :contract_attributes,
                     :client, :client_attributes, :clients, :clients_attributes,
                     :codes, :codes_attributes, :contracts, :contracts_attributes,
-                    :clientline, :clientline_attributes, :clientlines,
-                    :clientlines_attributes, :units_alloc
+                    :units_alloc
 end

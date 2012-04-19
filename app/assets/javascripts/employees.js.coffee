@@ -7,17 +7,17 @@ $ ->
 			changeMonth: true,
 			changeYear: true,
 			yearRange: '1930:2050',
-			formatDate: 'mm-dd-yy'
+			dateFormat: "yy-mm-dd"
 	});
 	$("#employee_hire_date").datepicker({
 			changeMonth: true,
 			changeYear: true,
 			yearRange: '1930:2050',
-			formatDate: 'mm-dd-yy'
+			dateFormat: "yy-mm-dd"
 	});
 	$("#employee_term_date").datepicker({
 			changeMonth: true,
 			changeYear: true,
 			yearRange: '1930:2050',
-			formatDate: 'mm-dd-yy'
+			dateFormat: "yy-mm-dd"
 	})

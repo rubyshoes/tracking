@@ -12,7 +12,7 @@
 
 class Contract < ActiveRecord::Base
 #  has_many :clientlines
-  has_many :codelines
+  has_many :codelines, :dependent => :destroy
 #  has_many :clients, through: :clientlines
   has_many :codes, through: :codelines
   has_many :clients, through: :codelines

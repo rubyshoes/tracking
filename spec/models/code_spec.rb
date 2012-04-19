@@ -12,6 +12,9 @@
 
 require 'spec_helper'
 
+# Testing the associations in the Code Model
 describe Code do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_many(:codelines) }
+  it { should have_many(:contracts).through(:codelines) }
+  it { should have_many(:clients).through(:codelines) }
 end
