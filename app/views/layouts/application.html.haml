@@ -2,7 +2,7 @@
 %html
   %head
     %title= full_title(yield(:title))
-    = render :partial => 'layouts/stylesheets'
+    = render 'layouts/stylesheets'
     = csrf_meta_tag
   %body
     #page1.round
