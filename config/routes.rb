@@ -4,8 +4,6 @@ Tracking::Application.routes.draw do
 
   resources :clients
 
-  resources :clientlines
-
   resources :codes
 
   resources :codelines
@@ -13,15 +11,16 @@ Tracking::Application.routes.draw do
   resources :sessions, only:  [:new, :create, :destroy]
 
   resources :contracts do
-    resources :clientlines, :codelines
+    resources :codelines
   end
 
-  resources :clientlines do
-    resources :clients
-  end
 
   resources :codelines do
     resources :codes
+  end
+
+  resources :clients do
+    resources :codelines
   end
 
   root to:      'pages#home'
