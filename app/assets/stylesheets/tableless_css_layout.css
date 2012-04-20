@@ -37,7 +37,7 @@ body  {
 
 #page1 {
   width: 90%;
-  margin: 0 auto;/* this 0 auto centers the page on the screen */
+  margin: 0 auto; /* this 0 auto centers the page on the screen */
 }
 
 #page2 {
@@ -80,7 +80,7 @@ section {
   margin-right: 20px;
   font-size: 150%;
   padding: 2% 2% 20% 2%;
-  background: darkseagreen;
+  background: #8FBC8F;
 }
 
 /* Footer */
