@@ -17,6 +17,7 @@ gem 'pg'
 gem 'haml'
 gem 'haml-rails'
 gem 'heroku'
+gem 'thin'
 
 
 # Gems used only for assets and not required
@@ -36,7 +37,6 @@ group :development do
    gem 'faker', '1.0.1'
    gem 'database_cleaner'
    gem 'guard-rspec', '0.7.0'
-   gem 'thin'
    gem 'quiet_assets'
 end
 
