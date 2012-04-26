@@ -21,8 +21,7 @@ class Codeline < ActiveRecord::Base
                                                                                           a[:description].blank?
                                                                                     }
 
-  accepts_nested_attributes_for :contract, :client
-
+  accepts_nested_attributes_for :contract, :client, allow_destroy: true
   attr_accessible   :code, :code_attributes, :contract, :contract_attributes,
                     :client, :client_attributes, :clients, :clients_attributes,
                     :codes, :codes_attributes, :contracts, :contracts_attributes,

@@ -1,5 +1,4 @@
-/* Body (we start with these settings then gradually replace them with the
- * #page, header, footer and nav styling) */
+/* Body (we start with these settings then gradually replace them with the #page, header, footer and nav styling) etc */
 
 body {
   background: white;
@@ -189,7 +188,7 @@ title {
   padding:  20px;
 }
 
-/* New Employee page & New Contract page*/
+/* New Employee page & New Contract page */
 
 h1  {
   float:  left;
@@ -271,7 +270,7 @@ legend {
   text-transform: uppercase;
   text-decoration: none;
   padding:  3px;
-/*  margin-top: 100px;*/
+/*  margin-top: 100px; */
   width: 80px;
   color:  #7fffd4;
   font-weight:  bold;

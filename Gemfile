@@ -14,7 +14,6 @@ gem 'nokogiri', '1.5.2'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-# gem 'thin'
 gem 'haml'
 gem 'haml-rails'
 gem 'heroku'
@@ -37,6 +36,8 @@ group :development do
    gem 'faker', '1.0.1'
    gem 'database_cleaner'
    gem 'guard-rspec', '0.7.0'
+   gem 'thin'
+   gem 'quiet_assets'
 end
 
 group :test do
@@ -70,3 +71,4 @@ end
 
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+  gem 'debugger', group: [:development, :test]
