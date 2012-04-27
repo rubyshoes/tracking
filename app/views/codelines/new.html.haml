@@ -4,6 +4,7 @@
   = render 'shared/codeline_error_messages', object: codeline.object
   = render 'fields', codeline: codeline
   /= link_to_add_fields "Add Codes", codeline, :code
+  /debugger
   .actions
     = codeline.submit "Save", class: 'save strong round'
 

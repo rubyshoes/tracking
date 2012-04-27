@@ -109,7 +109,7 @@
     = code.label :name, "Description"
     %br/
     = code.text_field :description, :size => 25, :class => "ui-state-default"
-= contract.fields_for :codelines, @contract.codelines do |codeline|
+= contract.fields_for :codelines do |codeline|
   .field
     = codeline.label :name, "Units Alloc"
     %br/

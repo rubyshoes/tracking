@@ -16,10 +16,10 @@ module ApplicationHelper
 
   def link_to_add_fields(name, codeline, association)
     /debugger/
-    new_object = codeline.object.send(association).klass.new_object
+    new_object = codeline.object.send(code).klass.new
     id = new_object.object_id
     fields = codeline.fields_for(association, new_object, child_index: id) do |builder|
-      render(association.to_s.singularize + "_fields", codeline: builder)
+      render(association.to_s.singularize + "_fields", code: builder)
     end
     link_to(name, '#', class: "add_codes", data: {id: id, fields: fields.gsub("\n", "")})
   end
