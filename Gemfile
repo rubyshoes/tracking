@@ -8,6 +8,7 @@ gem 'rspec-expectations', '2.9.1'
 gem 'rspec-mocks', '2.9.0'
 gem 'gravatar_image_tag', '1.0.0'
 gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.5'
 gem 'nokogiri', '1.5.2'
 
 # Bundle edge Rails instead:

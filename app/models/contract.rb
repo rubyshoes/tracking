@@ -19,11 +19,11 @@ class Contract < ActiveRecord::Base
 
 #  accepts_nested_attributes_for :clients
 #  accepts_nested_attributes_for :codelines, :allow_destroy => true , :reject_if => lambda { |a| a[:units_alloc].blank? }
-#  accepts_nested_attributes_for :codes, :allow_destroy => true, :reject_if => lambda { |a| a[:code_name].blank?
-#                                                                                        a[:status].blank?
-#                                                                                        a[:description].blank? }
+  accepts_nested_attributes_for :codes, :allow_destroy => true, :reject_if => lambda { |a| a[:code_name].blank?
+                                                                                        a[:status].blank?
+                                                                                        a[:description].blank? }
 
-#  attr_accessible :clients, :clients_attributes, :codes, :codes_attributes, :codelines, :codelines_attributes,
-#                  :codeline, :codeline_attributes, :units_alloc, :authnum, :st_date, :end_date
+  attr_accessible :clients, :clients_attributes, :codes, :codes_attributes, :codelines, :codelines_attributes,
+                  :codeline, :codeline_attributes, :units_alloc, :authnum, :st_date, :end_date
 
 end
