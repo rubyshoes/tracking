@@ -1,5 +1,7 @@
 - provide(:title, 'Edit')
-%h4 Edit
-#anchor
-  = gravatar_for(@employee)
-  %a{:href => "http://gravatar.com/emails"} change
+%h4 Editing the New Contract
+%br/
+= form_for(@codeline) do |codeline|
+  = render 'fields', codeline: codeline
+  .actions
+  = codeline.submit "Update", class: 'update strong round'

@@ -2,6 +2,7 @@ class CodelinesController < ApplicationController
 
   def index
     @codelines = Codeline.paginate(page: params[:page])
+    @codelines = Codeline.all
   end
 
   def show
@@ -10,8 +11,6 @@ class CodelinesController < ApplicationController
 
   def new
     @codeline = Codeline.new
- #   @codeline.contract = Contract.new
- #   @codeline.code = Code.new
     @codeline.build_code
     @codeline.build_contract
     @codeline.build_client
@@ -30,10 +29,11 @@ class CodelinesController < ApplicationController
   end
 
   def edit
-    @codeline = Codeline.find(param[:id])
+    @codeline = Codeline.find(params[:id])
   end
 
   def update
+    @codeline = Codeline.find(params[:id])
     if @codeline.update_attributes(params[:codeline])
        flash[:success] = "Codeline Profile updated"
        redirect_to @codeline

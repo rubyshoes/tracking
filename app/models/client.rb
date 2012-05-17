@@ -38,7 +38,7 @@ class Client < ActiveRecord::Base
 
   # define the virtual attribute 'cli_full_name'
   def cli_full_name
-    [f_name, mi, l_name].join(' ')
+    "#{f_name} #{mi} #{l_name}"
   end
 
 

@@ -23,16 +23,6 @@ Tracking::Application.routes.draw do
     resources :codelines
   end
 
-  root to:      'pages#home'
-
-  match '/home',          to:     'pages#home'
-
-  match '/about',         to:     'pages#about'
-
-  match '/contact',       to:     'pages#contact'
-
-  match '/help',          to:     'pages#help'
-
   match '/employees/:id', to:     'employees#show', :as => :employee
 
   match '/newemployee',   to:     'employees#new'
@@ -51,6 +41,17 @@ Tracking::Application.routes.draw do
 
   match '/signin',        to:     'sessions#new'
   match '/signout',       to:     'sessions#destroy'
+
+  root                    to:     'pages#home'
+
+  match '/home',          to:     'pages#home'
+
+  match '/about',         to:     'pages#about'
+
+  match '/contact',       to:     'pages#contact'
+
+  match '/help',          to:     'pages#help'
+
 
 
 

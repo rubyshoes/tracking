@@ -1,7 +1,12 @@
 - provide(:title, "Codelines")
 %h3
-/  - @codeline.clients.each do |client|
-/    = client.cli_full_name
-/    %span1
-/      = @codeline.units_alloc
-  
+  = @codeline.client.cli_full_name
+  %br/
+  %ol.clients
+/    - @codeline.client.each do |client|
+/      %li
+/      = client.f_name
+/      = client.l_name
+= link_to 'Edit', edit_codeline_path(@codeline) 
+|
+\#{link_to 'Back to Codelines', codelines_path}

@@ -1,11 +1,4 @@
-def full_title(page_title)
-  base_title = "Time and it's Cost"
-  if page_title.empty?
-    base_title
-  else
-    "#{base_title} | #{page_title}"
-  end
-end
+include ApplicationHelper
 
 def valid_signin(employee)
   fill_in "Email",       with: employee.email

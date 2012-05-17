@@ -37,12 +37,14 @@
 class Employee < ActiveRecord::Base
 
   has_secure_password
+  
+  before_save { |employee| employee.email = employee.email.downcase }
 
   before_save :create_remember_token
 
   attr_accessor :emp_full_name
 
-  email_regex = /([\w+.]+)@[a-z0-9\-.]+\.[a-z]+/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates(:marital_status,
             :gender,
@@ -64,13 +66,15 @@ class Employee < ActiveRecord::Base
             :hire_date, presence: true)
 
   validates(:email, presence: true,
-            format: { with: email_regex },
+            format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false })
 
   # Automatically create the virtual attribute 'password_confirmation'.
   validates( :password, presence:             true,
                         confirmation:         true,
                         length:               { :within => 6..40 })
+
+  validates :password_confirmation, presence: true
 
   # defines the virtual attribute 'emp_full_name'
   def emp_full_name
@@ -79,7 +83,7 @@ class Employee < ActiveRecord::Base
 
   private
 
-    def create_remember_token
-      self.remember_token = SecureRandom.urlsafe_base64
-    end
+      def create_remember_token
+        self.remember_token = SecureRandom.urlsafe_base64
+      end
 end

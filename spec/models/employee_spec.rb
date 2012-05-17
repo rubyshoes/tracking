@@ -198,6 +198,11 @@ describe Employee do
       before { @attr.password_confirmation = "mismatch" }
       it { should_not be_valid }
     end
+
+    describe "when password confirmation is nil" do
+      before { @attr.password_confirmation = nil }      
+      it { should_not be_valid }
+    end
   end
 
   describe "return value of authenticate method" do
@@ -210,6 +215,7 @@ describe Employee do
 
     describe "with invalid password" do
       let (:employee_for_invalid_password) { found_employee.authenticate("invalid") }
+      
       it { should_not == employee_for_invalid_password }
       specify { employee_for_invalid_password.should be_false }
     end
@@ -235,7 +241,9 @@ describe Employee do
 # EMAIL VALIDATIONS
 
   describe "when email format is invalid" do
-    invalid_addresses = %w[user@foo,com USER_at_foo.org example.user@foo.] # this gives us a collection of emails
+    invalid_addresses = %w[user@foo,com USER_at_foo.org example.user@foo.
+                           foo@bar_baz.com foo@bar+baz.com]
+                           # this gives us a collection of emails
     invalid_addresses.each do |invalid_address|
       before { @attr.email = invalid_address }
       it { should_not be_valid }
@@ -243,7 +251,9 @@ describe Employee do
   end
 
   describe "when email format is valid" do
-    valid_addresses = %w[user@foo.com THE_USER@foo.bar.org first.last@foo.jp a+b@baz.cn] # this gives us a collection of emails
+    valid_addresses = %w[user@foo.com THE_USER@foo.bar.org 
+                         first.last@foo.jp a+b@baz.cn]
+                         # this gives us a collection of emails
     valid_addresses.each do |valid_address|
       before { @attr.email = valid_address }
       it { should be_valid }

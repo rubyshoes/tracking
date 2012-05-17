@@ -43,7 +43,7 @@ describe "Employee 'Show, New Employee, Edit' pages" do
           check   "employee_admin"
           fill_in "employee_primary_position",             with: "Household"
           fill_in "employee_trained_position",             with: "Job Coach"
-	  fill_in "employee_role",                         with: "Staff"
+      	  fill_in "employee_role",                         with: "Staff"
           fill_in "employee_email",                        with: "spriestly@example.com"
           fill_in "employee_address1",                     with: "1 First Ave"
           fill_in "employee_address2",                     with: "null"
