@@ -1,4 +1,6 @@
-/* Body (we start with these settings then gradually replace them with the #page, header, footer and nav styling) etc */
+
+/* Body (we start with these settings then gradually replace them with the */
+/* #page, header, footer and nav styling) etc */
 
 body {
   background: white;
@@ -89,7 +91,7 @@ footer {
   background: #ddd;
   width: 97%;
   margin-left: 20px;
-  padding: 42px 0 42px 0;
+ padding: 1px 0 0 0;
 }
 
 /* Navigation */
@@ -161,6 +163,7 @@ nav ul li a:hover {
 #debug {
   float: left;
   width: 97%;
+  margin-left: 20px;
 }
 
 /* Flash */
@@ -258,7 +261,7 @@ legend {
   text-transform: uppercase;
   text-decoration: none;
   padding:  3px;
-  margin-top: 100px;
+  margin-top: 2px;
   width: 80px;
   color:  #7fffd4;
   font-weight:  bold;
@@ -329,7 +332,7 @@ h5 {
   background:          #135;
   text-transform: uppercase;
   text-decoration:     none;
-  margin-top:          50px;
+  margin-top:          20px;
   padding:              3px;
   width:               80px;
   color:            #7fffd4;

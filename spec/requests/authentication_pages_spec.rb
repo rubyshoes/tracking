@@ -31,7 +31,8 @@ describe "Authentication" do
       it { should_not have_link('Employees',     href: employees_path) }
       it { should_not have_link('Profile',       href: employee_path(employee)) }
       it { should_not have_link('Settings',      href: edit_employee_path(employee)) }
-      it { should_not have_link('New Employee',  href: new_employee_path) }
+      it { should_not have_link('New Employee',  href: newemployee_path) }
+      it { should_not have_link('New Contract',  href: newcontract_path) }
 
       it { should have_link('Sign out',      href: signout_path) }
 
@@ -53,6 +54,7 @@ describe "Authentication" do
       it { should have_link('Profile',       href: employee_path(admin)) }
       it { should have_link('Settings',      href: edit_employee_path(admin)) }
       it { should have_link('New Employee',  href: newemployee_path) }
+      it { should have_link('New Contract',  href: newcontract_path) }
 
       it { should have_link('Sign out',      href: signout_path) }
 
@@ -138,7 +140,6 @@ describe "Authentication" do
   end
 
   describe "Employee" do
-
     it "logs factory girl generated objects" do
       admin = FactoryGirl.create( :admin )
       logger.warn( admin.pretty_inspect )

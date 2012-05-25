@@ -23,6 +23,8 @@ Tracking::Application.routes.draw do
     resources :codelines
   end
 
+  root                    to:     'pages#home'
+
   match '/employees/:id', to:     'employees#show', :as => :employee
 
   match '/newemployee',   to:     'employees#new'
@@ -40,9 +42,7 @@ Tracking::Application.routes.draw do
   match 'newcode',        to:     'codes#new'
 
   match '/signin',        to:     'sessions#new'
-  match '/signout',       to:     'sessions#destroy'
-
-  root                    to:     'pages#home'
+  match '/signout',       to:     'sessions#destroy', via: :delete
 
   match '/home',          to:     'pages#home'
 

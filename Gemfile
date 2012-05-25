@@ -1,14 +1,15 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.3'
-gem 'bootstrap-sass', '2.0.0'
+
+# gem 'bootstrap-sass'
 
 gem 'rspec-core', '2.9.0'
 gem 'rspec-expectations', '2.9.1'
 gem 'rspec-mocks', '2.9.0'
 gem 'gravatar_image_tag', '1.0.0'
 gem 'will_paginate', '3.0.3'
-gem 'bootstrap-will_paginate', '0.0.5'
+gem 'bootstrap-will_paginate', '0.0.6'
 gem 'nokogiri', '1.5.2'
 
 # Bundle edge Rails instead:
@@ -42,14 +43,11 @@ group :development do
 end
 
 group :test do
-#   gem 'autotest', '4.4.6'
-#   gem 'autotest-rails', '4.1.2'
-#   gem 'autotest-rails-pure', '4.1.2'
    gem 'rspec', '2.9.0'
    gem 'spork', '~> 0.9.0'
    gem 'guard-spork', '~> 0.5.2'
-#   gem 'webrat', '0.7.3'
-   gem 'factory_girl_rails', '~> 3.0.0'
+   gem 'launchy', '2.1.0'
+   gem 'factory_girl_rails', '~> 3.3.0'
    gem 'capybara', '1.1.2'
    gem 'rb-inotify', '0.8.8'
    gem 'libnotify', '0.7.2'

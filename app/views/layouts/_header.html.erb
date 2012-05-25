@@ -4,6 +4,7 @@
 <nav class="round">
 <ul>
     <li><strong class="round"><%= link_to "Home", root_path %></strong></li>
+    <li><strong class="round"><%= link_to "Help", help_path %></strong></li>
     <% if signed_in? && current_employee.admin? %>
       <li><strong class="round"><%= link_to "New Employee", newemployee_path %></strong></li>
       <li><strong class="round"><%= link_to "New Contract", newcontract_path %></strong></li>
@@ -11,7 +12,6 @@
       <li><strong class="round"><%= link_to "Profile", current_employee %></strong></li>
       <li><strong class="round"><%= link_to "Settings", edit_employee_path(current_employee) %></li>
     <% end %>
-    <li><strong class="round"><%= link_to "Help", help_path %></strong><li>
     <% if signed_in? %>
       <li><strong class="round"><%= link_to "Sign out", signout_path, method: :delete %></strong></li>
     <% else %>

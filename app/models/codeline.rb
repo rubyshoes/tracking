@@ -27,4 +27,10 @@ class Codeline < ActiveRecord::Base
                   :client, :client_attributes, :clients, :clients_attributes,
                   :codes, :codes_attributes, :contracts, :contracts_attributes,
                   :units_alloc, :code_id, :contract_id, :client_id
+
+                  validates(:contract_id,
+                            :client_id,
+                            :code_id,
+                            :units_alloc, presence: true)
+                  validates(:units_alloc, numericality: true)
 end

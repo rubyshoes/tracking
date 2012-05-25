@@ -5,7 +5,12 @@ describe "Employee 'Show, New Employee, Edit' pages" do
   subject { page }
 
     describe "employee 'profile/show' page" do
-      let(:employee) { FactoryGirl.create(:employee) }
+      let(:employee) { FactoryGirl.create(:employee) } #the last :employee
+      # corresponds to the same symbol used in factories.rb by FactoryGirl
+      # the first :employee could be any name, since it is a local variable
+      # but we chose to use the same symbol since it is clear that we are
+      # concerned with employee ... they are different though
+
       before { visit employee_path(employee) }
 
       it { should have_selector('h3 img') }
@@ -25,7 +30,9 @@ describe "Employee 'Show, New Employee, Edit' pages" do
           let(:error) { 'errors prohibited this user from being saved' }
 
           it { should have_selector('title', text: 'Add Employee') }
-          it { should have_content(error) }
+          it { should have_content('error') }
+          it { should_not have_content('Password digest') } # see config/locales
+          # en.yml
         end
       end
 
@@ -131,7 +138,7 @@ describe "Employee 'Show, New Employee, Edit' pages" do
     it { should have_selector('title', text: 'All employees') }
 
     describe "pagination" do
-      before(:all) { 31.times { FactoryGirl.create(:employee) } }
+      before(:all) { FactoryGirl.create(:employee) }
       after(:all)  { Employee.delete_all }
 
       let(:first_page)    { Employee.paginate(page: 1) }
