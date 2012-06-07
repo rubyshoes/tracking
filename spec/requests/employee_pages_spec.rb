@@ -89,7 +89,7 @@ describe "Employee 'Show, New Employee, Edit' pages" do
     end
 
     describe "page" do
-      it { should have_selector('h4',     text: "Edit") }
+      it { should have_selector('h2',     text: "Edit") }
       it { should have_selector('title',  text: "Edit") }
       it { should have_link('change',     href: 'http://gravatar.com/emails') }
     end
@@ -121,6 +121,7 @@ describe "Employee 'Show, New Employee, Edit' pages" do
       end
 
       it { should have_selector('title', text: employee.emp_full_name) }
+      it { should have_link('Sign out', href: signout_path) }
       it { should have_selector('div.flash.success') }
       specify { employee.reload.first_name.should == new_first_name }
       specify { employee.reload.last_name.should  == new_last_name }
@@ -129,17 +130,22 @@ describe "Employee 'Show, New Employee, Edit' pages" do
   end
 
   describe "index" do
+    
     let(:employee) { FactoryGirl.create(:employee) }
+    
+    before(:all) { 35.times { FactoryGirl.create(:employee) } } 
+    after(:all) { Employee.delete_all }
+
     before do
       sign_in employee
       visit employees_path
     end
 
-    it { should have_selector('title', text: 'All employees') }
+    it { should have_selector('title',  text: 'All employees') }
 
     describe "pagination" do
-      before(:all) { FactoryGirl.create(:employee) }
-      after(:all)  { Employee.delete_all }
+    #  before(:all) { FactoryGirl.create(:employee) }
+    #  after(:all)  { Employee.delete_all }
 
       let(:first_page)    { Employee.paginate(page: 1) }
       let(:second_page)   { Employee.paginate(page: 2) }

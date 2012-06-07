@@ -17,6 +17,7 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(params[:employee])
     if @employee.save
+      sign_in @employee
       flash[:success] = "New Employee has been saved"
       redirect_to @employee # this redirects to the employee show page
     else
@@ -31,7 +32,9 @@ class EmployeesController < ApplicationController
   end
 
   def update
+    @employee = Employee.find(params[:id])
     if @employee.update_attributes(params[:employee])
+      sign_in @employee
       flash[:success] = "Employee Profile updated"
       redirect_to @employee
     else
@@ -49,7 +52,12 @@ class EmployeesController < ApplicationController
     end
 
     def correct_employee
-      @employee = Employee.find(params[:id])
+      @employee = Employee.find(params[:id]) # if it is the current user they
+                                             # end up at the edit action. That
+                                             # is why we do not need this line
+                                             # in the edit action above.
+                                             # Essentially we are pulling an 
+                                             # existing user from the database.
       redirect_to(root_path) unless current_employee?(@employee)
     end
 

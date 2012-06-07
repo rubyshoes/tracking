@@ -2,5 +2,5 @@
 %h4 All Employees
 = will_paginate
 %ul.employees
-  = render @employees
+  = render @employees # the @employees is the object returned by will_paginate and so Rails will iterate through the object. Each of the @employees is of a class user to Rails know to look for the partial (_employee.html.haml) 
 = will_paginate

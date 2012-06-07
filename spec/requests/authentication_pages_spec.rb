@@ -29,8 +29,6 @@ describe "Authentication" do
       it { should have_selector('title',     text: employee.emp_full_name) }
 
       it { should_not have_link('Employees',     href: employees_path) }
-      it { should_not have_link('Profile',       href: employee_path(employee)) }
-      it { should_not have_link('Settings',      href: edit_employee_path(employee)) }
       it { should_not have_link('New Employee',  href: newemployee_path) }
       it { should_not have_link('New Contract',  href: newcontract_path) }
 
@@ -94,7 +92,7 @@ describe "Authentication" do
 
         describe "visiting Employees#edit page" do
           before { visit edit_employee_path(wrong_employee) }
-          it { should have_selector('title', text: 'Home') }
+          it { should_not have_selector('title', text: 'Edit') }
         end
 
         describe "submitting a PUT request to the Employees#update action" do
