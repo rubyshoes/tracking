@@ -133,7 +133,7 @@ describe "Employee 'Show, New Employee, Edit' pages" do
     
     let(:employee) { FactoryGirl.create(:employee) }
     
-    before(:all) { 35.times { FactoryGirl.create(:employee) } } 
+    before(:all) { 30.times { FactoryGirl.create(:employee) } } 
     after(:all) { Employee.delete_all }
 
     before do
@@ -144,8 +144,6 @@ describe "Employee 'Show, New Employee, Edit' pages" do
     it { should have_selector('title',  text: 'All employees') }
 
     describe "pagination" do
-    #  before(:all) { FactoryGirl.create(:employee) }
-    #  after(:all)  { Employee.delete_all }
 
       let(:first_page)    { Employee.paginate(page: 1) }
       let(:second_page)   { Employee.paginate(page: 2) }

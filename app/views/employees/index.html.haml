@@ -1,6 +1,9 @@
 - provide(:title, 'All employees')
 %h4 All Employees
+%br/
 = will_paginate
 %ul.employees
   = render @employees # the @employees is the object returned by will_paginate and so Rails will iterate through the object. Each of the @employees is of a class user to Rails know to look for the partial (_employee.html.haml) 
+%br/
+%br/
 = will_paginate
