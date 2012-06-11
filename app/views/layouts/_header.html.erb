@@ -11,13 +11,15 @@
       <li><strong class="round"><%= link_to "Employees", employees_path %></strong></li>
       <li><strong class="round"><%= link_to "Profile", current_employee %></strong></li>
       <li><strong class="round"><%= link_to "Settings", edit_employee_path(current_employee) %></li>
-    <% end %>
-    <% if signed_in? %>
-      <li><strong class="round"><%= link_to "Profile", current_employee %></strong></li>
-      <li><strong class="round"><%= link_to "Settings", edit_employee_path(current_employee) %></li>
       <li><strong class="round"><%= link_to "Sign out", signout_path, method: :delete %></strong></li>
     <% else %>
+      <% if signed_in? && current_employee.admin? != true %>
+        <li><strong class="round"><%= link_to "Profile", current_employee %></strong></li>
+        <li><strong class="round"><%= link_to "Settings", edit_employee_path(current_employee) %></li>
+        <li><strong class="round"><%= link_to "Sign out", signout_path, method: :delete %></strong></li>
+      <% else %>
       <li><strong class="round"><%= link_to "Sign in", signin_path %></strong></li>
+      <% end %>
     <% end %>
   </ul>
 </nav>
