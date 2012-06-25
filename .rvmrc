@@ -1,2 +1,2 @@
-rvm 1.9.3-p0@rails323
+rvm 1.9.3-p0@rails326
 export rvm_pretty_print_flag=1

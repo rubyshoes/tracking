@@ -2,7 +2,7 @@ module SessionsHelper
 
   def sign_in(employee)
     cookies.permanent[:remember_token] = employee.remember_token
-    current_employee = employee
+    self.current_employee = employee
   end
 
   def current_employee=(employee)
@@ -22,6 +22,7 @@ module SessionsHelper
   end
 
   def sign_out
+    self.current_employee = nil
     cookies.delete(:remember_token)
   end
 
