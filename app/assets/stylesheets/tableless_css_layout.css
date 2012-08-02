@@ -67,12 +67,12 @@ body  {
   margin-right: 1px;
 }
 
-.pagination.disabled {
+.pagination .disabled a {
   color: #999999;
   border: 1px solid #dddddd; 
 }
 
-.pagination.current {
+.pagination .current {
   font-style: normal;
   font-weight: bold;
   background: #2e6ab1;
@@ -91,7 +91,7 @@ body  {
   border-color: #000033;
 }
 
-.pagination.page_info {
+.pagination .page_info {
   background: #2e6ab1;
   color: white;
   padding: 0.4em 0.6em;
@@ -100,7 +100,7 @@ body  {
   text-align: center;
 }
 
-.pagination.page_info b {
+.pagination .page_info b {
   color: #000033;
   background: #6aa6ed;
   padding: 0.1em 0.25em;
@@ -114,11 +114,11 @@ body  {
   visibility: hidden; 
 }
 
-* html.pagination {
+* html .pagination {
   height: 1%; 
 }
 
-*:first-child + html.pagination {
+*:first-child + html .pagination {
   overflow: hidden; 
 }
 
