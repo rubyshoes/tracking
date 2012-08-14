@@ -1,12 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.7'
+gem 'rails', '~> 3.2.8'
 
 # gem 'bootstrap-sass'
 
 gem 'rspec-core', '2.11.1'
 gem 'rspec-expectations', '2.11.2'
-gem 'rspec-mocks', '2.11.1'
+gem 'rspec-mocks', '2.11.2'
 gem 'gravatar_image_tag', '1.1.3'
 gem 'will_paginate', '~> 3.0.3'
 gem 'bootstrap-will_paginate', '0.0.7'
@@ -47,7 +47,7 @@ group :test do
    gem 'spork', '~> 0.9.2'
    gem 'guard-spork', '~> 1.1.0'
    gem 'launchy', '2.1.1'
-   gem 'factory_girl_rails', '~> 3.6.0'
+   gem 'factory_girl_rails', '~> 4.0.0'
    gem 'capybara', '1.1.2'
    gem 'rb-inotify', '0.8.8'
    gem 'libnotify', '0.7.4'
