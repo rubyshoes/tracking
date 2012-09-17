@@ -1,0 +1,15 @@
+<fieldset><legend>Enter Contract Details</legend>
+= codeline.fields_for :contract do |contract|
+  .field
+    = contract.label :name, "AuthNum"
+    %br/
+    = contract.text_field :authnum, :size => 10, :class => "ui-state-default"
+  .field
+    = contract.label :name, "Start Date"
+    %br/
+    = contract.text_field :st_date, :size => 12, :class => "ui-state-default"
+  .field
+    = contract.label :name, "End Date"
+    %br/
+    = contract.text_field :end_date, :size => 12, :class => "ui-state-default"
+</fieldset>

@@ -18,7 +18,7 @@ gem 'nokogiri', '1.5.5'
 gem 'pg'
 gem 'haml'
 gem 'haml-rails'
-gem 'heroku'
+# gem 'heroku'
 gem 'thin'
 
 

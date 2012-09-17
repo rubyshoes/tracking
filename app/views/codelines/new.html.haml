@@ -3,6 +3,5 @@
 = form_for(@codeline) do |codeline|
   = render 'shared/codeline_error_messages', object: codeline.object
   = render 'form_fields', codeline: codeline
-  /= link_to_add_fields "Add Codes", codeline, :code
   .actions
     = codeline.submit "Save", class: 'save strong round'
