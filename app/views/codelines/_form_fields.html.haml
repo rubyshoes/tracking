@@ -12,7 +12,7 @@
     = contract.label :name, "End Date"
     %br/
     = contract.text_field :end_date, :size => 12, :class => "ui-state-default"
-    /= link_to_add_fields "Add Codes", code, :code
+    / = link_to_add_fields "Add Codes", code, :code
 </fieldset>
 <fieldset><legend>Enter Client Details</legend>
 = codeline.fields_for :client do |client|
