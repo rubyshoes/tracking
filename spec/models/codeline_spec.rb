@@ -24,9 +24,9 @@ describe Codeline do
     context 'validations' do
       it { should_not allow_mass_assignment_of(:password) }
       it { should validate_numericality_of(:units_alloc) }
-      it { should validate_presence_of(:contract_id) }
-      it { should validate_presence_of(:code_id) }
-      it { should validate_presence_of(:client_id) }
+ #     it { should validate_presence_of(:contract_id) }
+ #     it { should validate_presence_of(:code_id) }
+ #     it { should validate_presence_of(:client_id) }
       it { should have_db_column(:id).with_options(:primary => true) }
     end
 end
