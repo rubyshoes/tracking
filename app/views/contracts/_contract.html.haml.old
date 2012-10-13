@@ -1,0 +1,3 @@
+%li
+  %span3
+    = link_to(@contract.client.cli_full_name, clients_path)

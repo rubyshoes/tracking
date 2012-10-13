@@ -1,6 +1,9 @@
 - provide(:title, 'All Codelines')
 %h4 All Codelines
-= will_paginate
+%br/
+/= will_paginate
 %ul.codelines
-  = render 'codelines'
-= will_paginate
+  = render @codelines
+%br/
+%br/
+/= will_paginate
