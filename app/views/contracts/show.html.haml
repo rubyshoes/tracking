@@ -1,13 +1,13 @@
 - provide(:title, "Contracts")
 %h3
-  - @contract.clients.each do |client|
-    = client.cli_full_name
-    %span1
-      = @contract.authnum
-    %ol
-      - for code in @contract.codes
-        %li= code.code_name
-        %li= code.status
-        %li= code.description
-      - for codelines in @contract.codelines
-        %li= codelines.units_alloc
+= @contract.authnum
+- @contract.clients.each do |client|
+  = client.cli_full_name
+%span1
+%ol
+  - for code in @contract.codes
+    %li= code.code_name
+    %li= code.status
+    %li= code.description
+    - for codelines in @contract.codelines
+      %li= codelines.units_alloc

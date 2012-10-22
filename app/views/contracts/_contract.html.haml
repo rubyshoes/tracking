@@ -1,4 +1,3 @@
 %li
   %span3
-  - @contract.clients.each do |client|
-    = client.cli_full_name
+= link_to contract.authnum, contract

@@ -1,5 +1,5 @@
 namespace :db do 
-  desc "Fill database with sample data"
+  desc "Fill database with sample Employee data"
   task populate: :environment do
 
     @gender = ["Male", "Female"]
