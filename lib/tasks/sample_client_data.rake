@@ -1,7 +1,7 @@
 namespace :db do 
   desc "Fill database with sample Client data"
-  task populate: :environment do
-    Rake::Task['db:reset'].invoke
+  task populate_client: :environment do
+    # Rake::Task['db:reset'].invoke
 
     def randomDate(params={})
       years_back = params[:year_range] || 5
@@ -31,7 +31,7 @@ namespace :db do
                      medicare_num:                "3008769788",
                      medicaid_num:                "7658945674",
                      member_num:                  "13456666-1", 
-                     soc_ser_care_mgr:            "Caring Manager",
+                     soc_sec_care_mgr:            "Caring Manager",
                      sscm_ph:                     "1-444-444-4444",
                      nurse_care_mgr:              "Caring Nurse",
                      ncm_ph:                      "1-555-555-5555",
@@ -41,18 +41,18 @@ namespace :db do
                      pcp_ph:                      "1-777-777-7777")
 
     11.times do |n|
-      f_name = Faker::Name.first_name
+      first_name = Faker::Name.first_name
       mi = ("A".."Z").to_a[rand(26)]
-      l_name = Faker::Name.last_name
+      last_name = Faker::Name.last_name
       birth_date = randomDate(:year_range => 60, :year_latest => 22)
       address1 = "Seaview-#{n+5}Way"
       city = Faker::Lorem.words(1).to_s.capitalize
-      state = Faker::Address.us_state()
+      state = Faker::Address.state()
       zip_code = Faker::Address.zip_code
       medicare_num = rand(10000)
       medicaid_num = rand(20000)
       member_num = 1345 + rand(6666-1)
-      soc_ser_care_mgr = Faker::Name.name
+      soc_sec_care_mgr = Faker::Name.name
       sscm_ph = Faker::PhoneNumber.phone_number
       nurse_care_mgr = Faker::Name.name
       ncm_ph = Faker::PhoneNumber.phone_number
@@ -60,11 +60,11 @@ namespace :db do
       ec_ph = Faker::PhoneNumber.phone_number
       pri_care_phy = Faker::Name.name
       pcp_ph = Faker::PhoneNumber.phone_number
-      Client.create!(f_name: first_name, mi: mi, l_name: last_name,
+      Client.create!(first_name: first_name, mi: mi, last_name: last_name,
                        birth_date: birth_date, address1: address1,
                        city: city, state: state, zip_code: zip_code, 
                        medicare_num: medicare_num, medicaid_num: medicaid_num,
-                       member_num: member_num, soc_ser_care_mgr: name, 
+                       member_num: member_num, soc_sec_care_mgr: name, 
                        sscm_ph: sscm_ph, nurse_care_mgr: name, ncm_ph: ncm_ph, 
                        emer_contact: name, ec_ph: ec_ph, pri_care_phy: name,
                        pcp_ph: pcp_ph)
