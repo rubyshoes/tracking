@@ -12,5 +12,11 @@ puts "Thanks for your input. Sorting data ..."
 puts words.sort 
 puts words.length
 words.each do |wrd|
-	puts 'inside ' + wrd + ''
+#	puts 'inside ' + wrd + ''
+	puts wrd
+# populate array with 100 no'
+	100.times do
+		cats = ["no"]
+		puts cats
+	end
 end

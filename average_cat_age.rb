@@ -1,4 +1,4 @@
-def average_cat_age
+def average_cat_age(cats)
 
 	cat = Hash.new
 	cat[1] = "Rubyshoes"
@@ -27,6 +27,18 @@ def average_cat_age
 	puts
 	puts "The average age of the four cats is, #{avg} "
 	puts
+	puts cat.keys.inspect
+	puts
+	puts cat.values.inspect
+	#grouped = cat.group_by {|cat| cat["Durban"]}
+	#grouped.map {|k,v| [k, v.length]}
+	puts
 
+	avgg = [cat[3].to_i+cat1[3].to_i+cat2[3].to_i+cat3[3].to_i]
+	puts
+	puts avgg
+	puts
+	#avggg = avgg.to_f/4
+	puts
 end
-average_cat_age == 9
+average_cat_age(4)
