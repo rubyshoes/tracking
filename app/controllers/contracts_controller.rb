@@ -1,5 +1,7 @@
 class ContractsController < ApplicationController
 
+## TODO: Use params from contract create/update page to add attrs to codelines model.
+
   def index
     @contracts = Contract.paginate(page: params[:page])
   end
