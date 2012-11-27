@@ -33,4 +33,5 @@ class Codeline < ActiveRecord::Base
                             #:code_id,
                             :units_alloc, presence: true)
                   validates(:units_alloc, numericality: true)
+  
 end

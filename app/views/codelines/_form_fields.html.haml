@@ -12,7 +12,6 @@
     = contract.label :name, "End Date"
     %br/
     = contract.text_field :end_date, :size => 12, :class => "ui-state-default"
-    / = link_to_add_fields "Add Codes", code, :code
 </fieldset>
 <fieldset><legend>Enter Client Details</legend>
 = codeline.fields_for :client do |client|
@@ -100,10 +99,6 @@
 <fieldset><legend>Enter Billing Code Details</legend>
 = codeline.fields_for :code do |code|
   = render 'code_fields', code: code
-/  = code.hidden_field :_destroy
-/.field
-/  = link_to "remove", '#', class: "remove_fields"
-/= link_to_add_fields "Add Codes", codeline, :code
 .field
   = codeline.label :name, "Units Alloc"
   %br/

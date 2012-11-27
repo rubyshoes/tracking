@@ -21,7 +21,7 @@ class CodelinesController < ApplicationController
     @codeline = Codeline.new(params[:codeline])
     if @codeline.save
       flash[:success] = "New Codeline has been saved"
-      redirect_to @codeline # this redirects to the codeline show page
+      redirect_to @codeline
     else
       @title = "You have some errors"
       render 'new'

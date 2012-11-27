@@ -18,4 +18,14 @@ class Code < ActiveRecord::Base
   accepts_nested_attributes_for :codelines, :contracts
   attr_accessible :codelines, :codelines_attributes, :contracts, :contracts_attributes, :code_name, :status, :description
 
+  # before_create :check_existence
+  # 
+  # private
+  # 
+  #   def check_existence
+  #     Code.all.each do |code|
+  #       code.update_attributes(code.code_name = ) if code.code_name == self.code_name
+  #     end
+  #   end
+
 end
