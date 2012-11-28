@@ -28,18 +28,14 @@
 #
 
 class Client < ActiveRecord::Base
-#  has_many  :clientlines
-#  has_many  :contracts, :through => :clientlines
-  has_many  :codelines, :dependent => :destroy
-  has_many  :codes, through: :codelines
-  has_many  :contracts, inverse_of: :client
-  
   attr_accessor :cli_full_name
 
-  # define the virtual attribute 'cli_full_name'
+  has_many :contracts, inverse_of: :client
+  has_many :codelines, through: :contracts
+  
+  attr_accessible :f_name, :mi, :l_name
+
   def cli_full_name
     "#{f_name} #{mi} #{l_name}"
   end
-
-
 end

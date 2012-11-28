@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126223129) do
+ActiveRecord::Schema.define(:version => 20121128015659) do
 
   create_table "clients", :force => true do |t|
     t.string   "f_name"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(:version => 20121126223129) do
   create_table "codelines", :force => true do |t|
     t.integer  "contract_id"
     t.integer  "code_id"
-    t.integer  "client_id"
     t.decimal  "units_alloc", :precision => 6, :scale => 2
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false

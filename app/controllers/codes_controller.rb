@@ -10,23 +10,13 @@ class CodesController < ApplicationController
 
   def new
     @code = Code.new
-    @code.codelines.build(:units_alloc => params[:units_alloc], :code => @code)
-    @code.contracts.build
-#    @code.clients.build
-#    @code = @code.codelines.build(params[:code])
-#    debugger
-#    @code = Code.find(params[:code_id])
   end
 
   def create
- #   raise params[:code].to_s
- #    @code = Code.new(params[:code])
-     @code = Code.new(params[:code])
- #    @code = Code.find(params[:code_id])
- #    @code.codelines.build(:units_alloc => params[:units_alloc], :code => @code)
+    @code = Code.new(params[:code])
     if @code.save
       flash[:success] = "New Code has been saved"
-      redirect_to @code # this redirects to the contract show page
+      redirect_to @code
     else
       @title = "You have some errors"
       render 'new'

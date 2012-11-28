@@ -1,5 +1,7 @@
-- provide(:title, 'Edit')
-%h4 Edit
-#anchor
-  = gravatar_for(@employee)
-  %a{:href => "http://gravatar.com/emails"} change
+- provide(:title, 'Edit Contract')
+%h2 Edit Contract
+= form_for(@contract) do |contract|
+  =render 'shared/contract_error_messages', object: contract.object
+  =render 'fields', contract:  contract
+  .actions
+    = contract.submit "Update", class: 'save strong round'

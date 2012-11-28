@@ -16,7 +16,7 @@ class ClientsController < ApplicationController
     @client = Client.new(params[:client])
     if @client.save
       flash[:success] = "New Client has been saved"
-      redirect_to @client # this redirects to the client show page
+      redirect_to @client
     else
       @title = "You have some errors"
       render 'new'
