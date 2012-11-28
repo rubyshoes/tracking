@@ -1,7 +1,21 @@
 - provide(:title, 'Edit Contract')
 %h2 Edit Contract
-= form_for(@contract) do |contract|
-  =render 'shared/contract_error_messages', object: contract.object
-  =render 'fields', contract:  contract
+= form_for @contract do |contract|
+  
+  %fieldset
+    %legend Enter Contract Details
+    =render 'contract_fields', contract: contract
+    
+  %fieldset
+    %legend Enter Client Details
+    = contract.fields_for :client do |client|
+      =render 'client_fields', client:  client
+      
+  %fieldset
+    %legend Enter Billing Code Details
+    = contract.fields_for :codelines do |codeline|
+      = render 'codeline_fields', codeline: codeline
+    = link_to_add_fields "Add Billing Code", contract, :codelines
+    
   .actions
     = contract.submit "Update", class: 'save strong round'

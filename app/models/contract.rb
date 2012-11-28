@@ -19,6 +19,6 @@ class Contract < ActiveRecord::Base
   attr_accessible :authnum, :st_date, :end_date, :client_id, :clients, :client_attributes, :codelines, :codelines_attributes
   
   accepts_nested_attributes_for :client
-  accepts_nested_attributes_for :codelines
+  accepts_nested_attributes_for :codelines, allow_destroy: true
 
 end

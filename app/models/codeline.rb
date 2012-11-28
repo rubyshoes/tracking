@@ -11,7 +11,7 @@
 #
 
 class Codeline < ActiveRecord::Base
-  belongs_to :code
+  belongs_to :code, inverse_of: :codelines
   belongs_to :contract
   
   attr_accessible :contract_id, :code_id, :units_alloc, :code_attributes

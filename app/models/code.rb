@@ -11,7 +11,7 @@
 #
 
 class Code < ActiveRecord::Base
-  has_many :codelines
+  has_many :codelines, inverse_of: :code
   has_many :contracts, through: :codelines
   
   attr_accessible :code_name, :status, :description
