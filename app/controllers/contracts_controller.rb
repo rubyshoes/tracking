@@ -15,7 +15,6 @@ class ContractsController < ApplicationController
   end
 
   def create
-    @client = Client.new(params[:contract][:client])
     @contract = Contract.new(params[:contract])
     if @contract.save
       flash[:success] = "New Contract has been saved"
@@ -31,6 +30,7 @@ class ContractsController < ApplicationController
   end
 
   def update
+    @contract = Contract.find(params[:id])
     if @contract.update_attributes(params[:contract])
        flash[:success] = "Contract Profile updated"
        redirect_to @contract
