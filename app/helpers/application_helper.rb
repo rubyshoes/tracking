@@ -18,7 +18,7 @@ module ApplicationHelper
     new_codeline = form.object.send(association).klass.new
     id = new_codeline.object_id
     fields = form.fields_for(association, new_codeline, child_index: id) do |codeline|
-      render(association.to_s.singularize + "_fields", codeline: codeline)
+      render("codeline_fields", codeline: codeline)
     end
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
