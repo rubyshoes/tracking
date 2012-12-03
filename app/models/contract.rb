@@ -20,5 +20,9 @@ class Contract < ActiveRecord::Base
   
   accepts_nested_attributes_for :client
   accepts_nested_attributes_for :codelines, allow_destroy: true
+  
+  def client_attributes=(params)
+    self.client = Client.find_or_create_by_name(params[:name])
+  end
 
 end

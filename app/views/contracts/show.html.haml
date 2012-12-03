@@ -1,7 +1,7 @@
 - provide(:title, "Contracts")
 %h3
 = @contract.authnum
-= @contract.client.cli_full_name
+= @contract.client.name
 %span1
 %ol
   - for code in @contract.codes

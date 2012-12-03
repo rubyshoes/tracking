@@ -1,7 +1,8 @@
 class ClientsController < ApplicationController
 
   def index
-    @clients = Client.paginate(page: params[:page])
+    @clients = Client.order(:name).where("name like ?", "%#{params[:term]}%")
+    render json: @clients.map(&:name)
   end
 
   def show

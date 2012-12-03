@@ -18,27 +18,12 @@ class Codeline < ActiveRecord::Base
   
   accepts_nested_attributes_for :code
   
-  after_create :update_code_id, if: :multiple_codes?
+  def code_attributes=(params)
+    code_to_save = Code.find_or_create_by_code_name(params[:code_name])
+    self.code = code_to_save
+    code_to_save.status = params[:status]
+    code_to_save.status = params[:description]
+    code_to_save.save
+  end
   
-  private
-  
-    def multiple_codes?
-      codeline = Codeline.find_by_id(self.id)
-      code = Code.find(self.code_id)
-      codes = Code.find_all_by_code_name(code.code_name)
-      if codes.size > 1
-        true
-      else
-        false
-      end
-    end
-  
-    def update_code_id
-      codeline = Codeline.find_by_id(self.id)
-      code = Code.find(self.code_id)
-      codes = Code.find_all_by_code_name(code.code_name)
-      codeline.update_attributes(code_id: codes.first.id)
-      code_to_destroy = Code.find(codes.last.id)
-      code_to_destroy.destroy
-    end
 end

@@ -34,3 +34,9 @@ $ ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+    
+  $('#contract_client_attributes_name').autocomplete
+      source: $('#contract_client_attributes_name').data('autocomplete-source')
+
+  $('#contract_codelines_attributes_0_code_attributes_code_name').autocomplete
+      source: $('#contract_codelines_attributes_0_code_attributes_code_name').data('autocomplete-source')

@@ -1,7 +1,8 @@
 class CodesController < ApplicationController
 
   def index
-    @codes = Code.paginate(page: params[:page])
+    @codes = Code.order(:code_name).where("code_name like ?", "%#{params[:term]}%")
+    render json: @codes.map(&:code_name)
   end
 
   def show

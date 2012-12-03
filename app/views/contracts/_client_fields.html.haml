@@ -1,12 +1,7 @@
 .field
-  = client.label :name, "First Name"
-  %br/
-  = client.text_field :f_name, :size => 15, :class => "ui-state-default"
+  = client.label :name
+  = client.text_field :name, data: {autocomplete_source: clients_path}
 .field
-  = client.label :name, "MI"
+  = client.label :zip_code, "Zip Code"
   %br/
-  = client.text_field :mi, :size => 3, :class => "ui-state-default"
-.field
-  = client.label :name, "Last Name"
-  %br/
-  = client.text_field :l_name, :size => 15, :class => "ui-state-default"
+  = client.text_field :zip_code, :size => 15, :class => "ui-state-default"

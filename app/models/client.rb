@@ -25,17 +25,15 @@
 #  pcp_ph           :string(255)
 #  created_at       :datetime        not null
 #  updated_at       :datetime        not null
+#  name             :string(255)
 #
 
 class Client < ActiveRecord::Base
-  attr_accessor :cli_full_name
-
   has_many :contracts, inverse_of: :client
   has_many :codelines, through: :contracts
   
-  attr_accessible :f_name, :mi, :l_name
+  attr_accessible :f_name, :mi, :l_name, :name
 
-  def cli_full_name
-    "#{f_name} #{mi} #{l_name}"
-  end
+  # TODO Add after_create method to break apart full name into constituent parts
+
 end
