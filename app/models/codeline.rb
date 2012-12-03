@@ -22,7 +22,7 @@ class Codeline < ActiveRecord::Base
     code_to_save = Code.find_or_create_by_code_name(params[:code_name])
     self.code = code_to_save
     code_to_save.status = params[:status]
-    code_to_save.status = params[:description]
+    code_to_save.description = params[:description]
     code_to_save.save
   end
   

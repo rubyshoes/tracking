@@ -34,6 +34,15 @@ $ ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+    $("#contract_codelines_attributes_" + time + "_code_attributes_code_name").autocomplete
+        source: $('input[id*="code_attributes_code_name"]').data('autocomplete-source')
+        select: (event, ui) -> 
+          $.ajax '/get_code_data',
+            type: 'GET',
+            data: ui.item,
+            success: (data, status, xqhr) ->
+              $("#contract_codelines_attributes_" + time + "_code_attributes_status").val(data.status)
+              $("#contract_codelines_attributes_" + time + "_code_attributes_description").val(data.description)
     
   $('#contract_client_attributes_name').autocomplete
     source: $('#contract_client_attributes_name').data('autocomplete-source')
@@ -60,9 +69,8 @@ $ ->
           $("#contract_client_attributes_pri_care_phy").val(data.pri_care_phy)
           $("#contract_client_attributes_pcp_ph").val(data.pcp_ph)
           
-
-  $('#contract_codelines_attributes_0_code_attributes_code_name').autocomplete
-      source: $('#contract_codelines_attributes_0_code_attributes_code_name').data('autocomplete-source')
+  $('input[id*="code_attributes_code_name"]').autocomplete
+      source: $('input[id*="code_attributes_code_name"]').data('autocomplete-source')
       select: (event, ui) -> 
         $.ajax '/get_code_data',
           type: 'GET',
