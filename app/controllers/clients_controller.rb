@@ -8,6 +8,13 @@ class ClientsController < ApplicationController
   def show
     @client = Client.find(params[:id])
   end
+  
+  def get_client_data
+    # raise params[:label]
+    client_name = params[:label]
+    @client_data = Client.where("name like ?", client_name)
+    render json: @client_data.first
+  end
 
   def new
     @client = Client.new

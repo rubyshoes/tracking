@@ -4,6 +4,13 @@ class CodesController < ApplicationController
     @codes = Code.order(:code_name).where("code_name like ?", "%#{params[:term]}%")
     render json: @codes.map(&:code_name)
   end
+  
+  def get_code_data
+    # raise params[:label]
+    code = params[:label]
+    @code_data = Code.where("code_name like ?", code)
+    render json: @code_data.first
+  end
 
   def show
     @code = Code.find(params[:id])
