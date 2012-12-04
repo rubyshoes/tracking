@@ -1,11 +1,10 @@
 %fieldset
+  - codeline.object.build_code
+  = codeline.fields_for :code do |code|
+    = render 'code_fields', code: code
   .field
     = codeline.label :name, "Units Alloc"
     %br/
     = codeline.text_field :units_alloc, :precision => 6, :scale => 2, :size => 10, :class => "ui-state-default"
-  .field
     = codeline.hidden_field :_destroy
-    = link_to "remove", '#', class: "remove_fields fr"
-    - codeline.object.build_code
-    = codeline.fields_for :code do |code|
-      = render 'code_fields', code: code
+    = link_to "remove", '#', class: "remove_fields"

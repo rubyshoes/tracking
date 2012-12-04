@@ -1,5 +1,8 @@
 class ContractsController < ApplicationController
 
+  # I moved most of the functionality to the contracts controller, given that it is the business
+  # entity we are focused on. 
+
   def index
     @contracts = Contract.paginate(page: params[:page])
   end
@@ -11,7 +14,10 @@ class ContractsController < ApplicationController
   def new
     @contract = Contract.new
     @contract.build_client
-    @contract.codelines.build.build_code
+    @contract.codelines.build.build_code  # Check ActiveRecord Association documentation for build methods. This 
+                                          # method chain builds the codeline first, then builds the code based on the
+                                          # codeline object. The difference in .build vs build_ syntax is based on the
+                                          # differing association type (belongs_to vs has_many)
   end
 
   def create

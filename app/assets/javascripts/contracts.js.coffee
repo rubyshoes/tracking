@@ -24,6 +24,10 @@ $ ->
 			formatDate: 'mm-dd-yy'
   })
   
+  ###
+  Please see RailsCast for details regarding the Add and Remove fields logic.
+  ###
+  
   $('form').on 'click', '.remove_fields', (event) ->
     $(this).prev('input[type=hidden]').val('1')
     $(this).closest('fieldset').hide()
@@ -34,14 +38,14 @@ $ ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
-    $("#contract_codelines_attributes_" + time + "_code_attributes_code_name").autocomplete
+    $("#contract_codelines_attributes_" + time + "_code_attributes_code_name").autocomplete                     # It is necessary to add this in the add_fields function so each new element can have autocomplete added to it with the correct timestamp for the new fields.
         source: $('input[id*="code_attributes_code_name"]').data('autocomplete-source')
-        select: (event, ui) -> 
-          $.ajax '/get_code_data',
+        select: (event, ui) ->                                                                                  # Event and UI are objects passed from jQuery UI autocomplete. Please reference that documentation for details.
+          $.ajax '/get_code_data',                                                                              # This is the custom path defined to retrieve the code details. See Routes file and Code controller
             type: 'GET',
-            data: ui.item,
-            success: (data, status, xqhr) ->
-              $("#contract_codelines_attributes_" + time + "_code_attributes_status").val(data.status)
+            data: ui.item,                                                                                      # This is the data (in this case, the code name) that we are passing to the Rails action in the Ajax request.
+            success: (data, status, xqhr) ->                                                                    # If the Ajax request is successful, this is how we add the values returned to the appropriate elements. 
+              $("#contract_codelines_attributes_" + time + "_code_attributes_status").val(data.status)          # We access the data by using the JSON response (data) and querying it for each attribute. Use .val() to set an elements value.
               $("#contract_codelines_attributes_" + time + "_code_attributes_description").val(data.description)
     
   $('#contract_client_attributes_name').autocomplete

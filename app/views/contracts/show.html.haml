@@ -4,9 +4,8 @@
 = @contract.client.name
 %span1
 %ol
-  - for code in @contract.codes
-    %li= code.code_name
-    %li= code.status
-    %li= code.description
-    - for codelines in @contract.codelines
-      %li= codelines.units_alloc
+  - for codeline in @contract.codelines
+    %li= codeline.units_alloc
+    %li= codeline.code.code_name
+    %li= codeline.code.status
+    %li= codeline.code.description

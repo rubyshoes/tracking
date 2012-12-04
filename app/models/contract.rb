@@ -19,7 +19,9 @@ class Contract < ActiveRecord::Base
   attr_accessible :authnum, :st_date, :end_date, :client_id, :clients, :client_attributes, :codelines, :codelines_attributes
   
   accepts_nested_attributes_for :client
-  accepts_nested_attributes_for :codelines, allow_destroy: true
+  accepts_nested_attributes_for :codelines, allow_destroy: true, :reject_if => lambda { |a| a[:units_alloc].blank? }
+  
+  # See codeline model for explanation of this pattern and how to utilize the associations.
   
   def client_attributes=(params)
     client_to_save = Client.find_or_create_by_name(params[:name])

@@ -1,6 +1,6 @@
 class CodesController < ApplicationController
 
-  def index
+  def index # Please see commentary in clients controller. Pattern is repeated here.
     @codes = Code.order(:code_name).where("code_name like ?", "%#{params[:term]}%")
     render json: @codes.map(&:code_name)
   end
