@@ -3,22 +3,23 @@
 # Table name: employees
 #
 #  id                        :integer         not null, primary key
-#  first_name                :string(255)     not null
-#  last_name                 :string(255)     not null
-#  mi                        :string(255)
-#  marital_status            :string(255)     not null
-#  gender                    :string(255)     not null
-#  hire_date                 :date            not null
+#  first_name                :string(255)
+#  last_name                 :string(255)
+#  mi                        :text
+#  marital_status            :string(255)
+#  gender                    :string(255)
+#  birth_date                :date
+#  hire_date                 :date
 #  term_date                 :date
-#  primary_position          :string(255)     not null
-#  trained_position          :text
-#  email                     :string(255)     not null
-#  active                    :boolean         default(TRUE), not null
-#  address1                  :string(255)     not null
+#  primary_position          :string(255)
+#  trained_position          :string(255)
+#  email                     :string(255)
+#  active                    :boolean
+#  address1                  :string(255)
 #  address2                  :string(255)
-#  city                      :string(255)     not null
-#  zip_code                  :string(255)     not null
-#  state                     :string(255)     not null
+#  city                      :string(255)
+#  zip_code                  :string(255)
+#  state                     :string(255)
 #  emp_home_ph               :string(255)
 #  emp_mobile_ph             :string(255)
 #  emer_contact_first_name   :string(255)
@@ -28,7 +29,6 @@
 #  created_at                :datetime        not null
 #  updated_at                :datetime        not null
 #  role                      :string(255)
-#  birth_date                :date
 #  password_digest           :string(255)
 #  remember_token            :string(255)
 #  admin                     :boolean         default(FALSE)

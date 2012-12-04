@@ -1,114 +1,26 @@
 Tracking::Application.routes.draw do
 
+  root to: 'pages#home'
+  
+  # Refactored routes to make nearly all resourceful. 
+
   resources :employees
-
   resources :clients
-
   resources :codes
-
   resources :codelines
-
+  resources :contracts
   resources :sessions, only:  [:new, :create, :destroy]
+  
+  
+  match '/get_client_data', to:   'clients#get_client_data' # Added this route for the autocomplete functionality.
+  match '/get_code_data',   to:   'codes#get_code_data' # Added this route for the autocomplete functionality.
+  match '/employees/:id',   to:     'employees#show', :as => :employee
+  match '/newemployee',     to:     'employees#new'
+  match '/signin',          to:     'sessions#new'
+  match '/signout',         to:     'sessions#destroy', via: :delete
+  match '/home',            to:     'pages#home'
+  match '/about',           to:     'pages#about'
+  match '/contact',         to:     'pages#contact'
+  match '/help',            to:     'pages#help'
 
-  resources :contracts do
-    resources :codelines
-  end
-
-
-  resources :codelines do
-    resources :codes
-  end
-
-  resources :clients do
-    resources :codelines
-  end
-
-  root                    to:     'pages#home'
-
-  match '/employees/:id', to:     'employees#show', :as => :employee
-
-  match '/newemployee',   to:     'employees#new'
-
-  match '/contracts/:id', to:     'contracts#show', :as => :contract
-
-  match 'newcontract',    to:     'codelines#new'
-
-  match '/codelines/:id', to:     'codelines#show', :as => :codeline
-
-  match 'newcodeline',    to:     'codelines#new'
-
-  match '/codes/:id',     to:     'codes#show', :as => :code
-
-  match 'newcode',        to:     'codes#new'
-
-  match '/signin',        to:     'sessions#new'
-  match '/signout',       to:     'sessions#destroy', via: :delete
-
-  match '/home',          to:     'pages#home'
-
-  match '/about',         to:     'pages#about'
-
-  match '/contact',       to:     'pages#contact'
-
-  match '/help',          to:     'pages#help'
-
-
-
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
 end

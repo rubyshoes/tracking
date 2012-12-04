@@ -10,18 +10,14 @@ class CodelinesController < ApplicationController
   end
 
   def new
-    @codeline = Codeline.new
-    @codeline.build_code
-    @codeline.build_contract
-    @codeline.build_client
+
   end
 
   def create
-    # raise params[:codeline].to_s
     @codeline = Codeline.new(params[:codeline])
     if @codeline.save
       flash[:success] = "New Codeline has been saved"
-      redirect_to @codeline # this redirects to the codeline show page
+      redirect_to @codeline
     else
       @title = "You have some errors"
       render 'new'
