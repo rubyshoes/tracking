@@ -8,14 +8,13 @@
 #  description :text
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
+#  meta_status :boolean
 #
 
 class Code < ActiveRecord::Base
-  has_many :codelines, :dependent => :destroy
+  has_many :codelines, inverse_of: :code
   has_many :contracts, through: :codelines
-  has_many :clients, through: :codelines
-
-  accepts_nested_attributes_for :codelines, :contracts
-  attr_accessible :codelines, :codelines_attributes, :contracts, :contracts_attributes, :code_name, :status, :description
+  
+  attr_accessible :code_name, :status, :description, :meta_status
 
 end

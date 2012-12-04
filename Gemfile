@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 source "http://bundler-api.herokuapp.com"
 
 gem 'rack'
-
+gem 'pg'
 gem 'rails', '~> 3.2.8'
 
 # gem 'bootstrap-sass'
@@ -18,12 +18,11 @@ gem 'nokogiri', '1.5.5'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+
 gem 'haml'
 gem 'haml-rails'
 # gem 'heroku'
 gem 'thin'
-
 
 # Gems used only for assets and not required
 # in production environments by default.

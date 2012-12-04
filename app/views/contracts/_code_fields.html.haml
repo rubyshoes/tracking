@@ -1,0 +1,13 @@
+.field
+  = code.label :code_name
+  %br
+  = code.text_field :code_name, data: {autocomplete_source: codes_path}, :size => 10, :class => "ui-state-default"
+.field
+  = code.label :name, "Status"
+  %br
+  = code.text_field :status, :size => 10, :class => "ui-state-default"
+.field
+  = code.label :name, "Description"
+  %br
+  = code.text_field :description, :size => 25, :class => "ui-state-default"
+    

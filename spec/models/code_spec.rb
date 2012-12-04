@@ -8,6 +8,7 @@
 #  description :text
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
+#  meta_status :boolean
 #
 
 require 'spec_helper'

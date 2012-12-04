@@ -1,5 +1,8 @@
 class ContractsController < ApplicationController
 
+  # I moved most of the functionality to the contracts controller, given that it is the business
+  # entity we are focused on. 
+
   def index
     @contracts = Contract.paginate(page: params[:page])
   end
@@ -10,36 +13,18 @@ class ContractsController < ApplicationController
 
   def new
     @contract = Contract.new
-#    @contract.clients.build
-    @contract.codes.build
-    @contract.codelines.build
-#    @code = Code.new
-#    @codeline = Codeline.new code: @code, contract: @contract, units_alloc: :units_alloc
-#    @codeline.save
-#    @code = @contract.codes.build
-#    @code.codelines.build
-#    @contract.codelines.build(:units_alloc => params[:units_alloc],
-#    :contract => @contract)
-#    @code.codelines.build(:units_alloc => params[:units_alloc], :contract => @contract)
-#    @code = @contract.codelines.build(params[:code])
-#    debugger
-#    @contract = Contract.find(params[:contract_id])
-#    @code.codelines.build
+    @contract.build_client
+    @contract.codelines.build.build_code  # Check ActiveRecord Association documentation for build methods. This 
+                                          # method chain builds the codeline first, then builds the code based on the
+                                          # codeline object. The difference in .build vs build_ syntax is based on the
+                                          # differing association type (belongs_to vs has_many)
   end
 
   def create
-#    raise params[:contract].to_s
-#     @code = Code.new(params[:code])
     @contract = Contract.new(params[:contract])
-#    @codeline = Codeline.new(params[:codeline])
-#    @codeline = Codeline.new code: @code, contract: @contract, units_alloc: :units_alloc
-#    @codeline.save
- #    @contract = Contract.find(params[:company_id])
- #    @code.codelines.build(:units_alloc => params[:units_alloc], :contract => @contract)
- #    @contract.codelines.build(:units_alloc => params[:units_alloc], :contract => @contract)
     if @contract.save
       flash[:success] = "New Contract has been saved"
-      redirect_to @contract # this redirects to the contract show page
+      redirect_to @contract
     else
       @title = "You have some errors"
       render 'new'
@@ -47,10 +32,11 @@ class ContractsController < ApplicationController
   end
 
   def edit
-    @contract = Contract.find(param[:id])
+    @contract = Contract.find(params[:id])
   end
 
   def update
+    @contract = Contract.find(params[:id])
     if @contract.update_attributes(params[:contract])
        flash[:success] = "Contract Profile updated"
        redirect_to @contract

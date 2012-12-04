@@ -25,21 +25,22 @@
 #  pcp_ph           :string(255)
 #  created_at       :datetime        not null
 #  updated_at       :datetime        not null
+#  name             :string(255)
 #
 
 class Client < ActiveRecord::Base
-#  has_many  :clientlines
-#  has_many  :contracts, :through => :clientlines
-  has_many  :codelines, :dependent => :destroy
-  has_many  :codes, through: :codelines
-  has_many  :contracts, through: :codelines
+  has_many :contracts, inverse_of: :client
+  has_many :codelines, through: :contracts
   
-  attr_accessor :cli_full_name
+  attr_accessible :f_name, :mi, :l_name, :name
 
-  # define the virtual attribute 'cli_full_name'
-  def cli_full_name
-    "#{f_name} #{mi} #{l_name}"
-  end
-
+  # TODO Add after_create method to break apart full name into constituent parts
+  # Tom, if you'd like to give this a shot, here's some starter pseudo code:
+  
+      # Split the string based on spaces...string.split(" ", 3) which will return an array
+      # The first element in the array should always be the first name, second should be the MI, 
+      # but if not entered, then should be the last name. So, use first and last, and check it 
+      # the middle element exists (if there are three) and if so, call if the MI 
+      # Send each variable into the database in the appropriate field - be sure to call save!
 
 end
