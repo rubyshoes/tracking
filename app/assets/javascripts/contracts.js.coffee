@@ -17,7 +17,7 @@ $ ->
 			formatDate: 'mm-dd-yy'
   });
   
-  $("#contract_clients_attributes_0_birth_date").datepicker({
+  $("#contract_client_attributes_birth_date").datepicker({
 	    changeMonth: true,
 			changeYear: true,
 			yearRange: '1930:2050',

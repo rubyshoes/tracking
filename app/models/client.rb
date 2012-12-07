@@ -31,6 +31,8 @@
 class Client < ActiveRecord::Base
   has_many :contracts, inverse_of: :client
   has_many :codelines, through: :contracts
+
+  before_create :de_concatenate
   
   attr_accessible :f_name, :mi, :l_name, :name
 
@@ -43,4 +45,14 @@ class Client < ActiveRecord::Base
       # the middle element exists (if there are three) and if so, call if the MI 
       # Send each variable into the database in the appropriate field - be sure to call save!
 
+    private
+
+      def de_concatenate
+        nam = name.split(" ", 3)
+          self.f_name = nam.first
+          self.l_name = nam.last
+        if nam.size == 3
+          self.mi = nam[1]
+        end
+      end
 end

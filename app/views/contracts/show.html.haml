@@ -5,7 +5,8 @@
 %span1
 %ol
   - for codeline in @contract.codelines
-    %li= codeline.units_alloc
     %li= codeline.code.code_name
     %li= codeline.code.status
     %li= codeline.code.description
+    %li= codeline.units_alloc
+%p

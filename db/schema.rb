@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(:version => 20121203010442) do
 
+  create_table "clientlines", :force => true do |t|
+    t.integer  "contract_id"
+    t.integer  "client_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "clients", :force => true do |t|
     t.string   "f_name"
     t.string   "mi"
@@ -42,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20121203010442) do
   create_table "codelines", :force => true do |t|
     t.integer  "contract_id"
     t.integer  "code_id"
+    t.integer  "client_id"
     t.decimal  "units_alloc", :precision => 6, :scale => 2
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
@@ -66,23 +74,22 @@ ActiveRecord::Schema.define(:version => 20121203010442) do
   end
 
   create_table "employees", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.text     "mi"
-    t.string   "marital_status"
-    t.string   "gender"
-    t.date     "birth_date"
-    t.date     "hire_date"
+    t.string   "first_name",                                   :null => false
+    t.string   "last_name",                                    :null => false
+    t.string   "mi"
+    t.string   "marital_status",                               :null => false
+    t.string   "gender",                                       :null => false
+    t.date     "hire_date",                                    :null => false
     t.date     "term_date"
-    t.string   "primary_position"
-    t.string   "trained_position"
-    t.string   "email"
-    t.boolean  "active"
-    t.string   "address1"
+    t.string   "primary_position",                             :null => false
+    t.text     "trained_position"
+    t.string   "email",                                        :null => false
+    t.boolean  "active",                    :default => true,  :null => false
+    t.string   "address1",                                     :null => false
     t.string   "address2"
-    t.string   "city"
-    t.string   "zip_code"
-    t.string   "state"
+    t.string   "city",                                         :null => false
+    t.string   "zip_code",                                     :null => false
+    t.string   "state",                                        :null => false
     t.string   "emp_home_ph"
     t.string   "emp_mobile_ph"
     t.string   "emer_contact_first_name"
@@ -92,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20121203010442) do
     t.datetime "created_at",                                   :null => false
     t.datetime "updated_at",                                   :null => false
     t.string   "role"
+    t.date     "birth_date"
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",                     :default => false
