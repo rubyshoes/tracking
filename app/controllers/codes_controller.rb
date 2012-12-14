@@ -1,10 +1,14 @@
 class CodesController < ApplicationController
 
   def index # Please see commentary in clients controller. Pattern is repeated here.
-    @codes = Code.order(:code_name).where("code_name like ?", "%#{params[:term]}%")
-    render json: @codes.map(&:code_name)
+    @codes = Code.paginate(page: params[:page])
   end
   
+  def code_list
+    @codes = Code.order(:code_name).where("code_name like ?", "%#{params[:term]}%")
+    render json: @codes.map(&:code_name)
+  end    
+
   def get_code_data
     # raise params[:label]
     code = params[:label]

@@ -3,13 +3,13 @@ source "http://bundler-api.herokuapp.com"
 
 gem 'rack'
 gem 'pg'
-gem 'rails', '~> 3.2.8'
+gem 'rails', '~> 3.2.9'
 
 # gem 'bootstrap-sass'
 
-gem 'rspec-core', '2.11.1'
-gem 'rspec-expectations', '2.11.2'
-gem 'rspec-mocks', '2.11.2'
+gem 'rspec-core', '2.12.2'
+gem 'rspec-expectations', '2.12.0'
+gem 'rspec-mocks', '2.12.0'
 gem 'gravatar_image_tag', '1.1.3'
 gem 'will_paginate', '~> 3.0.3'
 # gem 'bootstrap-will_paginate', '~> 0.0.9'
@@ -30,7 +30,7 @@ gem 'thin'
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.2'
-  gem 'uglifier', '>= 1.2.7'
+  gem 'uglifier', '>= 1.3.0'
 end
 
 gem 'jquery-rails'
@@ -40,17 +40,17 @@ group :development do
    gem 'annotate', :git => 'git://github.com/jeremyolliver/annotate_models.git', :branch => 'rake_compatibility' 
    gem 'faker', '1.1.2'
    gem 'database_cleaner'
-   gem 'guard-rspec', '1.2.1'
+   gem 'guard-rspec', '2.3.1'
    gem 'quiet_assets'
 end
 
 group :test do
-   gem 'rspec', '2.11.0'
+   gem 'rspec', '2.12.0'
    gem 'spork', '~> 0.9.2'
-   gem 'guard-spork', '~> 1.1.0'
-   gem 'launchy', '2.1.1'
-   gem 'factory_girl_rails', '~> 4.0.0'
-   gem 'capybara', '1.1.2'
+   gem 'guard-spork', '~> 1.4.0'
+   gem 'launchy', '2.1.2'
+   gem 'factory_girl_rails', '~> 4.1.0'
+   gem 'capybara', '2.0.1'
    gem 'rb-inotify', '0.8.8'
    gem 'libnotify', '0.7.4'
    gem 'rspec-rails'
