@@ -25,7 +25,7 @@ $ ->
   })
   
   ###
-  Please see RailsCast for details regarding the Add and Remove fields logic.
+  See RailsCast for details regarding the Add and Remove fields logic.
   ###
   
   $('form').on 'click', '.remove_fields', (event) ->

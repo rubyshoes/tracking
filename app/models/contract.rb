@@ -16,7 +16,7 @@ class Contract < ActiveRecord::Base
   has_many :codelines
   has_many :codes, through: :codelines
   
-  attr_accessible :authnum, :st_date, :end_date, :client_id, :clients, :client_attributes, :codelines, :codelines_attributes
+  attr_accessible :authnum, :st_date, :end_date, :client_id, :clients, :client_attributes, :codelines, :codelines_attributes, :code_attributes
   
   accepts_nested_attributes_for :client
   accepts_nested_attributes_for :codelines, allow_destroy: true, :reject_if => lambda { |a| a[:units_alloc].blank? }
@@ -45,5 +45,4 @@ class Contract < ActiveRecord::Base
     client_to_save.pcp_ph = params[:pcp_ph]
     client_to_save.save
   end
-
 end

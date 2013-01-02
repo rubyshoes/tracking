@@ -1,6 +1,6 @@
 class CodesController < ApplicationController
 
-  def index # Please see commentary in clients controller. Pattern is repeated here.
+  def index
     @codes = Code.paginate(page: params[:page])
   end
   
@@ -11,8 +11,8 @@ class CodesController < ApplicationController
 
   def get_code_data
     # raise params[:label]
-    code = params[:label]
-    @code_data = Code.where("code_name like ?", code)
+    code_name = params[:label]
+    @code_data = Code.where("code_name like ?", code_name)
     render json: @code_data.first
   end
 

@@ -12,7 +12,7 @@ Tracking::Application.routes.draw do
   resources :sessions, only:  [:new, :create, :destroy]
   
   
-  match '/code_list',       to:     'codes/#code_list' # Added this route for the autocomplete functionality.
+  match '/code_list',       to:     'codes#code_list' # Added this route for the autocomplete functionality.
   match '/client_list',     to:     'clients#client_list' # Added this route for the autocomplete functionality.
   match '/get_client_data', to:     'clients#get_client_data' # Added this route for the autocomplete functionality.
   match '/get_code_data',   to:     'codes#get_code_data' # Added this route for the autocomplete functionality.

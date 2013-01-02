@@ -13,11 +13,11 @@ class ClientsController < ApplicationController
      render json: @clients.map(&:name)
   end
 
-  def get_client_data # This action is used to retrieve the code details after a code has been selected in an autocomplete drop-down.
+  def get_client_data # This action is used to retrieve the client details after a client has been selected in an autocomplete drop-down.
     # raise params[:label]
     client_name = params[:label] # Set client_name for purposes of readability. Could otherwise add the param right into the next query line
     @client_data = Client.where("name like ?", client_name)
-    render json: @client_data.first # where clauses return an ActiveRecord Association collection object. It is necessary to call the query and call the first object from the collection to have access to the actual object.
+    render json: @client_data.first # 'where' clause return an ActiveRecord Association collection object. It is necessary to call the query and call the first object from the collection to have access to the actual object.
   end
 
   def new

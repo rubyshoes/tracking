@@ -15,7 +15,7 @@ module ApplicationHelper
   end
 
   # See Railscast episode for information about this helper. Note that for readability, I rendered
-  # the hard coded partial. Mr. Bates generalizes it, and you can do the same.
+  # the hard coded partial. RailsCasts generalizes it, and we can do the same.
 
   def link_to_add_fields(name, form, association)
     new_codeline = form.object.send(association).klass.new
