@@ -17,7 +17,6 @@ describe Codeline do
     context 'relationships' do
       it { should belong_to(:contract) }
       it { should belong_to(:code) }
-      it { should belong_to(:client) }
     end
 
     context 'validations' do

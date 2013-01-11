@@ -17,5 +17,4 @@ require 'spec_helper'
 describe Code do
   it { should have_many(:codelines) }
   it { should have_many(:contracts).through(:codelines) }
-  it { should have_many(:clients).through(:codelines) }
 end

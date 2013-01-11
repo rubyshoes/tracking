@@ -3,13 +3,13 @@ source "http://bundler-api.herokuapp.com"
 
 gem 'rack'
 gem 'pg'
-gem 'rails', '~> 3.2.10'
+gem 'rails', '~> 3.2.11'
 
 gem 'rspec-core', '2.12.2'
 gem 'rspec-expectations', '2.12.1'
 gem 'rspec-mocks', '2.12.1'
 gem 'gravatar_image_tag', '1.1.3'
-gem 'will_paginate', '~> 3.0.3'
+gem 'will_paginate', '~> 3.0.4'
 gem 'nokogiri', '1.5.6'
 gem 'haml'
 gem 'haml-rails'
@@ -40,7 +40,7 @@ group :test do
    gem 'capybara', '2.0.2'
    gem 'rb-inotify', '0.8.8'
    gem 'libnotify', '0.8.0'
-   gem 'rspec-rails'
+   gem 'rspec-rails', '2.12.1'
    gem 'shoulda-matchers'
 end
 
