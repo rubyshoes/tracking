@@ -21,10 +21,16 @@ Rspec::Matchers.define :be_accessible do |attribute|
   failure_message_for_should_not{ ":#{attribute} should not be accessible" }
 end
 
+Rspec::Matchers::define :have_title do |text|
+  match do |page|
+    Capybara.string(page.body).has_selector?('title', text: text)
+  end
+end
+
 def sign_in(employee)
   visit signin_path
-  fill_in "Email",        with: employee.email
-  fill_in "Password",     with: employee.password
+  fill_in "Email",      with: employee.email
+  fill_in "Password",   with: employee.password
   click_button "Sign in"
   # Sign in when not using Capybara.
   cookies[:remember_token] = employee.remember_token

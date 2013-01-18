@@ -8,12 +8,13 @@ describe "Authentication" do
     before { visit signin_path }
 
     it { should have_selector('h2',     text: 'Sign in') }
-    it { should have_selector('title',  text: 'Sign in') }
+    it { should have_title('Sign in') }
+
 
     describe "with invalid information" do
       before { click_button "Sign in" }
 
-      it { should have_selector('title', text: 'Sign in') }
+      it { should have_title('Sign in') }
       it { should have_error_message('Invalid') }
 
       describe "after visiting another page" do
@@ -26,11 +27,11 @@ describe "Authentication" do
       let(:employee) { FactoryGirl.create(:employee) }
       before { valid_signin(employee) }
 
-      it { should have_selector('title',     text: employee.emp_full_name) }
+      it { should have_title(employee.emp_full_name) }
 
       it { should_not have_link('Employees',     href: employees_path) }
       it { should_not have_link('New Employee',  href: newemployee_path) }
-      it { should_not have_link('New Contract',  href: newcontract_path) }
+      it { should_not have_link('New Contract',  href: new_contract_path) }
 
       it { should have_link('Sign out',      href: signout_path) }
 
@@ -46,13 +47,13 @@ describe "Authentication" do
       let(:admin)    { FactoryGirl.create(:admin) }
       before { valid_signin(admin) }
 
-      it { should have_selector('title',     text: admin.emp_full_name) }
+      it { should have_title(admin.emp_full_name) }
 
       it { should have_link('Employees',     href: employees_path) }
       it { should have_link('Profile',       href: employee_path(admin)) }
       it { should have_link('Settings',      href: edit_employee_path(admin)) }
       it { should have_link('New Employee',  href: newemployee_path) }
-      it { should have_link('New Contract',  href: newcontract_path) }
+      it { should have_link('New Contract',  href: new_contract_path) }
 
       it { should have_link('Sign out',      href: signout_path) }
 
@@ -76,7 +77,7 @@ describe "Authentication" do
 
         describe "visting the edit page" do
           before { visit edit_employee_path(employee) }
-          it { should have_selector('title', text: 'Sign in') }
+          it { should have_title('Sign in') }
         end
 
         describe "submitting to the update action" do
@@ -92,7 +93,7 @@ describe "Authentication" do
 
         describe "visiting Employees#edit page" do
           before { visit edit_employee_path(wrong_employee) }
-          it { should_not have_selector('title', text: 'Edit') }
+          it { should have_title('Edit') }
         end
 
         describe "submitting a PUT request to the Employees#update action" do
@@ -112,7 +113,7 @@ describe "Authentication" do
         describe "after signing in" do
 
           it "should render the desired protected page" do
-            page.should have_selector('title', text: 'Edit')
+            page.should have_title('Edit')
           end
 
           describe "when signing in again" do
@@ -124,7 +125,7 @@ describe "Authentication" do
             end
 
             it "should render the default (profile/show) page" do
-              page.should have_selector('title', text: employee.emp_full_name)
+              page.should have_title(employee.emp_full_name)
             end
           end
         end
@@ -134,7 +135,7 @@ describe "Authentication" do
 
   describe "visiting employee index" do
     before { visit employees_path }
-    it { should have_selector('title', text: 'Sign in') }
+    it { should have_title('Sign in') }
   end
 
   describe "Employee" do

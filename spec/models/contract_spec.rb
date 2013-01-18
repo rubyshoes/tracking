@@ -17,5 +17,5 @@ require 'spec_helper'
 describe Contract do
   it { should have_many(:codelines) }
   it { should have_many(:codes).through(:codelines) }
-  it { should belongs_to(:client) }
+  it { should belongs_to(:client).inverse_of(:contracts) }
 end
