@@ -14,6 +14,8 @@ gem 'nokogiri', '1.5.6'
 gem 'haml'
 gem 'haml-rails'
 gem 'thin'
+gem 'faker', '1.1.2'
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.6'
@@ -25,7 +27,7 @@ gem 'jquery-rails'
 
 group :development do
    gem 'annotate', :git => 'git://github.com/jeremyolliver/annotate_models.git', :branch => 'rake_compatibility' 
-   gem 'faker', '1.1.2'
+   #gem 'faker', '1.1.2'
    gem 'database_cleaner'
    gem 'guard-rspec', '2.4.0'
    gem 'quiet_assets'

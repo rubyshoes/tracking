@@ -1,16 +1,16 @@
 <fieldset><legend>Enter Employee Details</legend>
 .field
-   = f.label :name, "First Name"
+   = f.label :name, "Full Name"
    %br/
-   = f.text_field  :first_name, :size => 15, :class => "ui-state-default"
-.field
-   = f.label :name, "MI"
-   %br/
-   = f.text_field  :mi, :size => 3, :class => "ui-state-default"
-.field
-   = f.label :name, "Last Name"
-   %br/
-   = f.text_field  :last_name, :size => 15, :class => "ui-state-default"
+   = f.text_field  :full_name, :size => 45, :class => "ui-state-default"
+-# .field
+-#   = f.label :name, "MI"
+-#   %br/
+-#   = f.text_field  :mi, :size => 3, :class => "ui-state-default"
+-# .field
+-#   = f.label :name, "Last Name"
+-#   %br/
+-#   = f.text_field  :last_name, :size => 15, :class => "ui-state-default"
 .field
    = f.label :name, "Marital Status"
    %br/

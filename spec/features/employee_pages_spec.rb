@@ -14,7 +14,7 @@ describe "Employee 'Show, New Employee, Edit' pages" do
       before { visit employee_path(employee) }
 
       it { should have_selector('h3 img') }
-      it { should have_selector('title', text: employee.emp_full_name) }
+      it { should have_selector('title', text: employee.full_name) }
     end
 
     describe "new employee addition" do
@@ -41,6 +41,7 @@ describe "Employee 'Show, New Employee, Edit' pages" do
           fill_in "employee_first_name",                   with: "Sharon"
           fill_in "employee_last_name",                    with: "Priestly"
           fill_in "employee_mi",                           with: "null"
+          fill_in "employee_full_name",                    with: "Sharon Priestly"
           fill_in "employee_marital_status",               with: "Single"
           fill_in "employee_gender",                       with: "Female"
           fill_in "employee_birth_date",                   with: '1979-11-03'
@@ -108,23 +109,26 @@ describe "Employee 'Show, New Employee, Edit' pages" do
       let(:new_first_name)    { employee.first_name }
       let(:new_mi)            { employee.mi}
       let(:new_last_name)     { employee.last_name }
+      let(:new_full_name)     { employee.full_name }
       let(:new_email)         { employee.email }
       let(:new_password)      { employee.password }
       before do
         fill_in "employee_first_name",               with: new_first_name
         fill_in "employee_mi",                       with: new_mi
         fill_in "employee_last_name",                with: new_last_name
+        fill_in "employee_full_name",                with: new_full_name
         fill_in "employee_email",                    with: new_email
         fill_in "employee_password",                 with: new_password
         fill_in "employee_password_confirmation",    with: new_password
         click_button "Update"
       end
 
-      it { should have_selector('title', text: employee.emp_full_name) }
+      it { should have_selector('title', text: employee.full_name) }
       it { should have_link('Sign out', href: signout_path) }
       it { should have_selector('div.flash.success') }
       specify { employee.reload.first_name.should == new_first_name }
       specify { employee.reload.last_name.should  == new_last_name }
+      specify { employee.reload.full_name.should  == new_full_name }
       specify { employee.reload.email.should      == new_email }
     end
   end
@@ -150,13 +154,13 @@ describe "Employee 'Show, New Employee, Edit' pages" do
 
       it "should list the first page of employees" do
         first_page.each do |employee|
-          page.should have_selector('li', text: employee.emp_full_name)
+          page.should have_selector('li', text: employee.full_name)
         end
       end
 
       it "should not list the second page of employees" do
         second_page.each do |employee|
-          page.should_not have_selector('li', text: employee.emp_full_name)
+          page.should_not have_selector('li', text: employee.full_name)
         end
       end
 

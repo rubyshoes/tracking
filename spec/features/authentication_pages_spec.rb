@@ -27,7 +27,7 @@ describe "Authentication" do
       let(:employee) { FactoryGirl.create(:employee) }
       before { valid_signin(employee) }
 
-      it { should have_title(employee.emp_full_name) }
+      it { should have_title(employee.full_name) }
 
       it { should_not have_link('Employees',     href: employees_path) }
       it { should_not have_link('New Employee',  href: newemployee_path) }
@@ -47,7 +47,7 @@ describe "Authentication" do
       let(:admin)    { FactoryGirl.create(:admin) }
       before { valid_signin(admin) }
 
-      it { should have_title(admin.emp_full_name) }
+      it { should have_title(admin.full_name) }
 
       it { should have_link('Employees',     href: employees_path) }
       it { should have_link('Profile',       href: employee_path(admin)) }
@@ -125,7 +125,7 @@ describe "Authentication" do
             end
 
             it "should render the default (profile/show) page" do
-              page.should have_title(employee.emp_full_name)
+              page.should have_title(employee.full_name)
             end
           end
         end

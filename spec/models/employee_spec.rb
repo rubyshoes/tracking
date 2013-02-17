@@ -3,23 +3,22 @@
 # Table name: employees
 #
 #  id                        :integer         not null, primary key
-#  first_name                :string(255)
-#  last_name                 :string(255)
-#  mi                        :text
-#  marital_status            :string(255)
-#  gender                    :string(255)
-#  birth_date                :date
-#  hire_date                 :date
+#  first_name                :string(255)     not null
+#  last_name                 :string(255)     not null
+#  mi                        :string(255)
+#  marital_status            :string(255)     not null
+#  gender                    :string(255)     not null
+#  hire_date                 :date            not null
 #  term_date                 :date
-#  primary_position          :string(255)
-#  trained_position          :string(255)
-#  email                     :string(255)
-#  active                    :boolean
-#  address1                  :string(255)
+#  primary_position          :string(255)     not null
+#  trained_position          :text
+#  email                     :string(255)     not null
+#  active                    :boolean         default(TRUE), not null
+#  address1                  :string(255)     not null
 #  address2                  :string(255)
-#  city                      :string(255)
-#  zip_code                  :string(255)
-#  state                     :string(255)
+#  city                      :string(255)     not null
+#  zip_code                  :string(255)     not null
+#  state                     :string(255)     not null
 #  emp_home_ph               :string(255)
 #  emp_mobile_ph             :string(255)
 #  emer_contact_first_name   :string(255)
@@ -29,9 +28,11 @@
 #  created_at                :datetime        not null
 #  updated_at                :datetime        not null
 #  role                      :string(255)
+#  birth_date                :date
 #  password_digest           :string(255)
 #  remember_token            :string(255)
 #  admin                     :boolean         default(FALSE)
+#  full_name                 :string(255)
 #
 
 require 'spec_helper'
@@ -39,9 +40,10 @@ require 'spec_helper'
 describe Employee do
 
   before do
-    @attr = Employee.new(first_name: "Teress",
+    @attr = Employee.new(first_name: "Pamela",
       last_name: "Pottle",
-      mi: "null",
+      mi: "T",
+      full_name: "Pamela T Pottle",
       marital_status: "Single ",
       gender: "Female",
       birth_date: '1979-09-21',
@@ -51,7 +53,7 @@ describe Employee do
       primary_position: "Team Leader",
       trained_position: "Job Development",
       role: "Manager",
-      email: "tpottle@example.com",
+      email: "ppottle@example.com",
       address1: "1 First Ave",
       address2: "null",
       city: "Frave",
@@ -73,6 +75,7 @@ describe Employee do
   it { should respond_to(:first_name) }
   it { should respond_to(:last_name) }
   it { should respond_to(:mi) }
+  it { should respond_to(:full_name) }
   it { should respond_to(:marital_status) }
   it { should respond_to(:gender) }
   it { should respond_to(:birth_date) }
@@ -126,6 +129,16 @@ describe Employee do
 
   describe "when last_name is too long" do
     before { @attr.last_name = "a" *26 }
+    it { should_not be_valid }
+  end
+
+    describe "when full_name is not present" do
+    before { @attr.full_name = " " }
+    it { should_not be_valid }
+  end
+
+    describe "when full_name is too long" do
+    before { @attr.full_name = "a" *35 }
     it { should_not be_valid }
   end
 

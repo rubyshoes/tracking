@@ -1,6 +1,7 @@
 namespace :db do 
   desc "Fill database with sample Employee data"
   task populate: :environment do
+    require 'faker'
 
     @gender = ["Male", "Female"]
     @role = ["Staff", "Support", "Team_Leader", "Manager", "Director"]
@@ -32,7 +33,9 @@ namespace :db do
 
     Employee.create!(first_name:                  "Shelly",
                      last_name:                   "Houghton",
-                     marital_status:              "Single",
+                     mi:                          "M",
+                     full_name:                   "Shelly M Houghton",
+                     marital_status:              "Single",                  
                      gender:                      "Female",
                      hire_date:                   "2000-04-16",
                      primary_position:            "Manager",
@@ -59,6 +62,7 @@ namespace :db do
       first_name = Faker::Name.first_name
       last_name = Faker::Name.last_name
       mi = ("A".."Z").to_a[rand(26)]
+      full_name = Faker::Name.full_name
       marital_status = @marital_status[rand(2)].to_s
       gender = @gender[rand(2)].to_s
       hire_date = randomDate(:year_range => 60, :year_latest => 12)
@@ -66,8 +70,8 @@ namespace :db do
       primary_position = @primary_position[rand(5)].to_s
       trained_position = @trained_position[rand(5)].to_s
       email = "emp-#{n+1}@example.org"
-      /active = [true, false][rand(2)]/
-      /admin = (1 == rand(2) ? true : false)/
+      active = [true, false][rand(2)]
+      admin = (1 == rand(2) ? true : false)
       role = @role[rand(5)].to_s
       address1 = "Seaview-#{n+5}Way"
       city = Faker::Lorem.words(1).to_s.capitalize
@@ -81,8 +85,8 @@ namespace :db do
       emer_contact_ph = Faker::PhoneNumber.phone_number
       password = "uniqueone"
       Employee.create!(first_name: first_name, mi: mi, last_name: last_name,
-                       marital_status: marital_status, gender: gender, 
-                       birth_date: birth_date, hire_date: hire_date,
+                       full_name: full_name, marital_status: marital_status,
+                       gender: gender, birth_date: birth_date, hire_date: hire_date,
                        primary_position: primary_position, trained_position: 
                        trained_position, email: email, role: role, address1:
                        address1, city: city, state: state, zip_code: zip_code, 
@@ -91,7 +95,8 @@ namespace :db do
                        emer_contact_last_name: emer_contact_last_name, 
                        emer_contact_relationship: emer_contact_relationship,
                        emer_contact_ph: emer_contact_ph, password: password, 
-                       password_confirmation: password)
+                       password_confirmation: password_confirmation, active: 
+                       active, admin: admin)
     end
   end
 end

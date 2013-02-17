@@ -6,6 +6,7 @@ FactoryGirl.define do
     sequence(:first_name)               { |n| "Elise #{n}" }
     sequence(:last_name)                { |n| "White #{n}" }
     sequence(:mi)                       { |n| "F #{n}" }
+    full_name                             "Elise F White"
     marital_status                        "Single"
     gender                                "Female"
     birth_date                            '1985-01-01'
@@ -14,7 +15,7 @@ FactoryGirl.define do
     primary_position                      "Support"
     trained_position                      "Household"
     role				                  "Staff"
-    sequence(:email)                    { |n| "lname_#{n}@example.com" }
+    sequence(:email)                    { |n| "full_name_#{n}@example.com" }
     active                                "true"
     sequence(:address1)                 { |n| "3rd Street #{n}" }
     address2                              ""

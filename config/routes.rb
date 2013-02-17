@@ -1,5 +1,7 @@
 Tracking::Application.routes.draw do
 
+  get "daily_activities/new"
+
   root to: 'pages#home'
   
   # Refactored routes to make nearly all resourceful. 
