@@ -1,7 +1,8 @@
-namespace :db do 
+namespace :db do
   desc "Fill database with sample Client data"
-  task populate_client: :environment do
-    # Rake::Task['db:reset'].invoke
+    task :populate_client => :environment do
+      require 'faker'
+      # Rake::Task['db:reset'].invoke
 
     def randomDate(params={})
       years_back = params[:year_range] || 5
@@ -20,7 +21,8 @@ namespace :db do
       date
     end
 
-    Client.create!(f_name:                        "Esme",
+    Client.create!(name:                          "Esme J Inneed", 
+                     f_name:                      "Esme",
                      mi:                          "J",
                      l_name:                      "Inneed",
                      birth_date:                  "1987-04-16",
@@ -41,9 +43,10 @@ namespace :db do
                      pcp_ph:                      "1-777-777-7777")
 
     11.times do |n|
-      first_name = Faker::Name.first_name
+      name = Faker::Name.name
+      f_name = Faker::Name.name
       mi = ("A".."Z").to_a[rand(26)]
-      last_name = Faker::Name.last_name
+      l_name = Faker::Name.name
       birth_date = randomDate(:year_range => 60, :year_latest => 22)
       address1 = "Seaview-#{n+5}Way"
       city = Faker::Lorem.words(1).to_s.capitalize
@@ -60,7 +63,7 @@ namespace :db do
       ec_ph = Faker::PhoneNumber.phone_number
       pri_care_phy = Faker::Name.name
       pcp_ph = Faker::PhoneNumber.phone_number
-      Client.create!(first_name: first_name, mi: mi, last_name: last_name,
+      Client.create!(f_name: name, mi: mi, l_name: name, name: name, 
                        birth_date: birth_date, address1: address1,
                        city: city, state: state, zip_code: zip_code, 
                        medicare_num: medicare_num, medicaid_num: medicaid_num,

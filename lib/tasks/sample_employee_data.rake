@@ -1,6 +1,6 @@
-namespace :db do 
+namespace :db do
   desc "Fill database with sample Employee data"
-  task populate: :environment do
+  task :populate => :environment do
     require 'faker'
 
     @gender = ["Male", "Female"]
@@ -59,10 +59,10 @@ namespace :db do
                      password_confirmation:       "90nothguoh")
 
     99.times do |n|
-      first_name = Faker::Name.first_name
-      last_name = Faker::Name.last_name
+      first_name = Faker::Name.name
+      last_name = Fake::Name.name
       mi = ("A".."Z").to_a[rand(26)]
-      full_name = Faker::Name.full_name
+      full_name = Faker::Name.name
       marital_status = @marital_status[rand(2)].to_s
       gender = @gender[rand(2)].to_s
       hire_date = randomDate(:year_range => 60, :year_latest => 12)
@@ -79,13 +79,14 @@ namespace :db do
       zip_code = Faker::Address.zip_code
       emp_home_ph = Faker::PhoneNumber.phone_number
       emp_mobile_ph = Faker::PhoneNumber.phone_number
-      emer_contact_first_name = Faker::Name.first_name
-      emer_contact_last_name = Faker::Name.last_name
+      emer_contact_first_name = Faker::Name.name
+      emer_contact_last_name = Faker::Name.name
       emer_contact_relationship = @emer_contact_relationship[rand(10)].to_s
       emer_contact_ph = Faker::PhoneNumber.phone_number
       password = "uniqueone"
-      Employee.create!(first_name: first_name, mi: mi, last_name: last_name,
-                       full_name: full_name, marital_status: marital_status,
+      password_confirmation = "uniqueone"
+      Employee.create!(first_name: name, mi: mi, last_name: name,
+                       full_name: name, marital_status: marital_status,
                        gender: gender, birth_date: birth_date, hire_date: hire_date,
                        primary_position: primary_position, trained_position: 
                        trained_position, email: email, role: role, address1:
