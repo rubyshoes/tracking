@@ -9,12 +9,12 @@
   %fieldset
     %legend Enter Client Details
     = contract.fields_for :client do |client|
-      =render 'client_fields', client:  client
-      
+      =render 'client_fields', client: client
+
   %fieldset
     %legend Enter Billing Code Details
     = contract.fields_for :codelines do |codeline|
-      = render 'codeline_fields', codeline: codeline
+      =render 'codeline_fields', codeline: codeline
     = link_to_add_fields "Add Billing Code", contract, :codelines
     
   .actions

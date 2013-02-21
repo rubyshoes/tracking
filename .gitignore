@@ -24,6 +24,6 @@ doc/app
 *.swp
 *~
 .DS_Store
-config/database.yml
+# config/database.yml
 bin/
 bundler_stubs/
