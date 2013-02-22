@@ -1,18 +1,20 @@
 
 defaults: &defaults
   adapter: postgresql
-  username: developer
-  password: developer99
+  encoding: unicode
+  pool: 5
+  username: railguide48
+  password: 9084ediugliar
   host: localhost
 
-development:
-  database: tracking_development
+development: 
+  database: development_alloc
   <<: *defaults
 
 test:
-  database: tracking_test
+  database: alloc
   <<: *defaults
 
 production:
-  database: tracking_production
+  database: production_alloc
   <<: *defaults

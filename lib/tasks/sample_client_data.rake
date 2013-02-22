@@ -1,46 +1,30 @@
 namespace :db do
   desc "Fill database with sample Client data"
-    task :populate_client => :environment do
+    task populate_client: :environment do
       require 'faker'
       # Rake::Task['db:reset'].invoke
 
-    def randomDate(params={})
-      years_back = params[:year_range] || 5
-      latest_year = params[:year_latest]  || 0
-      year = (rand * (years_back)).ceil + 
-      (Time.now.year - latest_year - years_back)
-      month = (rand * 12).ceil
-      day = (rand * 31).ceil
-      series = [date = Time.local(year, month, day)]
-      if params[:series]
-        params[:series].each do |some_time_after|
-          series << series.last + (rand * some_time_after).ceil
-        end
-        return series
-      end
-      date
-    end
-
-    Client.create!(name:                          "Esme J Inneed", 
-                     f_name:                      "Esme",
-                     mi:                          "J",
-                     l_name:                      "Inneed",
-                     birth_date:                  "1987-04-16",
-                     address1:                    "62 Southy View",
-                     city:                        "Fromm",
-                     zip_code:                    "54806",
-                     state:                       "WI",
-                     medicare_num:                "3008769788",
-                     medicaid_num:                "7658945674",
-                     member_num:                  "13456666-1", 
-                     soc_sec_care_mgr:            "Caring Manager",
-                     sscm_ph:                     "1-444-444-4444",
-                     nurse_care_mgr:              "Caring Nurse",
-                     ncm_ph:                      "1-555-555-5555",
-                     emer_contact:                "Always Here",
-                     ec_ph:                       "1-666-666-6666",
-                     pri_care_phy:                "The One",
-                     pcp_ph:                      "1-777-777-7777")
+    [{name:                       "Earnest O Being", 
+     f_name:                      "Earnest",
+     mi:                          "O",
+     l_name:                      "Being",
+     birth_date:                  "1987-04-16",
+     address1:                    "62 Southy View",
+     city:                        "Fromm",
+     zip_code:                    "54806",
+     state:                       "WI",
+     medicare_num:                "3008769788",
+     medicaid_num:                "7658945674",
+     member_num:                  "13456666-1", 
+     soc_sec_care_mgr:            "Caring Manager",
+     sscm_ph:                     "1-444-444-4444",
+     nurse_care_mgr:              "Caring Nurse",
+     ncm_ph:                      "1-555-555-5555",
+     emer_contact:                "Always Here",
+     ec_ph:                       "1-666-666-6666",
+     pri_care_phy:                "The One",
+     pcp_ph:                      "1-777-777-7777"}
+     ].each {|item| Client.create!(item) }
 
     11.times do |n|
       name = Faker::Name.name
@@ -71,6 +55,23 @@ namespace :db do
                        sscm_ph: sscm_ph, nurse_care_mgr: name, ncm_ph: ncm_ph, 
                        emer_contact: name, ec_ph: ec_ph, pri_care_phy: name,
                        pcp_ph: pcp_ph)
+      
+      def randomDate(params={})
+        years_back = params[:year_range] || 5
+        latest_year = params[:year_latest]  || 0
+        year = (rand * (years_back)).ceil + 
+        (Time.now.year - latest_year - years_back)
+        month = (rand * 12).ceil
+        day = (rand * 31).ceil
+        series = [date = Time.local(year, month, day)]
+        if params[:series]
+          params[:series].each do |some_time_after|
+            series << series.last + (rand * some_time_after).ceil
+          end
+          return series
+        end
+        date
+      end
     end
   end
 end

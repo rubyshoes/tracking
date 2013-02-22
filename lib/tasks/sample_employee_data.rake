@@ -1,6 +1,6 @@
 namespace :db do
   desc "Fill database with sample Employee data"
-  task :populate => :environment do
+  task populate: :environment do
     require 'faker'
 
     @gender = ["Male", "Female"]
@@ -14,16 +14,16 @@ namespace :db do
                                   "Uncle", "Cousin", "Nephew", "Father",
                                   "Mother", "Spouse"]
 
-    [{first_name:                  "Shelly",
-                     last_name:                   "Houghton",
-                     mi:                          "M",
-                     full_name:                   "Shelly M Houghton",
+                     [{first_name:                 "Peter",
+                     last_name:                   "Putter",
+                     mi:                          "N",
+                     full_name:                   "Peter N Putter,
                      marital_status:              "Single",                  
                      gender:                      "Female",
                      hire_date:                   "2000-04-16",
                      primary_position:            "Manager",
                      trained_position:            "Job Developer",
-                     email:                       "shoughton@example.com",
+                     email:                       "pputter@example.com",
                      active:                      true,
                      address1:                    "76th Ave",
                      city:                        "Frave",
@@ -39,38 +39,13 @@ namespace :db do
                      birth_date:                  "1982-08-21",
                      admin:                       true,
                      password:                    "90nothguoh",
-                     password_confirmation:       "90nothguoh"},
-
-    {first_name:                  "James",
-                     last_name:                   "Scott",
-                     full_name:                   "James Scott Jr",
-                     marital_status:              "Married",
-                     gender:                      "Male",
-                     hire_date:                   "2000-04-16",
-                     primary_position:            "Manager",
-                     trained_position:            "Job Developer",
-                     email:                       "skoona@gmail.com",
-                     active:                      true,
-                     address1:                    "1111 AnyStreet",
-                     city:                        "AnyCity",
-                     zip_code:                    "46801",
-                     state:                       "IN",
-                     emp_home_ph:                 "1-260-999-9999",
-                     emp_mobile_ph:               "1-260-999-9999",
-                     emer_contact_first_name:     "Judy",
-                     emer_contact_last_name:      "Spouse",
-                     emer_contact_relationship:   "Spouse",
-                     emer_contact_ph:             "1-260-999-9999",
-                     role:                        "Manager",
-                     birth_date:                  "1982-08-21",
-                     admin:                       true,
-                     password:                    "developer99",
-                     password_confirmation:       "developer99"}].each {|item| Employee.create!(item) }
+                     password_confirmation:       "90nothguoh"}
+                     ].each {|item| Employee.create!(item) }
 
 
     99.times do |n|
       first_name = Faker::Name.name
-      last_name = Fake::Name.name
+      last_name = Faker::Name.name
       mi = ("A".."Z").to_a[rand(26)]
       full_name = Faker::Name.name
       marital_status = @marital_status[rand(2)].to_s
@@ -85,8 +60,8 @@ namespace :db do
       role = @role[rand(5)].to_s
       address1 = "Seaview-#{n+5}Way"
       city = Faker::Lorem.words(1).to_s.capitalize
-      state = Faker::Address.us_state()
-      zip_code = Faker::Address.zip_code
+      state = Faker::AddressUS.state()
+      zip_code = Faker::AddressUS.zip_code
       emp_home_ph = Faker::PhoneNumber.phone_number
       emp_mobile_ph = Faker::PhoneNumber.phone_number
       emer_contact_first_name = Faker::Name.name
