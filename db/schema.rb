@@ -96,22 +96,23 @@ ActiveRecord::Schema.define(:version => 20130212181200) do
   end
 
   create_table "employees", :force => true do |t|
-    t.string   "first_name",                                   :null => false
-    t.string   "last_name",                                    :null => false
-    t.string   "mi"
-    t.string   "marital_status",                               :null => false
-    t.string   "gender",                                       :null => false
-    t.date     "hire_date",                                    :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "mi"
+    t.string   "marital_status"
+    t.string   "gender"
+    t.date     "birth_date"
+    t.date     "hire_date"
     t.date     "term_date"
-    t.string   "primary_position",                             :null => false
-    t.text     "trained_position"
-    t.string   "email",                                        :null => false
-    t.boolean  "active",                    :default => true,  :null => false
-    t.string   "address1",                                     :null => false
+    t.string   "primary_position"
+    t.string   "trained_position"
+    t.string   "email"
+    t.boolean  "active"
+    t.string   "address1"
     t.string   "address2"
-    t.string   "city",                                         :null => false
-    t.string   "zip_code",                                     :null => false
-    t.string   "state",                                        :null => false
+    t.string   "city"
+    t.string   "zip_code"
+    t.string   "state"
     t.string   "emp_home_ph"
     t.string   "emp_mobile_ph"
     t.string   "emer_contact_first_name"
@@ -121,7 +122,6 @@ ActiveRecord::Schema.define(:version => 20130212181200) do
     t.datetime "created_at",                                   :null => false
     t.datetime "updated_at",                                   :null => false
     t.string   "role"
-    t.date     "birth_date"
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",                     :default => false

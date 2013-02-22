@@ -12,6 +12,7 @@ class ContractsController < ApplicationController
   end
 
   def new
+    @show_remove = false
     @contract = Contract.new
     @contract.build_client
     @contract.codelines.build.build_code  # Check ActiveRecord Association documentation for build methods. This 

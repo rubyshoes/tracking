@@ -45,7 +45,10 @@ class Employee < ActiveRecord::Base
 
   before_create :de_concatenate
 
-   attr_accessible :first_name, :mi, :last_name, :full_name
+   attr_accessible :first_name, :last_name, :full_name, :marital_status, :gender, :hire_date, :primary_position,
+                  :trained_position, :email, :active, :address1, :city, :zip_code, :state, :emp_home_ph, :emp_mobile_ph,
+                  :emer_contact_first_name, :emer_contact_last_name, :emer_contact_relationship, :emer_contact_ph, :role,
+                  :birth_date, :admin, :password, :password_confirmation
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

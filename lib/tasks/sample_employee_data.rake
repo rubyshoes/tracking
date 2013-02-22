@@ -14,24 +14,7 @@ namespace :db do
                                   "Uncle", "Cousin", "Nephew", "Father",
                                   "Mother", "Spouse"]
 
-    def randomDate(params={})
-      years_back = params[:year_range] || 5
-      latest_year = params[:year_latest]  || 0
-      year = (rand * (years_back)).ceil + 
-      (Time.now.year - latest_year - years_back)
-      month = (rand * 12).ceil
-      day = (rand * 31).ceil
-      series = [date = Time.local(year, month, day)]
-      if params[:series]
-        params[:series].each do |some_time_after|
-          series << series.last + (rand * some_time_after).ceil
-        end
-        return series
-      end
-      date
-    end
-
-    Employee.create!(first_name:                  "Shelly",
+    [{first_name:                  "Shelly",
                      last_name:                   "Houghton",
                      mi:                          "M",
                      full_name:                   "Shelly M Houghton",
@@ -56,7 +39,34 @@ namespace :db do
                      birth_date:                  "1982-08-21",
                      admin:                       true,
                      password:                    "90nothguoh",
-                     password_confirmation:       "90nothguoh")
+                     password_confirmation:       "90nothguoh"},
+
+    {first_name:                  "James",
+                     last_name:                   "Scott",
+                     full_name:                   "James Scott Jr",
+                     marital_status:              "Married",
+                     gender:                      "Male",
+                     hire_date:                   "2000-04-16",
+                     primary_position:            "Manager",
+                     trained_position:            "Job Developer",
+                     email:                       "skoona@gmail.com",
+                     active:                      true,
+                     address1:                    "1111 AnyStreet",
+                     city:                        "AnyCity",
+                     zip_code:                    "46801",
+                     state:                       "IN",
+                     emp_home_ph:                 "1-260-999-9999",
+                     emp_mobile_ph:               "1-260-999-9999",
+                     emer_contact_first_name:     "Judy",
+                     emer_contact_last_name:      "Spouse",
+                     emer_contact_relationship:   "Spouse",
+                     emer_contact_ph:             "1-260-999-9999",
+                     role:                        "Manager",
+                     birth_date:                  "1982-08-21",
+                     admin:                       true,
+                     password:                    "developer99",
+                     password_confirmation:       "developer99"}].each {|item| Employee.create!(item) }
+
 
     99.times do |n|
       first_name = Faker::Name.name
@@ -100,4 +110,22 @@ namespace :db do
                        active, admin: admin)
     end
   end
+
+  def randomDate(params={})
+    years_back = params[:year_range] || 5
+    latest_year = params[:year_latest]  || 0
+    year = (rand * (years_back)).ceil +
+        (Time.now.year - latest_year - years_back)
+    month = (rand * 12).ceil
+    day = (rand * 31).ceil
+    series = [date = Time.local(year, month, day)]
+    if params[:series]
+      params[:series].each do |some_time_after|
+        series << series.last + (rand * some_time_after).ceil
+      end
+      return series
+    end
+    date
+  end
+
 end
