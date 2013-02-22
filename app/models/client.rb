@@ -34,9 +34,11 @@ class Client < ActiveRecord::Base
 
   before_create :de_concatenate
   
-  attr_accessible :f_name, :mi, :l_name, :name
- 
-    private
+  attr_accessible :f_name, :mi, :l_name, :name, :birth_date, :address1, :city, :state, :zip_code, :medicare_num,
+                  :medicaid_num, :member_num, :soc_sec_care_mgr, :sscm_ph, :nurse_care_mgr, :ncm_ph, :emer_contact,
+                  :ec_ph, :pri_care_phy, :pcp_ph
+
+  private
 
       def de_concatenate
         nam = name.split(" ", 3)
