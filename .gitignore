@@ -31,3 +31,8 @@ doc/app
 config/database.yml
 bin/
 bundler_stubs/
+
+# Ignore public files
+vendor/*
+public/*
+
