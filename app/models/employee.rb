@@ -45,7 +45,7 @@ class Employee < ActiveRecord::Base
 
   before_create :de_concatenate
 
-   attr_accessible :first_name, :last_name, :full_name, :marital_status, :gender, :hire_date, :primary_position,
+   attr_accessible :first_name, :last_name, :mi, :full_name, :marital_status, :gender, :hire_date, :primary_position,
                   :trained_position, :email, :active, :address1, :city, :zip_code, :state, :emp_home_ph, :emp_mobile_ph,
                   :emer_contact_first_name, :emer_contact_last_name, :emer_contact_relationship, :emer_contact_ph, :role,
                   :birth_date, :admin, :password, :password_confirmation
@@ -55,7 +55,6 @@ class Employee < ActiveRecord::Base
   validates(:marital_status,
             :gender,
             :primary_position,
-            :active,
             :address1,
             :city,
             :zip_code,

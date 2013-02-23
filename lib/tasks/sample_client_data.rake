@@ -56,22 +56,25 @@ namespace :db do
                        emer_contact: name, ec_ph: ec_ph, pri_care_phy: name,
                        pcp_ph: pcp_ph)
       
-      def randomDate(params={})
-        years_back = params[:year_range] || 5
-        latest_year = params[:year_latest]  || 0
-        year = (rand * (years_back)).ceil + 
+    end # end times
+
+  end  # end task
+
+  def randomDate(params={})
+    years_back = params[:year_range] || 5
+    latest_year = params[:year_latest]  || 0
+    year = (rand * (years_back)).ceil +
         (Time.now.year - latest_year - years_back)
-        month = (rand * 12).ceil
-        day = (rand * 31).ceil
-        series = [date = Time.local(year, month, day)]
-        if params[:series]
-          params[:series].each do |some_time_after|
-            series << series.last + (rand * some_time_after).ceil
-          end
-          return series
-        end
-        date
+    month = (rand * 12).ceil
+    day = (rand * 31).ceil
+    series = [date = Time.local(year, month, day)]
+    if params[:series]
+      params[:series].each do |some_time_after|
+        series << series.last + (rand * some_time_after).ceil
       end
+      return series
     end
-  end
-end
+    date
+  end # end method
+
+end # end namespace
